@@ -78,9 +78,7 @@ class Cube:
 
         distance = adsk.core.ValueInput.createByReal(self.headHeight)
         extInput.setDistanceExtent(False, distance)
-        headExt = extrudes.add(extInput)
-
-        fc = headExt.faces[0]
+        extrudes.add(extInput)
 
 def run(context):
     try:
