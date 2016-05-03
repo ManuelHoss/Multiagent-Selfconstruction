@@ -12,7 +12,7 @@ if app:
 newComp = None
 
 def createNewComponent():
-    # Get the active design.
+    # Initial component setup.
     product = app.activeProduct
     design = adsk.fusion.Design.cast(product)
     rootComp = design.rootComponent
@@ -27,18 +27,22 @@ class CubeCommandCreatedHandler(adsk.core.CommandCreatedEventHandler):
     def notify(self, args):
         try:
             cmd = args.command
+            
+            # Setup cube parameters
             cube = Cube()
             cube.headDiameter = 1
             cube.headHeight = 1
+            
+            # Create cubes
             for i in range(25):
                 x = random.randint(0, 50)
                 y = random.randint(0, 50)
                 center = adsk.core.Point3D.create(x, y, 0)
                 onExecute = cube.buildCube(center)
             cmd.execute.add(onExecute)
+            
             # keep the handler referenced beyond this function
             handlers.append(onExecute)
-
         except:
             if ui:
                 ui.messageBox('Failed:\n{}'.format(traceback.format_exc()))
@@ -58,7 +62,8 @@ class Cube:
         xyPlane = newComp.xYConstructionPlane
         sketch = sketches.add(xyPlane)
         vertices = []
-
+        
+        # Create vertices of the square
         vertex = adsk.core.Point3D.create(center.x, center.y, 0)
         vertices.append(vertex)
         vertex = adsk.core.Point3D.create(center.x + self.headDiameter, center.y, 0)
@@ -68,14 +73,14 @@ class Cube:
         vertex = adsk.core.Point3D.create(center.x, center.y + (self.headDiameter), 0)
         vertices.append(vertex)
 
-
+        # Create square -> by creating four lines
         for i in range(0, 4):
             sketch.sketchCurves.sketchLines.addByTwoPoints(vertices[(i+1) % 4], vertices[i])
 
+        # Create extrudes -> make cube out of square
         extrudes = newComp.features.extrudeFeatures
         prof = sketch.profiles[0]
         extInput = extrudes.createInput(prof, adsk.fusion.FeatureOperations.NewBodyFeatureOperation)
-
         distance = adsk.core.ValueInput.createByReal(self.headHeight)
         extInput.setDistanceExtent(False, distance)
         extrudes.add(extInput)
