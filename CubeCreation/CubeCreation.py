@@ -1,6 +1,7 @@
 #Author-Simon
 
 import adsk.core, adsk.fusion, traceback
+import random
 
 # global set of event handlers to keep them referenced for the duration of the command
 handlers = []
@@ -29,7 +30,11 @@ class CubeCommandCreatedHandler(adsk.core.CommandCreatedEventHandler):
             cube = Cube()
             cube.headDiameter = 1
             cube.headHeight = 1
-            onExecute = cube.buildCube()
+            for i in range(25):
+                x = random.randint(0, 50)
+                y = random.randint(0, 50)
+                center = adsk.core.Point3D.create(x, y, 0)
+                onExecute = cube.buildCube(center)
             cmd.execute.add(onExecute)
             # keep the handler referenced beyond this function
             handlers.append(onExecute)
@@ -41,7 +46,7 @@ class CubeCommandCreatedHandler(adsk.core.CommandCreatedEventHandler):
 class Cube:
     def __init__(self):
         pass
-    def buildCube(self):
+    def buildCube(self, center):
         global newComp
         newComp = createNewComponent()
         if newComp is None:
@@ -52,7 +57,6 @@ class Cube:
         sketches = newComp.sketches
         xyPlane = newComp.xYConstructionPlane
         sketch = sketches.add(xyPlane)
-        center = adsk.core.Point3D.create(0, 0, 0)
         vertices = []
 
         vertex = adsk.core.Point3D.create(center.x, center.y, 0)
