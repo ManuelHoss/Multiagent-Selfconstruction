@@ -1,7 +1,7 @@
 #Author-Simon
 
 import adsk.core, adsk.fusion, traceback
-import random
+import random, threading, time
 
 # global set of event handlers to keep them referenced for the duration of the command
 handlers = []
@@ -26,32 +26,33 @@ class CubeCommandCreatedHandler(adsk.core.CommandCreatedEventHandler):
         super().__init__()        
     def notify(self, args):
         try:
-            cmd = args.command
-            
-            # Setup cube parameters
-            cube = Cube()
-            cube.headDiameter = 1
-            cube.headHeight = 1
-            
             # Create cubes
-            for i in range(25):
-                x = random.randint(0, 50)
-                y = random.randint(0, 50)
-                center = adsk.core.Point3D.create(x, y, 0)
-                onExecute = cube.buildCube(center)
-            cmd.execute.add(onExecute)
-            
-            # keep the handler referenced beyond this function
-            handlers.append(onExecute)
+            threads = []
+            for count in range(50):
+                t = threading.Thread(target=createCube, name ='Cube')
+                threads += [t]
+                t.start()
+            time.sleep(0)
+            for t in threads:
+                t.join(1)
         except:
             if ui:
                 ui.messageBox('Failed:\n{}'.format(traceback.format_exc()))
+
+def createCube():
+    # Setup cube parameters
+    cube = Cube()
+    cube.headDiameter = 1
+    cube.headHeight = 1
+    x = random.randint(0, 50)
+    y = random.randint(0, 50)
+    center = adsk.core.Point3D.create(x, y, 0)
+    cube.buildCube(center)
 
 class Cube:
     def __init__(self):
         pass
     def buildCube(self, center):
-        global newComp
         newComp = createNewComponent()
         if newComp is None:
             ui.messageBox('New component failed to create', 'New Component Failed')
