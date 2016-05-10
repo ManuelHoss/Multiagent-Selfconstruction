@@ -28,7 +28,7 @@ class CubeCommandCreatedHandler(adsk.core.CommandCreatedEventHandler):
         try:
             # Create cubes
             threads = []
-            for count in range(50):
+            for count in range(10):
                 t = threading.Thread(target=createCube, name ='Cube')
                 threads += [t]
                 t.start()

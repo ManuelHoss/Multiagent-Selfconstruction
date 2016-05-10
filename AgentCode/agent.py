@@ -8,7 +8,8 @@ class Agent(object):
 
     def __init__(self):
         self.payload = None
-        self.position = {"x": random.randrange(start=0, stop=500), "y": random.randrange(start=0, stop=500),
+        self.position = {"x": random.randrange(start=0, stop=500),
+                         "y": random.randrange(start=0, stop=500),
                          "z": random.randrange(start=0, stop=500)}
 
     def doStep(self):
