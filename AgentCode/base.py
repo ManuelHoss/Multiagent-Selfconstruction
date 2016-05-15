@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import time
+
 sys.path.append(os.path.join(os.getcwd(), "Lib"))
 
-from time import *
 from Lib.OCC import BRepPrimAPI
 from Lib.aocxchange import step_ocaf
 from Lib.OCC.gp import gp_Pnt
@@ -26,7 +27,7 @@ class multiagent(object):
     def __exportToStepFile__(self):
         # Create empty export file
         destinationFolder = os.path.join(os.curdir, "STEPExport")
-        destinationFileName = os.path.join(destinationFolder, strftime("%Y.%m.%d %H-%M-%S.stp", localtime()))
+        destinationFileName = os.path.join(destinationFolder, time.strftime("%Y.%m.%d %H-%M-%S.stp", time.localtime()))
         if not os.path.exists(destinationFolder):
             os.mkdir(destinationFolder)
         while os.path.exists(destinationFileName):
