@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import os
-from time import *
+import sys
+sys.path.append(os.path.join(os.getcwd(), "Lib"))
 
-import OCC.BRepPrimAPI
-import aocxchange.step_ocaf
-from OCC.gp import gp_Pnt
+from time import *
+from Lib.OCC import BRepPrimAPI
+from Lib.aocxchange import step_ocaf
+from Lib.OCC.gp import gp_Pnt
 from agent import Agent
 
 
@@ -30,10 +32,10 @@ class multiagent(object):
         while os.path.exists(destinationFileName):
             return
 
-        step_exporter = aocxchange.step_ocaf.StepOcafExporter(destinationFileName)
+        step_exporter = step_ocaf.StepOcafExporter(destinationFileName)
         for agent in self.agents:
             # Create Box at Position agent.position with dimensions 10mm x 10mm x 10mm
-            agent_box_shape = OCC.BRepPrimAPI.BRepPrimAPI_MakeBox(
+            agent_box_shape = BRepPrimAPI.BRepPrimAPI_MakeBox(
                 gp_Pnt(agent.position["x"], agent.position["y"], agent.position["z"]), 1, 1, 1).Shape()
             step_exporter.set_color(r=1, g=0, b=0)  # red
             step_exporter.set_layer('red')
@@ -41,7 +43,7 @@ class multiagent(object):
 
         for block in self.agents[0].blocks:
             # Create Box at Position block.position with dimensions 10mm x 10mm x 10mm
-            block_box_shape = OCC.BRepPrimAPI.BRepPrimAPI_MakeBox(
+            block_box_shape = BRepPrimAPI.BRepPrimAPI_MakeBox(
                 gp_Pnt(block.position["x"], block.position["y"], block.position["z"]), 1, 1, 1).Shape()
             step_exporter.set_color(r=0, g=0, b=0)  # black
             step_exporter.set_layer('black')
