@@ -4,9 +4,404 @@
     <bookmark url="file://$PROJECT_DIR$/AgentCode/agent.py" line="39" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cc18f6-0634-43bf-a6ed-ebcc66192b7f" name="Default" comment="SEL-11 Implemented export to STEP file, removed CSV code and files">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/multiagent-selfconstruction.iml" afterPath="$PROJECT_DIR$/.idea/multiagent-selfconstruction.iml" />
+    <list default="true" id="04cc18f6-0634-43bf-a6ed-ebcc66192b7f" name="Default" comment="removed unused stuff">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/multiagent-selfconstruction.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/AIS.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/AUTHORS" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Adaptor2d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Adaptor3d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/AdvApp2Var.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/AdvApprox.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/AppBlend.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/AppCont.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/AppDef.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/AppParCurves.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/AppStdL.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Approx.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ApproxInt.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Aspect.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BOPAlgo.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BOPCol.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BOPDS.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BOPInt.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BOPTools.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepAdaptor.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepAlgo.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepAlgoAPI.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepApprox.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepBlend.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepBndLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepClass.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepClass3d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepExtrema.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepFeat.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepFill.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepFilletAPI.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepGProp.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepIntCurveSurface.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepLProp.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepMAT2d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepMesh.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepOffset.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepOffsetAPI.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepProj.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BRepTopAdaptor.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BSplCLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BSplSLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BiTgte.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Bisector.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Blend.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BlendFunc.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/BndLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/CPnts.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/CSLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ChFi2d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ChFi3d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ChFiDS.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ChFiKPart.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Contap.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Convert.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/OCCViewer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/SimpleGui.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/WebGl/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/WebGl/js/OrbitControls.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/WebGl/js/stats.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/WebGl/js/three.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/WebGl/js/x3dom-full.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/WebGl/js/x3dom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/WebGl/threejs_renderer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/WebGl/x3dom_renderer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/backend.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/qtDisplay.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Display/wxDisplay.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Draft.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/DsgPrs.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Dynamic.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ElCLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ElSLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Expr.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ExprIntrp.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Extrema.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/FEmTool.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/FSD.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/FairCurve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/FilletSurf.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GC.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GCE2d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GCPnts.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GProp.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GarbageCollector.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GccAna.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GccEnt.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GccGeo.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GccInt.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GccIter.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Geom2dAPI.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Geom2dAdaptor.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Geom2dConvert.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Geom2dGcc.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Geom2dHatch.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Geom2dInt.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Geom2dLProp.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GeomAPI.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GeomAdaptor.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GeomConvert.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GeomFill.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GeomInt.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GeomLProp.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GeomLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GeomPlate.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GeomProjLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GeomTools.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GraphDS.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/GraphTools.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Graphic3d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/HLRAlgo.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/HLRAppli.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/HLRBRep.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/HLRTopoBRep.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Hatch.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/HatchGen.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Hermit.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IGESCAFControl.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IGESControl.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Image.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IncludeLibrary.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntAna.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntAna2d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntCurve.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntCurveSurface.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntCurvesFace.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntImp.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntImpParGen.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntPatch.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntPoly.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntPolyh.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntRes2d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntStart.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntSurf.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntTools.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/IntWalk.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/InterfaceGraphic.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Intf.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Intrv.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/LProp.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/LProp3d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Law.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/LocOpe.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/LocalAnalysis.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/MAT.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/MAT2d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Materials.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/MeshVS.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/NLPlate.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/OSD.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/PLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Plate.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Plugin.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Precision.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ProjLib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Prs3d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/PrsMgr.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/RWStl.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Select3D.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/SelectBasics.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/SelectMgr.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ShapeAlgo.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ShapeAnalysis.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ShapeBuild.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ShapeConstruct.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ShapeCustom.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ShapeExtend.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ShapeFix.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ShapeProcess.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ShapeProcessAPI.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/ShapeUpgrade.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/SortTools.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/StdFail.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/StdPrs.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/StdSelect.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/StlAPI.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/StlMesh.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/StlTransfer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Storage.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TColGeom.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TColGeom2d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TColQuantity.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TDataStd.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TFunction.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TopBas.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TopClass.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TopCnx.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TopOpeBRep.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TopOpeBRepBuild.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TopOpeBRepDS.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TopOpeBRepTool.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/TopTrans.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Units.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/UnitsAPI.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/V3d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Visual3d.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/Visualization.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/XBRepMesh.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/XCAFPrs.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_AIS.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Adaptor2d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Adaptor3d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_AdvApp2Var.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_AdvApprox.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_AppBlend.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_AppCont.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_AppDef.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_AppParCurves.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_AppStdL.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Approx.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ApproxInt.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Aspect.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BOPAlgo.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BOPCol.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BOPDS.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BOPInt.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BOPTools.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepAdaptor.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepAlgo.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepAlgoAPI.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepApprox.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepBlend.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepBndLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepClass.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepClass3d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepExtrema.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepFeat.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepFill.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepFilletAPI.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepGProp.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepIntCurveSurface.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepLProp.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepMAT2d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepMesh.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepOffset.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepOffsetAPI.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepProj.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BRepTopAdaptor.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BSplCLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BSplSLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BiTgte.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Bisector.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Blend.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BlendFunc.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_BndLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_CPnts.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_CSLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ChFi2d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ChFi3d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ChFiDS.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ChFiKPart.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Contap.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Convert.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Draft.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_DsgPrs.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Dynamic.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ElCLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ElSLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Expr.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ExprIntrp.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Extrema.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_FEmTool.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_FSD.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_FairCurve.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_FilletSurf.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GC.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GCE2d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GCPnts.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GProp.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GccAna.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GccEnt.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GccGeo.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GccInt.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GccIter.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Geom2dAPI.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Geom2dAdaptor.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Geom2dConvert.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Geom2dGcc.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Geom2dHatch.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Geom2dInt.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Geom2dLProp.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GeomAPI.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GeomAdaptor.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GeomConvert.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GeomFill.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GeomInt.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GeomLProp.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GeomLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GeomPlate.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GeomProjLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GeomTools.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GraphDS.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_GraphTools.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Graphic3d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_HLRAlgo.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_HLRAppli.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_HLRBRep.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_HLRTopoBRep.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Hatch.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_HatchGen.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Hermit.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IGESCAFControl.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IGESControl.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Image.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IncludeLibrary.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntAna.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntAna2d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntCurve.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntCurveSurface.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntCurvesFace.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntImp.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntImpParGen.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntPatch.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntPoly.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntPolyh.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntRes2d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntStart.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntSurf.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntTools.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_IntWalk.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_InterfaceGraphic.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Intf.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Intrv.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_LProp.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_LProp3d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Law.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_LocOpe.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_LocalAnalysis.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_MAT.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_MAT2d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Materials.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_MeshVS.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_NLPlate.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_OSD.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_PLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Plate.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Plugin.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Precision.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ProjLib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Prs3d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_PrsMgr.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_RWStl.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Select3D.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_SelectBasics.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_SelectMgr.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ShapeAlgo.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ShapeAnalysis.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ShapeBuild.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ShapeConstruct.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ShapeCustom.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ShapeExtend.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ShapeFix.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ShapeProcess.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ShapeProcessAPI.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_ShapeUpgrade.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_SortTools.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_StdFail.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_StdPrs.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_StdSelect.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_StlAPI.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_StlMesh.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_StlTransfer.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Storage.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TColGeom.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TColGeom2d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TColQuantity.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TDataStd.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TFunction.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TopBas.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TopClass.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TopCnx.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TopOpeBRep.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TopOpeBRepBuild.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TopOpeBRepDS.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TopOpeBRepTool.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_TopTrans.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Units.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_UnitsAPI.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_V3d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Visual3d.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_Visualization.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_XBRepMesh.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_gce.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/_math.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/gce.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AgentCode/Lib/OCC/math.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="multiagent-selfconstruction.iws" />
@@ -21,7 +416,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/multiagent-selfconstruction$run.coverage" NAME="run Coverage Results" MODIFIED="1463314756456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AgentCode" />
+    <SUITE FILE_PATH="coverage/multiagent-selfconstruction$run.coverage" NAME="run Coverage Results" MODIFIED="1463320638372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AgentCode" />
     <SUITE FILE_PATH="coverage/OC Gitlab$run.coverage" NAME="run Coverage Results" MODIFIED="1463301188351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AgentCode" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -36,21 +431,39 @@
       <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AgentCode/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+            <state relative-caret-position="352">
+              <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="agent.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AgentCode/agent.py">
+      <file leaf-file-name="step_ocaf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AgentCode/Lib/aocxchange/step_ocaf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="233">
+              <caret line="256" column="22" selection-start-line="256" selection-start-column="22" selection-end-line="256" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checks.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AgentCode/Lib/aocxchange/checks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="145" column="96" selection-start-line="145" selection-start-column="96" selection-end-line="145" selection-end-column="96" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TopoDS.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AgentCode/Lib/OCC/TopoDS.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="254" column="29" selection-start-line="254" selection-start-column="24" selection-end-line="254" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -58,11 +471,29 @@
       <file leaf-file-name="buildingshape.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AgentCode/buildingshape.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="132">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BRepPrimAPI.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AgentCode/Lib/OCC/BRepPrimAPI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="agent.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AgentCode/agent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,12 +533,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/AgentCode/base.py" />
         <option value="$PROJECT_DIR$/AgentCode/Pheromone/pheromone.py" />
         <option value="$PROJECT_DIR$/AgentCode/pheromonetype.py" />
         <option value="$PROJECT_DIR$/AgentCode/agent.py" />
         <option value="$PROJECT_DIR$/AgentCode/pheromone.py" />
         <option value="$PROJECT_DIR$/AgentCode/buildingshape.py" />
+        <option value="$PROJECT_DIR$/AgentCode/base.py" />
       </list>
     </option>
   </component>
@@ -157,6 +588,10 @@
               <option name="myItemId" value="multiagent-selfconstruction" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -182,6 +617,68 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multiagent-selfconstruction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multiagent-selfconstruction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AgentCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multiagent-selfconstruction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multiagent-selfconstruction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AgentCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aocxchange" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multiagent-selfconstruction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="multiagent-selfconstruction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AgentCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OCC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -189,7 +686,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AgentCode/base.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/AgentCode/Lib/bin" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -200,7 +697,11 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Documents\multiagent-selfconstruction\AgentCode\Lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Documents\multiagent-selfconstruction\AgentCode" />
       <recent name="C:\Repositories\OC Projektmodul\OC Gitlab\AgentCode" />
       <recent name="C:\Repositories\OC Projektmodul\OC Gitlab\AgentCode\Pheromone" />
     </key>
@@ -480,25 +981,25 @@
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.112124465" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24624464" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5063966" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32690248" sideWeight="0.4936034" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3186937" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39864865" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3186937" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23365487" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39871383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -523,9 +1024,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/AgentCode/buildingshape.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/AgentCode/base.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -535,42 +1036,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="22" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AgentCode/buildingshape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AgentCode/pheromone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AgentCode/pheromonetype.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/random.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2016.1/system/python_stubs/-762174762/__builtin__.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AgentCode/pheromonetype.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -592,9 +1062,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -610,9 +1078,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -628,9 +1094,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1562">
           <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -638,9 +1102,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -672,9 +1134,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -682,9 +1142,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="75" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -708,9 +1166,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -734,9 +1190,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -760,9 +1214,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -800,9 +1252,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -840,9 +1290,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -886,16 +1334,6 @@
       </provider>
     </entry>
     <entry file="file://C:/Program Files (x86)/MiniConda3/Lib/random.py" />
-    <entry file="file://$PROJECT_DIR$/AgentCode/agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AgentCode/pheromone.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -904,20 +1342,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AgentCode/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2016.1/system/python_stubs/-762174762/imp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentCode/Lib/aocxchange/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AgentCode/buildingshape.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="132">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AgentCode/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+        <state relative-caret-position="352">
+          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentCode/Lib/aocxchange/step_ocaf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="256" column="22" selection-start-line="256" selection-start-column="22" selection-end-line="256" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentCode/Lib/aocxchange/checks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="145" column="96" selection-start-line="145" selection-start-column="96" selection-end-line="145" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentCode/Lib/OCC/TopoDS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="254" column="29" selection-start-line="254" selection-start-column="24" selection-end-line="254" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentCode/Lib/OCC/BRepPrimAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding />
         </state>
       </provider>
