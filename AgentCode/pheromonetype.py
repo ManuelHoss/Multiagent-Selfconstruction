@@ -1,11 +1,13 @@
 from enum import Enum
 
 
-class pheromonetype(Enum):
+class PheromoneType(Enum):
     initial = 1
     neutral = 2
+    build = 3
 
-    class build(Enum):
+    # TODO: used later to extend functionality
+    class Build(Enum):
         front = 1
         back = 2
         left = 3
