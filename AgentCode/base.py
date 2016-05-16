@@ -11,14 +11,26 @@ from Lib.OCC.gp import gp_Pnt
 from agent import Agent
 
 
-class multiagent(object):
+def __createBlock__(color, step_exporter, position):
+    agent_box_shape = BRepPrimAPI.BRepPrimAPI_MakeBox(
+        gp_Pnt(position["x"], position["y"], position["z"]), 1, 1, 1).Shape()
+    if color == "red":
+        step_exporter.set_color(r=1, g=0, b=0)  # red
+        step_exporter.set_layer('red')
+    else:
+        step_exporter.set_color(r=0, g=0, b=0)  # black
+        step_exporter.set_layer('black')
+    step_exporter.add_shape(agent_box_shape)
+
+
+class multiAgent(object):
     def __init__(self):
         self.agents = []
 
-        for i in range(3):
+        for i in range(6):
             self.agents.append(Agent())
 
-        for j in range(3):
+        for j in range(1):
             for x in range(50):
                 for agent in self.agents:
                     agent.doStep()
@@ -35,26 +47,16 @@ class multiagent(object):
 
         step_exporter = step_ocaf.StepOcafExporter(destinationFileName)
         for agent in self.agents:
-            # Create Box at Position agent.position with dimensions 10mm x 10mm x 10mm
-            agent_box_shape = BRepPrimAPI.BRepPrimAPI_MakeBox(
-                gp_Pnt(agent.position["x"], agent.position["y"], agent.position["z"]), 1, 1, 1).Shape()
-            step_exporter.set_color(r=1, g=0, b=0)  # red
-            step_exporter.set_layer('red')
-            step_exporter.add_shape(agent_box_shape)
+            __createBlock__("red", step_exporter, agent.position)
 
         for block in self.agents[0].blocks:
-            # Create Box at Position block.position with dimensions 10mm x 10mm x 10mm
-            block_box_shape = BRepPrimAPI.BRepPrimAPI_MakeBox(
-                gp_Pnt(block.position["x"], block.position["y"], block.position["z"]), 1, 1, 1).Shape()
-            step_exporter.set_color(r=0, g=0, b=0)  # black
-            step_exporter.set_layer('black')
-            step_exporter.add_shape(block_box_shape)
+            __createBlock__("black", step_exporter, block.position)
 
         step_exporter.write_file()
 
 
 def main():
-    multiagent()
+    multiAgent()
 
 
 if __name__ == "__main__":
