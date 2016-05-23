@@ -11,6 +11,7 @@ from Lib.OCC.gp import gp_Pnt
 from agent import Agent
 
 
+
 def __createBlock__(color, step_exporter, position):
     agent_box_shape = BRepPrimAPI.BRepPrimAPI_MakeBox(
         gp_Pnt(position["x"], position["y"], position["z"]), 1, 1, 1).Shape()
@@ -30,8 +31,8 @@ class multiAgent(object):
         for i in range(6):
             self.agents.append(Agent())
 
-        for j in range(1):
-            for x in range(50):
+        for j in range(20):
+            for x in range(20):
                 for agent in self.agents:
                     agent.doStep()
             self.__exportToStepFile__()
