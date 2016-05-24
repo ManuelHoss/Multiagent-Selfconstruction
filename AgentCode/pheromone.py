@@ -8,9 +8,3 @@ class Pheromone(object):
         self.position = {"x": position["x"],
                          "y": position["y"],
                          "z": position["z"]}
-
-    def getPheromoneType(self):
-        return self.pheromoneType
-
-    def getIntensity(self):
-        return self.intensity

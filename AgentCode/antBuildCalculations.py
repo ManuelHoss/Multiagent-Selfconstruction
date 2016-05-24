@@ -7,12 +7,12 @@ def shouldBuild(pheromones, agentPosition):
     initalPheromoneIntensity = 0
     for pheromone in pheromones:
         distance = utils.calculateDistanceToBrick(agentPosition, pheromone.position)
-        if pheromone.getPheromoneType() == PheromoneType.build:
-            buildPheromoneIntesity += pheromone.getIntensity() / (
-            distance * distance) if distance != 0 else pheromone.getIntensity()
-        elif pheromone.getPheromoneType() == PheromoneType.initial:
-            initalPheromoneIntensity += pheromone.getIntensity() / (
-            distance * distance) if distance != 0 else pheromone.getIntensity()
+        if pheromone.pheromoneType == PheromoneType.build:
+            buildPheromoneIntesity += pheromone.intensity / (
+                distance * distance) if distance != 0 else pheromone.intensity
+        elif pheromone.pheromoneType == PheromoneType.initial:
+            initalPheromoneIntensity += pheromone.intensity / (
+                distance * distance) if distance != 0 else pheromone.intensity
     return True if (
                    buildPheromoneIntesity >= 0.5 or buildPheromoneIntesity == 0) and initalPheromoneIntensity < 0.05 else False
 
@@ -21,8 +21,8 @@ def getSortedInfluences(pheromones, agentPosition):
     mostInfluental = []
     for pheromone in pheromones:
         distance = utils.calculateDistanceToBrick(agentPosition, pheromone.position)
-        pheromoneIntesity = pheromone.getIntensity() / (
-            distance * distance) if distance != 0 else pheromone.getIntensity()
+        pheromoneIntesity = pheromone.intensity / (
+            distance * distance) if distance != 0 else pheromone.intensity
         mostInfluental.append((pheromone, pheromoneIntesity))
 
     return sorted(mostInfluental, key=lambda intensity: intensity[1], reverse=True)
