@@ -16,10 +16,21 @@ def isPositionFree(blocks, agents, positionToCheck):
         itemPosition = item.getPosition()
         flag = 0
         for key in itemPosition:
-            if itemPosition[key] == positionToCheck[0].position[key]:
+            if itemPosition[key] == positionToCheck[key]:
                 flag += 1
 
         if flag is 3:
             return False
 
     return True
+
+
+def position_equals(position1, position2):
+    flag = 0
+    for key in position1:
+        if position1[key] == position2[key]:
+            flag += 1
+
+    if flag == 3:
+        return True
+    return False

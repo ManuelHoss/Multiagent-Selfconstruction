@@ -8,11 +8,11 @@ from pheromonetype import PheromoneType
 
 
 def __getSurroundingCells__(agentPosition):
-    surroundingCoordinates = []
+    surroundingCartesianCoordinates = []
 
     for i in range(0, 28):
-        surroundingCoordinates.append(calculateNextPosition(agentPosition, i))
-    return surroundingCoordinates
+        surroundingCartesianCoordinates.append(calculateNextPosition(agentPosition, i))
+    return surroundingCartesianCoordinates
 
 
 def calculateNextPosition(agentPosition, cubePosition):
@@ -35,6 +35,9 @@ def calculateNextPosition(agentPosition, cubePosition):
     return nextPosition
 
 
+RANDOM_SPAWN_RANGE = 30
+
+
 class Agent(object):
     blocks = []
     pheromones = []
@@ -45,13 +48,13 @@ class Agent(object):
     def __init__(self):
         self.payload = None
         self.agents.append(self)
-        self.position = {"x": random.randrange(start=-10, stop=10),
-                         "y": random.randrange(start=-10, stop=10),
-                         "z": random.randrange(start=-10, stop=10)}
+        self.position = {"x": random.randrange(start=-RANDOM_SPAWN_RANGE, stop=RANDOM_SPAWN_RANGE),
+                         "y": random.randrange(start=-RANDOM_SPAWN_RANGE, stop=RANDOM_SPAWN_RANGE),
+                         "z": random.randrange(start=-RANDOM_SPAWN_RANGE, stop=RANDOM_SPAWN_RANGE)}
 
     def doStep(self):
         self.__build__()
-        self.__move__()
+        self.__moveRandom__()
 
     def __build__(self):
         if Calculations.calculatePheromoneIntensity(self.pheromones, self.position):
@@ -62,17 +65,29 @@ class Agent(object):
     def __remove__(self):
         pass
 
-    def __move__(self):
+    def __move_pheromoneoriented__(self):
         mostInfluentalPheromones = Calculations.getSortedInfluences(pheromones=self.pheromones,
                                                                     agentPosition=self.position)
 
         tempPheromones = list(mostInfluentalPheromones)
-        while tempPheromones:
-            if utils.isPositionFree(agents=self.agents, blocks=self.blocks, positionToCheck=tempPheromones[0]):
-                Calculations.calculateAndMove(self.position, tempPheromones[0])
+        tempPheromonePositions = []
+        for i in range(0, tempPheromones.count() - 1):
+            if utils.isPositionFree(agents=self.agents, blocks=self.blocks, positionToCheck=tempPheromones[i]):
+                Calculations.calculateAndMove(self.position, tempPheromones[i])
+                return
+
+    def __moveRandom__(self):
+        # Take random position of V26
+        v26Cells = __getSurroundingCells__(self.position)
+        for i in range(0, 25):
+            # Evaluate if position is free
+            if utils.isPositionFree(agents=self.agents, blocks=self.blocks, positionToCheck=v26Cells[i]):
+                Calculations.calculateAndMove(self.position, v26Cells[i])
                 break
-            else:
-                tempPheromones.remove(tempPheromones[0])
+        # If all neighboured cells are occupied restart at random position
+        self.position = {"x": random.randrange(start=-RANDOM_SPAWN_RANGE, stop=RANDOM_SPAWN_RANGE),
+                         "y": random.randrange(start=-RANDOM_SPAWN_RANGE, stop=RANDOM_SPAWN_RANGE),
+                         "z": random.randrange(start=-RANDOM_SPAWN_RANGE, stop=RANDOM_SPAWN_RANGE)}
 
     def addPayload(self, pheromone):
         self.payload = pheromone

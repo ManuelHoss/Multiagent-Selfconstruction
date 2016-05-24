@@ -7,7 +7,7 @@ def calculatePheromoneIntensity(pheromones, agentPosition):
         distance = utils.calculateDistanceToBrick(agentPosition, pheromone.position)
         pheromoneIntesity += pheromone.getIntensity() / (
         distance * distance) if distance != 0 else pheromone.getIntensity()
-    return True if pheromoneIntesity >= 6 else False
+    return True if pheromoneIntesity >= 0.05 else False
 
 
 def getSortedInfluences(pheromones, agentPosition):
@@ -23,8 +23,8 @@ def getSortedInfluences(pheromones, agentPosition):
 
 def calculateAndMove(agentPosition, pheromone):
     for key in agentPosition:
-        if agentPosition[key] < pheromone[0].position[key]:
+        if agentPosition[key] < pheromone[key]:
             agentPosition[key] += 1
-        elif agentPosition[key] > pheromone[0].position[key]:
+        elif agentPosition[key] > pheromone[key]:
             agentPosition[key] -= 1
     return agentPosition

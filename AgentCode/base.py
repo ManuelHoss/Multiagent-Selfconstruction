@@ -28,11 +28,11 @@ class multiAgent(object):
     def __init__(self):
         self.agents = []
 
-        for i in range(6):
+        for i in range(1):
             self.agents.append(Agent())
 
-        for j in range(20):
-            for x in range(20):
+        for j in range(2):
+            for x in range(300):
                 for agent in self.agents:
                     agent.doStep()
             self.__exportToStepFile__()
