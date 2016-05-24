@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import threading
 import time
 
 sys.path.append(os.path.join(os.getcwd(), "Lib"))
@@ -30,12 +31,22 @@ class multiAgent(object):
 
         for i in range(50):
             self.agents.append(Agent())
-
-        for j in range(1):
-            for x in range(500):
+        exportThreads = []
+        for j in range(5):
+            for x in range(50):
+                threads = []
                 for agent in self.agents:
-                    agent.doStep()
-            self.__exportToStepFile__()
+                    t = threading.Thread(target=agent.doStep)
+                    threads += [t]
+                    t.start()
+                for t in threads:
+                    t.join()
+                print "loop:" + str(x)
+                self.agents[0].removeVaporatedPheromones()
+            exportThread = threading.Thread(target=self.__exportToStepFile__()).start()
+            exportThreads += [exportThread]
+        for thread in exportThreads:
+            thread.join()
 
     def __exportToStepFile__(self):
         # Create empty export file
@@ -53,9 +64,12 @@ class multiAgent(object):
         for block in self.agents[0].blocks:
             __createBlock__("black", step_exporter, block.position)
 
+        # Draw green initial pheromon
         sphere_shape = BRepPrimAPI.BRepPrimAPI_MakeSphere(10).Shape()
-        step_exporter.add_shape(sphere_shape)
+        step_exporter.set_color(r=0, g=1, b=0)  # green
+        step_exporter.set_layer('green')
 
+        step_exporter.add_shape(sphere_shape)
         step_exporter.write_file()
 
 

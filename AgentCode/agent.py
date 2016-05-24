@@ -63,10 +63,15 @@ class Agent(object):
             self.blocks.append(Brick(position=dict(self.position)))
             self.pheromones.append(
                 Pheromone(position=dict(self.position), intensity=10, pheromoneType=PheromoneType.build,
-                          vaporationRate=0.00001))
+                          vaporationRate=0.01))
 
     def __remove__(self):
         pass
+
+    def removeVaporatedPheromones(self):
+        for pheromone in self.pheromones:
+            if pheromone.intensity < 2:
+                self.pheromones.remove(pheromone)
 
     def __moveRandom__(self):
         # Take random position of V26
