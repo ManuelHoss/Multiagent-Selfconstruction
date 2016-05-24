@@ -32,7 +32,7 @@ class multiAgent(object):
             self.agents.append(Agent())
 
         for j in range(1):
-            for x in range(20):
+            for x in range(500):
                 for agent in self.agents:
                     agent.doStep()
             self.__exportToStepFile__()
@@ -52,6 +52,9 @@ class multiAgent(object):
 
         for block in self.agents[0].blocks:
             __createBlock__("black", step_exporter, block.position)
+
+        sphere_shape = BRepPrimAPI.BRepPrimAPI_MakeSphere(10).Shape()
+        step_exporter.add_shape(sphere_shape)
 
         step_exporter.write_file()
 

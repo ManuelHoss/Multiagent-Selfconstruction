@@ -13,7 +13,8 @@ def shouldBuild(pheromones, agentPosition):
         elif pheromone.getPheromoneType() == PheromoneType.initial:
             initalPheromoneIntensity += pheromone.getIntensity() / (
             distance * distance) if distance != 0 else pheromone.getIntensity()
-    return True if buildPheromoneIntesity >= 1 and initalPheromoneIntensity < 1 else False
+    return True if (
+                   buildPheromoneIntesity >= 0.5 or buildPheromoneIntesity == 0) and initalPheromoneIntensity < 0.05 else False
 
 
 def getSortedInfluences(pheromones, agentPosition):

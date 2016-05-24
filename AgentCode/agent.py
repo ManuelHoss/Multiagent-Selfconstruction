@@ -35,12 +35,12 @@ def calculateNextPosition(agentPosition, cubePosition):
     return nextPosition
 
 
-RANDOM_SPAWN_RANGE = 30
+RANDOM_SPAWN_RANGE = 1
 
 
 class Agent(object):
     blocks = []
-    pheromones = [Pheromone(position={"x": 0, "y": 0, "z": 0}, intensity=0.1, vaporationRate=0,
+    pheromones = [Pheromone(position={"x": 0, "y": 0, "z": 0}, intensity=5, vaporationRate=0,
                             pheromoneType=PheromoneType.initial)]
     agents = []
 
@@ -59,41 +59,27 @@ class Agent(object):
             pheromone.intensity -= pheromone.intensity * pheromone.vaporationRate
 
     def __build__(self):
-        if random.uniform(0, 1) < 0.5:
-            if Calculations.shouldBuild(self.pheromones, self.position):
-                self.blocks.append(Brick(position=dict(self.position)))
-                self.pheromones.append(
-                    Pheromone(position=dict(self.position), intensity=100, pheromoneType=PheromoneType.build))
-        else:
+        if Calculations.shouldBuild(self.pheromones, self.position):
             self.blocks.append(Brick(position=dict(self.position)))
             self.pheromones.append(
-                Pheromone(position=dict(self.position), intensity=100, pheromoneType=PheromoneType.build))
+                Pheromone(position=dict(self.position), intensity=10, pheromoneType=PheromoneType.build,
+                          vaporationRate=0.00001))
 
     def __remove__(self):
         pass
 
-    def __move_pheromoneoriented__(self):
-        mostInfluentalPheromones = Calculations.getSortedInfluences(pheromones=self.pheromones,
-                                                                    agentPosition=self.position)
-
-        tempPheromones = list(mostInfluentalPheromones)
-        tempPheromonePositions = []
-        for i in range(0, tempPheromones.count() - 1):
-            if utils.isPositionFree(agents=self.agents, blocks=self.blocks, positionToCheck=tempPheromones[i]):
-                Calculations.calculateAndMove(self.position, tempPheromones[i])
-                return
-
     def __moveRandom__(self):
         # Take random position of V26
-        v26Cells = __getSurroundingCells__(self.position)
+        surroundingCells = __getSurroundingCells__(self.position)
         for i in range(0, 25):
-            randIndex = random.randint(0, len(v26Cells) - 1)
+            randIndex = random.randint(0, len(surroundingCells) - 1)
             # Evaluate if position is free
-            if utils.isPositionFree(agents=self.agents, blocks=self.blocks, positionToCheck=v26Cells[randIndex]):
-                Calculations.calculateAndMove(self.position, v26Cells[randIndex])
+            if utils.isPositionFree(agents=self.agents, blocks=self.blocks,
+                                    positionToCheck=surroundingCells[randIndex]):
+                Calculations.calculateAndMove(self.position, surroundingCells[randIndex])
                 return
             else:
-                v26Cells.remove(v26Cells[randIndex])
+                surroundingCells.remove(surroundingCells[randIndex])
         # If all neighboured cells are occupied restart at random position
         self.position = {"x": random.randrange(start=-RANDOM_SPAWN_RANGE, stop=RANDOM_SPAWN_RANGE),
                          "y": random.randrange(start=-RANDOM_SPAWN_RANGE, stop=RANDOM_SPAWN_RANGE),
