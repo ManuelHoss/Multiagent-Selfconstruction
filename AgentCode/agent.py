@@ -80,10 +80,13 @@ class Agent(object):
         # Take random position of V26
         v26Cells = __getSurroundingCells__(self.position)
         for i in range(0, 25):
+            randIndex = random.randint(0, len(v26Cells) - 1)
             # Evaluate if position is free
-            if utils.isPositionFree(agents=self.agents, blocks=self.blocks, positionToCheck=v26Cells[i]):
-                Calculations.calculateAndMove(self.position, v26Cells[i])
-                break
+            if utils.isPositionFree(agents=self.agents, blocks=self.blocks, positionToCheck=v26Cells[randIndex]):
+                Calculations.calculateAndMove(self.position, v26Cells[randIndex])
+                return
+            else:
+                v26Cells.remove(v26Cells[randIndex])
         # If all neighboured cells are occupied restart at random position
         self.position = {"x": random.randrange(start=-RANDOM_SPAWN_RANGE, stop=RANDOM_SPAWN_RANGE),
                          "y": random.randrange(start=-RANDOM_SPAWN_RANGE, stop=RANDOM_SPAWN_RANGE),
