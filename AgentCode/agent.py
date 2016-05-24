@@ -40,9 +40,8 @@ RANDOM_SPAWN_RANGE = 30
 
 class Agent(object):
     blocks = []
-    pheromones = []
-    pheromones.append(
-        Pheromone(position={"x": 0, "y": 0, "z": 0}, intensity=10000, pheromoneType=PheromoneType.initial))
+    pheromones = [Pheromone(position={"x": 0, "y": 0, "z": 0}, intensity=0.1, vaporationRate=0,
+                            pheromoneType=PheromoneType.initial)]
     agents = []
 
     def __init__(self):
@@ -55,12 +54,20 @@ class Agent(object):
     def doStep(self):
         self.__build__()
         self.__moveRandom__()
+        # Evaporation
+        for pheromone in self.pheromones:
+            pheromone.intensity -= pheromone.intensity * pheromone.vaporationRate
 
     def __build__(self):
-        if Calculations.calculatePheromoneIntensity(self.pheromones, self.position):
+        if random.uniform(0, 1) < 0.5:
+            if Calculations.shouldBuild(self.pheromones, self.position):
+                self.blocks.append(Brick(position=dict(self.position)))
+                self.pheromones.append(
+                    Pheromone(position=dict(self.position), intensity=100, pheromoneType=PheromoneType.build))
+        else:
             self.blocks.append(Brick(position=dict(self.position)))
             self.pheromones.append(
-                Pheromone(position=dict(self.position), intensity=100, pheromoneType=PheromoneType.initial))
+                Pheromone(position=dict(self.position), intensity=100, pheromoneType=PheromoneType.build))
 
     def __remove__(self):
         pass

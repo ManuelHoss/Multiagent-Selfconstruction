@@ -18,10 +18,8 @@ def isPositionFree(blocks, agents, positionToCheck):
         for key in itemPosition:
             if itemPosition[key] == positionToCheck[key]:
                 flag += 1
-
         if flag is 3:
             return False
-
     return True
 
 
