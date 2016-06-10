@@ -29,8 +29,9 @@ def buildCubes(brickPositions, agentPositions):
 
 
 def createCube(posX, posY, PosZ, isAgent):
-    # if isAgent == True:
-    #	color = Autodesk.Revit.DB.Color(R, G, B)
+    color = Color(0, 0, 0)
+    if isAgent == True:
+        color = Color(255, 0, 0)
 
     # Create a sketch plane
     origin = XYZ(posX, posY, PosZ)
