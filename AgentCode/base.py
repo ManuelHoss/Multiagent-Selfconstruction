@@ -3,14 +3,11 @@ import os
 import sys
 import threading
 import time
-
 sys.path.append(os.path.join(os.getcwd(), "Lib"))
-
 from Lib.OCC import BRepPrimAPI
 from Lib.aocxchange import step_ocaf
 from Lib.OCC.gp import gp_Pnt
 from agent import Agent
-
 
 
 def __createBlock__(color, step_exporter, position):
@@ -64,7 +61,7 @@ class multiAgent(object):
         for block in self.agents[0].blocks:
             __createBlock__("black", step_exporter, block.position)
 
-        # Draw green initial pheromon
+        # Draw green initial pheromone
         sphere_shape = BRepPrimAPI.BRepPrimAPI_MakeSphere(10).Shape()
         step_exporter.set_color(r=0, g=1, b=0)  # green
         step_exporter.set_layer('green')
