@@ -1,5 +1,3 @@
-# IronPython Pad. Write code snippets here and F5 to run.
-# IronPython Pad. Write code snippets here and F5 to run.
 import clr
 
 clr.AddReference('RevitAPI')

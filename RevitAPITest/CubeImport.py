@@ -1,6 +1,8 @@
-# IronPython Pad. Write code snippets here and F5 to run.
-# IronPython Pad. Write code snippets here and F5 to run.
 import clr
+import sys
+
+print sys.path
+import AgentCodeAPI
 
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
@@ -16,16 +18,16 @@ t.Start()
 # Call of AgentCode "run building process"
 # --> returns the positions of agents and bricks
 # List with positions of agents
-dummyAgents = [(0, 1, 0), (6, 4, 4), (9, 4, -3)]
+# dummyAgents = [(0, 1, 0), (6, 4, 4), (9, 4, -3)]
 # List with positions of bricks
-dummyBricks = [(0, 0, 0), (4, 4, 4), (8, 4, -3)]
+#dummyBricks = [(0, 0, 0), (4, 4, 4), (8, 4, -3)]
 
 
 def buildCubes(brickPositions, agentPositions):
     for brickPosition in brickPositions:
         createCube(brickPosition[0], brickPosition[1], brickPosition[2], False)
-        for agentPosition in agentPositions:
-            createCube(agentPosition[0], agentPosition[1], agentPosition[2], True)
+    for agentPosition in agentPositions:
+        createCube(agentPosition[0], agentPosition[1], agentPosition[2], True)
 
 
 def createCube(posX, posY, PosZ, isAgent):
@@ -71,7 +73,23 @@ def quit():
     __window__.Close()
 
 
-buildCubes(dummyBricks, dummyAgents)
+def agentCodeAPI():
+    return AgentCodeAPI.api().runAgentsAndRetrive(numberOfAgents=5, numberOfSteps=50)
+
+
+agentReturn = agentCodeAPI()
+
+agentPositions = []
+blockPositions = []
+
+for agent in agentReturn:
+    temp = (agent.position['x'], agent.position['y'], agent.position['z'])
+    agentPositions.append(temp)
+for block in agentReturn[0].blocks:
+    temp = (block.position['x'], block.position['y'], block.position['z'])
+    blockPositions.append(temp)
+
+buildCubes(blockPositions, agentPositions)
 t.Commit()
 
 quit()
