@@ -1,0 +1,7 @@
+BETA, noch nicht sicher ob die installation durch diese schritte gegeben ist!!!
+
+
+1. SelfConstruction.addin in C:\ProgramData\Autodesk\Revit\Addins\2016 kopieren
+2. multiagent-selfconstruction ordner MUSS in C:\ kopiert werden (andernfalls geht es nicht, könnte in der manifest datei geändert werden)
+3. "Use Managed Compability Mode" in Debugging/General einstallen (Visual Studio)
+4. Um Unit tests auszuführen muss auf x86 gestellt sein, für Revit auf x64!!!

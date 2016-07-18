@@ -1,0 +1,10 @@
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\SelfConstructionTests.dll
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\SelfConstructionTests.pdb
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\SelfConstruction.dll
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\SelfConstruction.pdb
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\de\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\obj\Debug\SelfConstructionTests.csprojResolveAssemblyReference.cache
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\obj\Debug\SelfConstructionTests.dll
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\obj\Debug\SelfConstructionTests.pdb

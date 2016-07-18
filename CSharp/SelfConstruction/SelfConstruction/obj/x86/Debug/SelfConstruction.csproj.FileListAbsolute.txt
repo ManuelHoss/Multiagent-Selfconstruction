@@ -1,0 +1,6 @@
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\bin\x86\Debug\SelfConstruction.dll
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\bin\x86\Debug\SelfConstruction.pdb
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\x86\Debug\SelfConstruction.Properties.Resources.resources
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\x86\Debug\SelfConstruction.csproj.GenerateResource.Cache
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\x86\Debug\SelfConstruction.dll
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\x86\Debug\SelfConstruction.pdb
