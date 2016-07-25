@@ -1,23 +1,51 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading;
+using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
+using Autodesk.Revit.DB.Analysis;
 using Autodesk.Revit.UI;
 using SelfConstruction.AgentCode;
 using SelfConstruction.AgentCode.Models;
 
 namespace SelfConstruction
 {
-    [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
+    [Transaction(TransactionMode.Automatic)]
     public class SelfConstruction : IExternalCommand
     {
         private readonly Cube _cube = new Cube();
 
-
         public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
             Document doc = revit.Application.ActiveUIDocument.Document;
+            EnergyAnalysis(doc);
+            StartAgentsAndBuildBlocks(doc);
+            return Result.Succeeded;
+        }
+        private void EnergyAnalysis(Document doc)
+        {
+            EnergyAnalysisDetailModelOptions options = new EnergyAnalysisDetailModelOptions
+            {
+                Tier =EnergyAnalysisDetailModelTier.Final,
+                EnergyModelType = EnergyModelType.SpatialElement
+            };
+
+            EnergyAnalysisDetailModel analysisDetailModel = EnergyAnalysisDetailModel.Create(doc, options);
+
+            IList<EnergyAnalysisSpace> spaces = analysisDetailModel.GetAnalyticalSpaces();
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine("Spaces: " + spaces.Count);
+            foreach (EnergyAnalysisSpace space in spaces)
+            {
+                builder.AppendLine(space.Name + " InnVolume " + space.InnerVolume);
+            }
+            TaskDialog.Show("EAM", builder.ToString());
+        }
+
+        private void StartAgentsAndBuildBlocks(Document doc)
+        {
             GlobalKnowledge globalKnowledge = new GlobalKnowledge
             {
                 Agents = new ConcurrentBag<Agent>(),
@@ -30,8 +58,6 @@ namespace SelfConstruction
             {
                 _cube.CreateCube(doc, new XYZ(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z));
             }
-            //_cube.CreateCube(doc, new XYZ(3,4,6));
-            return Result.Succeeded;
         }
 
         public void RunAgents(GlobalKnowledge globalKnowledge, int agentCount, int loops)
