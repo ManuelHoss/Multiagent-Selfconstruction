@@ -32,15 +32,10 @@ namespace SelfConstruction
 
             TessellatedShapeBuilderResult result = builder.Build(TessellatedShapeBuilderTarget.Solid, TessellatedShapeBuilderFallback.Abort, ElementId.InvalidElementId);
 
-            using (Transaction t = new Transaction(doc, "Create tessellated direct shape"))
-            {
-                t.Start();
 
-                DirectShape ds = DirectShape.CreateElement(doc, new ElementId(BuiltInCategory.OST_GenericModel), "Application id", "Geometry object id");
+            DirectShape ds = DirectShape.CreateElement(doc, new ElementId(BuiltInCategory.OST_GenericModel), "Application id", "Geometry object id");
 
-                ds.SetShape(result.GetGeometricalObjects());
-                t.Commit();
-            }
+            ds.SetShape(result.GetGeometricalObjects());
         }
     }
 }

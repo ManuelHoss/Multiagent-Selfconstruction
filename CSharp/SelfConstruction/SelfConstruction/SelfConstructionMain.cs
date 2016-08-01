@@ -20,8 +20,8 @@ namespace SelfConstruction
         public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
             Document doc = revit.Application.ActiveUIDocument.Document;
-            EnergyAnalysis(doc);
             StartAgentsAndBuildBlocks(doc);
+            //EnergyAnalysis(doc);
             return Result.Succeeded;
         }
         private void EnergyAnalysis(Document doc)
