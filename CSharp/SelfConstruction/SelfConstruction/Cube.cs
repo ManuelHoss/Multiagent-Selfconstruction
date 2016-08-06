@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Autodesk.Revit.DB;
 
 namespace SelfConstruction
@@ -30,10 +31,10 @@ namespace SelfConstruction
 
             builder.CloseConnectedFaceSet();
 
-            TessellatedShapeBuilderResult result = builder.Build(TessellatedShapeBuilderTarget.Solid, TessellatedShapeBuilderFallback.Abort, ElementId.InvalidElementId);
+            TessellatedShapeBuilderResult result = builder.Build(TessellatedShapeBuilderTarget.Solid, TessellatedShapeBuilderFallback.Abort, new ElementId(BuiltInCategory.OST_ColorFillSchema));
             
-            DirectShape ds = DirectShape.CreateElement(doc, new ElementId(BuiltInCategory.OST_GenericModel), "Application id", "Geometry object id");
-
+            DirectShape ds = DirectShape.CreateElement(doc, new ElementId(BuiltInCategory.OST_Walls), "Application id", "Geometry object id");
+            
             ds.SetShape(result.GetGeometricalObjects());
         }
     }

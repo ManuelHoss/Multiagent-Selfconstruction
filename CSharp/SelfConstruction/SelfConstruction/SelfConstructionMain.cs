@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Analysis;
@@ -16,11 +17,14 @@ namespace SelfConstruction
     public class SelfConstruction : IExternalCommand
     {
         private readonly Cube _cube = new Cube();
-
+        
         public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
+            UIApplication uiapp = revit.Application;
+            UIDocument uidoc = uiapp.ActiveUIDocument;
+            Application app = uiapp.Application;
             Document doc = revit.Application.ActiveUIDocument.Document;
-            StartAgentsAndBuildBlocks(doc);
+            StartAgentsAndBuildBlocks(doc, app);
             //EnergyAnalysis(doc);
             return Result.Succeeded;
         }
@@ -44,7 +48,7 @@ namespace SelfConstruction
             TaskDialog.Show("EAM", builder.ToString());
         }
 
-        private void StartAgentsAndBuildBlocks(Document doc)
+        private void StartAgentsAndBuildBlocks(Document doc, Application app)
         {
             GlobalKnowledge globalKnowledge = new GlobalKnowledge
             {
@@ -56,6 +60,8 @@ namespace SelfConstruction
             RunAgents(globalKnowledge, 10, 100);
             foreach (BuildingShape buildingShape in globalKnowledge.Blocks)
             {
+                Categories allCategories = doc.Settings.Categories;
+                
                 _cube.CreateCube(doc, new XYZ(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z));
             }
         }
