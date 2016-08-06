@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+        <AddIn Type="Command">
+                <Assembly>C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\bin\x64\Debug\SelfConstruction.dll</Assembly>
+                <AddInId>e4d76ba1-dd53-4024-a449-9f5d3bdc4c16</AddInId>
+                <FullClassName>SelfConstruction.SelfConstruction</FullClassName>
+                <Text>SelfConstruction</Text> 
+                <VendorId>NAME</VendorId>
+                <VendorDescription>University Augsburg</VendorDescription> 
+        </AddIn>
+</RevitAddIns>
