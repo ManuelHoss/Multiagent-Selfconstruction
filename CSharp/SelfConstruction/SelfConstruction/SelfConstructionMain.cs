@@ -58,11 +58,18 @@ namespace SelfConstruction
             };
 
             RunAgents(globalKnowledge, 10, 100);
+            // Create building cubes
             foreach (BuildingShape buildingShape in globalKnowledge.Blocks)
             {
                 Categories allCategories = doc.Settings.Categories;
-                
-                _cube.CreateCube(doc, new XYZ(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z));
+                _cube.CreateCube(doc, new XYZ(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z), false);
+            }
+
+            // Create agent cubes
+            foreach (Agent agent in globalKnowledge.Agents)
+            {
+                Categories allCategories = doc.Settings.Categories;
+                _cube.CreateCube(doc, new XYZ(agent.Position.X, agent.Position.Y, agent.Position.Z), true);
             }
         }
 
