@@ -20,11 +20,8 @@ namespace SelfConstruction
         
         public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
-            UIApplication uiapp = revit.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-            Application app = uiapp.Application;
             Document doc = revit.Application.ActiveUIDocument.Document;
-            StartAgentsAndBuildBlocks(doc, app);
+            StartAgentsAndBuildBlocks(doc);
             //EnergyAnalysis(doc);
             return Result.Succeeded;
         }
@@ -48,7 +45,7 @@ namespace SelfConstruction
             TaskDialog.Show("EAM", builder.ToString());
         }
 
-        private void StartAgentsAndBuildBlocks(Document doc, Application app)
+        private void StartAgentsAndBuildBlocks(Document doc)
         {
             GlobalKnowledge globalKnowledge = new GlobalKnowledge
             {
