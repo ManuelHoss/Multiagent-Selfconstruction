@@ -31,8 +31,7 @@ namespace SelfConstruction
             builder.CloseConnectedFaceSet();
 
             TessellatedShapeBuilderResult result = builder.Build(TessellatedShapeBuilderTarget.Solid, TessellatedShapeBuilderFallback.Abort, ElementId.InvalidElementId);
-
-
+            
             DirectShape ds = DirectShape.CreateElement(doc, new ElementId(BuiltInCategory.OST_GenericModel), "Application id", "Geometry object id");
 
             ds.SetShape(result.GetGeometricalObjects());
