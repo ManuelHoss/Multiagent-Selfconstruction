@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using Autodesk.Revit.ApplicationServices;
@@ -17,7 +18,8 @@ namespace SelfConstruction
     public class SelfConstruction : IExternalCommand
     {
         private readonly Cube _cube = new Cube();
-        
+        private readonly Sphere _sphere = new Sphere();
+
         public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
             Document doc = revit.Application.ActiveUIDocument.Document;
@@ -29,7 +31,7 @@ namespace SelfConstruction
         {
             EnergyAnalysisDetailModelOptions options = new EnergyAnalysisDetailModelOptions
             {
-                Tier =EnergyAnalysisDetailModelTier.Final,
+                Tier = EnergyAnalysisDetailModelTier.Final,
                 EnergyModelType = EnergyModelType.SpatialElement
             };
 
@@ -54,7 +56,12 @@ namespace SelfConstruction
                 Pheromones = new ConcurrentBag<Pheromone>()
             };
 
-            RunAgents(globalKnowledge, 10, 100);
+            // Add initial Pheromone
+            globalKnowledge.Pheromones.Add(new Pheromone(15, 0, Pheromonetype.Initial, new Position(0,0,0)));
+            // Display Radius of InitialPheromone
+            _sphere.CreateSphere(doc, new XYZ(0, 0, 0), globalKnowledge.Pheromones.FirstOrDefault(p => p.Pheromonetype == Pheromonetype.Initial).Intensity, Pheromonetype.Initial);
+
+            RunAgents(globalKnowledge, 10, 300);
             // Create building cubes
             foreach (BuildingShape buildingShape in globalKnowledge.Blocks)
             {

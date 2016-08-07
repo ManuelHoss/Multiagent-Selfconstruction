@@ -57,7 +57,6 @@ namespace SelfConstruction.AgentCode
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public bool ShouldBuild(GlobalKnowledge globalKnowledge, Agent agent)
         {
-            
             List<Pheromone> buildPheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Build).ToList();
             List<Pheromone> initialPheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Initial).ToList();
 
