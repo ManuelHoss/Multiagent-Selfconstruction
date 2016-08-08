@@ -8,9 +8,11 @@ using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Analysis;
+using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.UI;
 using SelfConstruction.AgentCode;
 using SelfConstruction.AgentCode.Models;
+using Autodesk.Revit.UI.Selection;
 
 namespace SelfConstruction
 {
@@ -19,19 +21,23 @@ namespace SelfConstruction
     {
         private readonly Cube _cube = new Cube();
         private readonly Sphere _sphere = new Sphere();
+        private Selection sel;
 
         public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
+            UIApplication uiapp = revit.Application;
+            UIDocument uidoc = uiapp.ActiveUIDocument;
+            sel = uidoc.Selection;
             Document doc = revit.Application.ActiveUIDocument.Document;
-            StartAgentsAndBuildBlocks(doc);
-            //EnergyAnalysis(doc);
+            //StartAgentsAndBuildBlocks(doc);
+            EnergyAnalysis(doc);
             return Result.Succeeded;
         }
         private void EnergyAnalysis(Document doc)
         {
             EnergyAnalysisDetailModelOptions options = new EnergyAnalysisDetailModelOptions
             {
-                Tier = EnergyAnalysisDetailModelTier.Final,
+                Tier = EnergyAnalysisDetailModelTier.NotComputed,
                 EnergyModelType = EnergyModelType.SpatialElement
             };
 
@@ -57,11 +63,11 @@ namespace SelfConstruction
             };
 
             // Add initial Pheromone
-            globalKnowledge.Pheromones.Add(new Pheromone(15, 0, Pheromonetype.Initial, new Position(0,0,0)));
+            globalKnowledge.Pheromones.Add(new Pheromone(5, 0, Pheromonetype.Initial, new Position(0,0,0)));
             // Display Radius of InitialPheromone
             _sphere.CreateSphere(doc, new XYZ(0, 0, 0), globalKnowledge.Pheromones.FirstOrDefault(p => p.Pheromonetype == Pheromonetype.Initial).Intensity, Pheromonetype.Initial);
 
-            RunAgents(globalKnowledge, 10, 300);
+            RunAgents(globalKnowledge, 250, 150);
             // Create building cubes
             foreach (BuildingShape buildingShape in globalKnowledge.Blocks)
             {

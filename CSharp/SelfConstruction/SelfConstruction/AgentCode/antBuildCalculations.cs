@@ -63,7 +63,7 @@ namespace SelfConstruction.AgentCode
             double buildPheromoneIntensity = SumUpPheromoneIntensity(agent, buildPheromones);
             double initialPheromoneIntensity = SumUpPheromoneIntensity(agent, initialPheromones);
 
-            return (buildPheromoneIntensity >= 0.5 || Math.Abs(buildPheromoneIntensity) < 0.0005) && initialPheromoneIntensity < 0.06;
+            return (buildPheromoneIntensity >= 0.05 || Math.Abs(buildPheromoneIntensity) < 0.0005) && initialPheromoneIntensity < 0.1 && initialPheromoneIntensity > 0.02;
         }
 
         /// <summary>
