@@ -67,6 +67,7 @@ namespace SelfConstruction
             {
                 Categories allCategories = doc.Settings.Categories;
                 _cube.CreateCube(doc, new XYZ(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z), false);
+                globalKnowledge.Pheromones.Add(new Pheromone(10, 0.00001, Pheromonetype.Build, new Position(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z)));
             }
 
             // Create agent cubes
