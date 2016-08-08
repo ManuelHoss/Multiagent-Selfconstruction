@@ -45,7 +45,7 @@ namespace SelfConstruction.AgentCode
             
             for (int i = 0; i < 28; i++)
             {
-                int random = new Random().Next(0, 26);
+                int random = new Random().Next(0, 27);
 
                 if (Utils.Instance.IsPositionFree(globalKnowledge, surroundingCells[random]))
                 {
