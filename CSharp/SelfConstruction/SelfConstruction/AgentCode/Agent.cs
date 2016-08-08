@@ -43,9 +43,9 @@ namespace SelfConstruction.AgentCode
         {
             List<Position> surroundingCells = GetSurroundingCells();
             
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 28; i++)
             {
-                int random = new Random().Next(0, 25);
+                int random = new Random().Next(0, 26);
 
                 if (Utils.Instance.IsPositionFree(globalKnowledge, surroundingCells[random]))
                 {
@@ -61,7 +61,7 @@ namespace SelfConstruction.AgentCode
 
             for (int i = 0; i < 29; i++)
             {
-                if (i != 9 || i != 19)
+                if (i != 9 && i != 19)
                 {
                     surroundingCartesianCoordinates.Add(CalculateNextPosition(i));
                 }
