@@ -12,7 +12,7 @@ namespace SelfConstruction.AgentCode
 
         public Agent(Position? position = null, BuildingShape? payload = null)
         {
-            Position = position ?? new Position(0,0,0);
+            Position = position ?? new Position(0, 0, 0);
             Payload = payload;
         }
 
@@ -35,17 +35,14 @@ namespace SelfConstruction.AgentCode
             if (antBuildCalculations.ShouldBuild(globalKnowledge, this))
             {
                 globalKnowledge.Blocks.Add(new BuildingShape(Position));
-                globalKnowledge.Pheromones.Add(new Pheromone(position: Position, intensity: 10, pheromonetype: Pheromonetype.Build,
-                    vaporationRate: 0.01));
+                globalKnowledge.Pheromones.Add(new Pheromone(position: Position, intensity: 10, pheromonetype: Pheromonetype.Build, vaporationRate: 0.01));
             }
         }
 
         private void MoveRandom(GlobalKnowledge globalKnowledge)
         {
             List<Position> surroundingCells = GetSurroundingCells();
-
             
-
             for (int i = 0; i < 25; i++)
             {
                 int random = new Random().Next(0, 25);
@@ -62,13 +59,14 @@ namespace SelfConstruction.AgentCode
         {
             List<Position> surroundingCartesianCoordinates = new List<Position>();
 
-            for (int i = 0; i < 28; i++)
+            for (int i = 0; i < 29; i++)
             {
-                surroundingCartesianCoordinates.Add(CalculateNextPosition(i));
+                if (i != 9 || i != 19)
+                {
+                    surroundingCartesianCoordinates.Add(CalculateNextPosition(i));
+                }
             }
             return surroundingCartesianCoordinates;
-
-
         }
 
         private Position CalculateNextPosition(int cubePosition)
@@ -104,9 +102,7 @@ namespace SelfConstruction.AgentCode
             {
                 nextPosition.Z -= 1;
             }
-
             return nextPosition;
-
         }
     }
 }
