@@ -13,6 +13,7 @@ using Autodesk.Revit.UI;
 using SelfConstruction.AgentCode;
 using SelfConstruction.AgentCode.Models;
 using Autodesk.Revit.UI.Selection;
+using SelfConstruction.RevitCode;
 
 namespace SelfConstruction
 {
@@ -21,36 +22,15 @@ namespace SelfConstruction
     {
         private readonly Cube _cube = new Cube();
         private readonly Sphere _sphere = new Sphere();
-        private Selection sel;
 
         public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
-            UIApplication uiapp = revit.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-            sel = uidoc.Selection;
             Document doc = revit.Application.ActiveUIDocument.Document;
-            //StartAgentsAndBuildBlocks(doc);
-            EnergyAnalysis(doc);
+            StartAgentsAndBuildBlocks(doc);
+            doc.Regenerate();
+            EnergyAnalysis.Instance.CalculateAndDisplayVolumeAndArea(doc);
+//            EnergyAnalysis(doc);
             return Result.Succeeded;
-        }
-        private void EnergyAnalysis(Document doc)
-        {
-            EnergyAnalysisDetailModelOptions options = new EnergyAnalysisDetailModelOptions
-            {
-                Tier = EnergyAnalysisDetailModelTier.NotComputed,
-                EnergyModelType = EnergyModelType.SpatialElement
-            };
-
-            EnergyAnalysisDetailModel analysisDetailModel = EnergyAnalysisDetailModel.Create(doc, options);
-
-            IList<EnergyAnalysisSpace> spaces = analysisDetailModel.GetAnalyticalSpaces();
-            StringBuilder builder = new StringBuilder();
-            builder.AppendLine("Spaces: " + spaces.Count);
-            foreach (EnergyAnalysisSpace space in spaces)
-            {
-                builder.AppendLine(space.Name + " InnVolume " + space.InnerVolume);
-            }
-            TaskDialog.Show("EAM", builder.ToString());
         }
 
         private void StartAgentsAndBuildBlocks(Document doc)

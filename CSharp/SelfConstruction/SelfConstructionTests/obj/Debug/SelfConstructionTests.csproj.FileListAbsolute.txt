@@ -49,8 +49,6 @@ C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\BuildingSystemsUIAPI.dll
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\UIFrameworkServices.dll
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\ManagedMC3.dll
-C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\RevitAPI.xml
-C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\RevitAPIUI.xml
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\cs-CZ\AdWindows.resources.dll
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\de-DE\AdWindows.resources.dll
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\en-US\AdWindows.resources.dll
@@ -64,3 +62,4 @@ C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\ru-RU\AdWindows.resources.dll
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\zh-CN\AdWindows.resources.dll
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\zh-TW\AdWindows.resources.dll
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\de\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
