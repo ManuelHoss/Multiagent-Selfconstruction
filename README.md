@@ -8,3 +8,6 @@
  * Start external program: C:\Program Files\Autodesk\Revit 2016\Revit.exe (Your Revit path)
  * Command line arguments: C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionVorlage.rvt (Adjust Path to your project path)
 6. To execute the plugin, run solution in Visual Studio -> Revit opens -> In Revit open the Add-Ins tab -> On "External Tools" click "SelfConstruction".
+
+
+<a href="https://zenhub.com"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
