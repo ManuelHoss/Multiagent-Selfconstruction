@@ -95,6 +95,7 @@
     <Compile Include="AgentCode\Pheromone.cs" />
     <Compile Include="AgentCode\Models\Pheromonetype.cs" />
     <Compile Include="AgentCode\Utils.cs" />
+    <Compile Include="GeneticProgrammingCode\LogFileWriter.cs" />
     <Compile Include="RevitCode\Cube.cs" />
     <Compile Include="RevitCode\EnergyAnalysis.cs" />
     <Compile Include="SelfConstructionMain.cs" />

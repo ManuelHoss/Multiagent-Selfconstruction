@@ -9,6 +9,7 @@ namespace SelfConstruction.AgentCode
     {
         public Position Position;
         public BuildingShape? Payload;
+        public String logString = "";
 
         public Agent(Position? position = null, BuildingShape? payload = null)
         {
@@ -36,6 +37,8 @@ namespace SelfConstruction.AgentCode
             {
                 globalKnowledge.Blocks.Add(new BuildingShape(Position));
                 globalKnowledge.Pheromones.Add(new Pheromone(position: Position, intensity: 10, pheromonetype: Pheromonetype.Build, vaporationRate: 0.01));
+                // Write build action to lod file
+                logString += "MOVE|";
             }
         }
 
@@ -50,6 +53,11 @@ namespace SelfConstruction.AgentCode
                 if (Utils.Instance.IsPositionFree(globalKnowledge, surroundingCells[random]))
                 {
                     Position = surroundingCells[random];
+                    // Write move action to log file
+                    double deltaX = this.Position.X - Position.X;
+                    double deltaY = this.Position.Y - Position.Y;
+                    double deltaZ = this.Position.Z - Position.Z;
+                    logString += String.Format("MOVE({0},{1},{2})|", deltaX, deltaY, deltaZ);
                     return;
                 }
             }
