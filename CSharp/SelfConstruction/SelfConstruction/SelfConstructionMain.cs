@@ -13,6 +13,7 @@ using Autodesk.Revit.UI;
 using SelfConstruction.AgentCode;
 using SelfConstruction.AgentCode.Models;
 using Autodesk.Revit.UI.Selection;
+using SelfConstruction.GeneticProgrammingCode;
 using SelfConstruction.RevitCode;
 
 namespace SelfConstruction
@@ -47,7 +48,7 @@ namespace SelfConstruction
             // Display Radius of InitialPheromone
             _sphere.CreateSphere(doc, new XYZ(0, 0, 0), globalKnowledge.Pheromones.FirstOrDefault(p => p.Pheromonetype == Pheromonetype.Initial).Intensity, Pheromonetype.Initial);
 
-            RunAgents(globalKnowledge, 250, 150);
+            RunAgents(globalKnowledge, 50, 50);
             // Create building cubes
             foreach (BuildingShape buildingShape in globalKnowledge.Blocks)
             {
@@ -62,6 +63,10 @@ namespace SelfConstruction
                 Categories allCategories = doc.Settings.Categories;
                 _cube.CreateCube(doc, new XYZ(agent.Position.X, agent.Position.Y, agent.Position.Z), true);
             }
+
+            // Write log file
+            LogFileWriter logFileWriter = new LogFileWriter();
+            logFileWriter.WriteMoveAction(globalKnowledge.Agents.ToList());
         }
 
         public void RunAgents(GlobalKnowledge globalKnowledge, int agentCount, int loops)
