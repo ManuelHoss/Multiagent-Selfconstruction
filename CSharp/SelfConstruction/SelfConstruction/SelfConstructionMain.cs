@@ -15,6 +15,7 @@ using SelfConstruction.AgentCode.Models;
 using Autodesk.Revit.UI.Selection;
 using SelfConstruction.GeneticProgrammingCode;
 using SelfConstruction.RevitCode;
+using Utils = SelfConstruction.AgentCode.Utils;
 
 namespace SelfConstruction
 {
@@ -66,7 +67,9 @@ namespace SelfConstruction
 
             // Write log file
             LogFileWriter logFileWriter = new LogFileWriter();
-            logFileWriter.WriteMoveAction(globalKnowledge.Agents.ToList());
+            logFileWriter.WriteActionSequenceToFile(globalKnowledge.Agents.ToList());
+            LogFileReader logFileReader = new LogFileReader();
+            logFileReader.ReadActionSequenceFromFile();
         }
 
         public void RunAgents(GlobalKnowledge globalKnowledge, int agentCount, int loops)

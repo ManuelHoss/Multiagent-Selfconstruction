@@ -11,7 +11,7 @@ namespace SelfConstruction.GeneticProgrammingCode
 {
     public class LogFileWriter
     {
-        public void WriteMoveAction(List<Agent> agents)
+        public void WriteActionSequenceToFile(List<Agent> agents)
         {
             string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\CreationLogs\";
             if (!Directory.Exists(filePath))
