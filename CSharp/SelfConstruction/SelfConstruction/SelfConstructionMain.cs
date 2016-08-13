@@ -2,17 +2,12 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.DB.Analysis;
-using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.UI;
 using SelfConstruction.AgentCode;
 using SelfConstruction.AgentCode.Models;
-using Autodesk.Revit.UI.Selection;
 using SelfConstruction.GeneticProgrammingCode;
 using SelfConstruction.RevitCode;
 using Utils = SelfConstruction.AgentCode.Utils;
@@ -49,7 +44,7 @@ namespace SelfConstruction
             // Display Radius of InitialPheromone
             _sphere.CreateSphere(doc, new XYZ(0, 0, 0), globalKnowledge.Pheromones.FirstOrDefault(p => p.Pheromonetype == Pheromonetype.Initial).Intensity, Pheromonetype.Initial);
 
-            RunAgents(globalKnowledge, 50, 50);
+            RunAgents(globalKnowledge, 250, 150);
             // Create building cubes
             foreach (BuildingShape buildingShape in globalKnowledge.Blocks)
             {
@@ -68,8 +63,6 @@ namespace SelfConstruction
             // Write log file
             LogFileWriter logFileWriter = new LogFileWriter();
             logFileWriter.WriteActionSequenceToFile(globalKnowledge.Agents.ToList());
-            LogFileReader logFileReader = new LogFileReader();
-            logFileReader.ReadActionSequenceFromFile();
         }
 
         public void RunAgents(GlobalKnowledge globalKnowledge, int agentCount, int loops)

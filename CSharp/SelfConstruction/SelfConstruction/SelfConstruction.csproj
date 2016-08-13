@@ -96,8 +96,8 @@
     <Compile Include="AgentCode\Models\Pheromonetype.cs" />
     <Compile Include="AgentCode\Utils.cs" />
     <Compile Include="GeneticProgrammingCode\Models\Action.cs" />
-    <Compile Include="GeneticProgrammingCode\LogFileReader.cs" />
-    <Compile Include="GeneticProgrammingCode\LogFileWriter.cs" />
+    <Compile Include="GeneticProgrammingCode\Logger\LogFileReader.cs" />
+    <Compile Include="GeneticProgrammingCode\Logger\LogFileWriter.cs" />
     <Compile Include="GeneticProgrammingCode\Models\ActionType.cs" />
     <Compile Include="GeneticProgrammingCode\utils.cs" />
     <Compile Include="RevitCode\Cube.cs" />
