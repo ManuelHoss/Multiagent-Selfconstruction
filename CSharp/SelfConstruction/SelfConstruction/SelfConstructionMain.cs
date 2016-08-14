@@ -9,12 +9,13 @@ using Autodesk.Revit.UI;
 using SelfConstruction.AgentCode;
 using SelfConstruction.AgentCode.Models;
 using SelfConstruction.GeneticProgrammingCode;
+using SelfConstruction.GeneticProgrammingCode.Logger;
 using SelfConstruction.RevitCode;
 using Utils = SelfConstruction.AgentCode.Utils;
 
 namespace SelfConstruction
 {
-    [Transaction(TransactionMode.Automatic)]
+    [Transaction(TransactionMode.Manual)]
     public class SelfConstruction : IExternalCommand
     {
         private readonly Cube _cube = new Cube();
@@ -22,11 +23,30 @@ namespace SelfConstruction
 
         public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
-            Document doc = revit.Application.ActiveUIDocument.Document;
-            StartAgentsAndBuildBlocks(doc);
-            doc.Regenerate();
-            EnergyAnalysis.Instance.CalculateAndDisplayVolumeAndArea(doc);
-//            EnergyAnalysis(doc);
+            for (int i = 0; i < 6; i++)
+            {
+                revit.Application.OpenAndActivateDocument(
+                    "C:\\multiagent-selfconstruction\\CSharp\\SelfConstruction\\SelfConstructionVorlage.rvt");
+                Document doc = revit.Application.ActiveUIDocument.Document;
+                using (Transaction transaction = new Transaction(doc))
+                {
+                    transaction.Start("Build and Calculate");
+                    StartAgentsAndBuildBlocks(doc);
+                    doc.Regenerate();
+                    EnergyAnalysis.Instance.CalculateAndDisplayVolumeAndArea(doc);
+                    transaction.Commit();
+                }
+                //TODO: Here we should do the genetic programming and checking the volume
+                using (Transaction transaction = new Transaction(doc))
+                    {
+                        transaction.Start("Remove");
+                        FilteredElementCollector allDirectShapes =
+                        new FilteredElementCollector(doc).OfClass(typeof(DirectShape));
+                    doc.Delete(allDirectShapes.ToElementIds());
+                    transaction.Commit();
+                }
+            }
+
             return Result.Succeeded;
         }
 
@@ -44,7 +64,7 @@ namespace SelfConstruction
             // Display Radius of InitialPheromone
             _sphere.CreateSphere(doc, new XYZ(0, 0, 0), globalKnowledge.Pheromones.FirstOrDefault(p => p.Pheromonetype == Pheromonetype.Initial).Intensity, Pheromonetype.Initial);
 
-            RunAgents(globalKnowledge, 250, 150);
+            RunAgents(globalKnowledge, 5, 150);
             // Create building cubes
             foreach (BuildingShape buildingShape in globalKnowledge.Blocks)
             {

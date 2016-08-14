@@ -1,13 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.Revit.DB;
-using SelfConstruction.AgentCode;
-using SelfConstruction.AgentCode.Models;
-using SelfConstruction.GeneticProgrammingCode.Models;
+﻿using Autodesk.Revit.DB;
 
-namespace SelfConstruction.GeneticProgrammingCode
+namespace SelfConstruction.GeneticProgrammingCode.Models
 {
     public class Action
     {

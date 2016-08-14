@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autodesk.Revit.DB;
 using SelfConstruction.GeneticProgrammingCode.Models;
+using Action = SelfConstruction.GeneticProgrammingCode.Models.Action;
 
 namespace SelfConstruction.GeneticProgrammingCode
 {
     public class Utils
     {
-        private Queue<Action> convertActionSequenceStringArrayToActionQueue(string[] actionSequenceStringArray)
+        private Queue<Action> ConvertActionSequenceStringArrayToActionQueue(string[] actionSequenceStringArray)
         {
             Queue<Action> actionQueue = new Queue<Action>();
 
