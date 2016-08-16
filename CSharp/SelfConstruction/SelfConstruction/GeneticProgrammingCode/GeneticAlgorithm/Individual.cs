@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Action = SelfConstruction.GeneticProgrammingCode.Models.Action;
 
-namespace SelfConstruction.GeneticProgrammingCode.Models
+namespace SelfConstruction.GeneticProgrammingCode.GeneticAlgorithm
 {
-    public class Individual
+    public abstract class Individual
     {
         public int IndividualId { get; private set; }
         public int GenerationId { get; private set; }
