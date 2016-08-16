@@ -43,17 +43,17 @@ namespace SelfConstruction.GeneticProgrammingCode.GeneticAlgorithm
             GenerationIdCounter++;
         }
 
-        public override Individual Selection()
+        public override Individual Selection(Generation lastGeneration)
         {
             throw new NotImplementedException();
         }
 
-        public override Individual Mutate()
+        public override Individual Mutate(Generation lastGeneration)
         {
             throw new NotImplementedException();
         }
 
-        public override List<Individual> OnePointCrossover()
+        public override List<Individual> OnePointCrossover(Generation lastGeneration)
         {
             throw new NotImplementedException();
         }
