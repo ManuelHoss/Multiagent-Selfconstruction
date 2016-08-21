@@ -37,19 +37,23 @@ namespace SelfConstruction
                     EnergyAnalysis.Instance.CalculateAndDisplayVolumeAndArea(doc);
                     transaction.Commit();
                 }
+
+                double[] areaAndVolume = EnergyAnalysis.Instance.GetAreaAndVolume(doc);
+
                 //TODO: Here we should do the genetic programming and checking the volume
-                using (Transaction transaction = new Transaction(doc))
-                    {
-                        transaction.Start("Remove");
-                        FilteredElementCollector allDirectShapes =
-                        new FilteredElementCollector(doc).OfClass(typeof(DirectShape));
-                    doc.Delete(allDirectShapes.ToElementIds());
-                    transaction.Commit();
-                }
+//                using (Transaction transaction = new Transaction(doc))
+//                    {
+//                        transaction.Start("Remove");
+//                        FilteredElementCollector allDirectShapes =
+//                        new FilteredElementCollector(doc).OfClass(typeof(DirectShape));
+//                    doc.Delete(allDirectShapes.ToElementIds());
+//                    transaction.Commit();
+//                }
             }
 
             return Result.Succeeded;
         }
+
 
         public void StartAgentsAndBuildBlocks(Document doc)
         {
@@ -65,7 +69,7 @@ namespace SelfConstruction
             // Display Radius of InitialPheromone
             _sphere.CreateSphere(doc, new XYZ(0, 0, 0), GlobalKnowledge.Pheromones.FirstOrDefault(p => p.Pheromonetype == Pheromonetype.Initial).Intensity, Pheromonetype.Initial);
 
-            RunAgents(GlobalKnowledge, 250, 150);
+            RunAgents(GlobalKnowledge, 25, 150);
             // Create building cubes
             foreach (BuildingShape buildingShape in GlobalKnowledge.Blocks)
             {

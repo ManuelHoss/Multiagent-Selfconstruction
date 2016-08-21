@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Analysis;
 using Autodesk.Revit.UI;
@@ -23,7 +24,24 @@ namespace SelfConstruction.RevitCode
             settings.ComputeVolumes = true;
         }
 
+        public double[] GetAreaAndVolume(Document doc)
+        {
+            FilteredElementCollector col = new FilteredElementCollector(doc).OfClass(typeof(ViewSchedule));
+            var sectionData = ((ViewSchedule)col.FirstElement()).GetTableData().GetSectionData(SectionType.Body);
 
+            double area = 0;
+            double volume = 0;
+            for (int j = 0; j < sectionData.LastRowNumber; j++)
+            {
+                double tempArea;
+                Double.TryParse(Regex.Match(sectionData.GetCellText(j, 0), @"\d+\.\d+").Value, out tempArea);
+                double tempVolume;
+                Double.TryParse(Regex.Match(sectionData.GetCellText(j, 1), @"\d+\.\d+").Value, out tempVolume);
+                area += tempArea;
+                volume += tempVolume;
+            }
+            return new []{area, volume};
+        }
         private static void CreateRooms(Document doc)
         {
             FilteredElementCollector viewCollector = new FilteredElementCollector(doc).OfClass(typeof(ViewPlan));
@@ -45,7 +63,7 @@ namespace SelfConstruction.RevitCode
                 }
             }
         }
-        private static void CreateSchedule(Document doc)
+        private void CreateSchedule(Document doc)
         {
             ViewSchedule vs = ViewSchedule.CreateSchedule(doc, new ElementId(BuiltInCategory.OST_Rooms));
 
