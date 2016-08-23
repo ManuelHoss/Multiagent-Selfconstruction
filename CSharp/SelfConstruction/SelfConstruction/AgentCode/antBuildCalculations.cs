@@ -52,7 +52,7 @@ namespace SelfConstruction.AgentCode
         /// <summary>
         /// Checks whether the Agent should build or not
         /// </summary>
-        /// <param name="pheromones">The pheromones.</param>
+        /// <param name="globalKnowledge">The global knowledge</param>
         /// <param name="agent">The agent.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public bool ShouldBuild(GlobalKnowledge globalKnowledge, Agent agent)
@@ -72,7 +72,7 @@ namespace SelfConstruction.AgentCode
         /// <param name="agent">The agent.</param>
         /// <param name="pheromones">The pheromones.</param>
         /// <returns>System.Double.</returns>
-        private double SumUpPheromoneIntensity(Agent agent, List<Pheromone> pheromones)
+        public double SumUpPheromoneIntensity(Agent agent, List<Pheromone> pheromones)
         {
             double initialPheromoneIntensity = 0;
 

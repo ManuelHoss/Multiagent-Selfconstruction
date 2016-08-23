@@ -92,10 +92,12 @@
     <Compile Include="AgentCode\antBuildCalculations.cs" />
     <Compile Include="AgentCode\AgentCodeAPI.cs" />
     <Compile Include="AgentCode\BuildingShape.cs" />
+    <Compile Include="AgentCode\Interfaces\IPheromoneModel.cs" />
     <Compile Include="AgentCode\Models\GlobalKnowledge.cs" />
     <Compile Include="AgentCode\Models\Position.cs" />
     <Compile Include="AgentCode\Pheromone.cs" />
     <Compile Include="AgentCode\Models\Pheromonetype.cs" />
+    <Compile Include="AgentCode\PheromoneModels\SpaceBuildPheromoneModel.cs" />
     <Compile Include="AgentCode\Utils.cs" />
     <Compile Include="GeneticProgrammingCode\GeneticAlgorithm\GeneticAlgorithm.cs" />
     <Compile Include="GeneticProgrammingCode\GeneticAlgorithm\GeneticAlgorithmVolumeOptimization.cs" />
