@@ -6,7 +6,7 @@ namespace SelfConstruction.RevitCode
 {
     public class Cube
     {
-        public void CreateCube(Document doc, XYZ cubePosition, bool isAgent)
+        public ElementId CreateCube(Document doc, XYZ cubePosition, bool isAgent)
         {
             TessellatedShapeBuilder builder = new TessellatedShapeBuilder();
 
@@ -53,6 +53,7 @@ namespace SelfConstruction.RevitCode
             ogs.SetProjectionFillPatternId(id);
             ogs.SetProjectionFillPatternVisible(true);
             doc.ActiveView.SetElementOverrides(ds.Id, ogs);
+            return ds.Id;
         }
     }
 }

@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using System.Threading;
+using System.Windows.Forms;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
@@ -11,6 +16,7 @@ using SelfConstruction.AgentCode.Models;
 using SelfConstruction.GeneticProgrammingCode;
 using SelfConstruction.GeneticProgrammingCode.Logger;
 using SelfConstruction.RevitCode;
+using Point = System.Drawing.Point;
 using Utils = SelfConstruction.AgentCode.Utils;
 
 namespace SelfConstruction
@@ -20,11 +26,19 @@ namespace SelfConstruction
     {
         private readonly Cube _cube = new Cube();
         private readonly Sphere _sphere = new Sphere();
-        public GlobalKnowledge GlobalKnowledge { get; private set; }
+        public GlobalKnowledge GlobalKnowledge = new GlobalKnowledge
+            {
+                Agents = new ConcurrentBag<Agent>(),
+                Blocks = new ConcurrentBag<BuildingShape>(),
+                StepBlocks = new ConcurrentBag<BuildingShape>(),
+                Pheromones = new ConcurrentBag<Pheromone>()
+            };
 
-        public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
+        private List<ElementId> tempAgents;
+
+    public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 150; i++)
             {
                 revit.Application.OpenAndActivateDocument(
                     "C:\\multiagent-selfconstruction\\CSharp\\SelfConstruction\\SelfConstructionVorlage.rvt");
@@ -37,6 +51,11 @@ namespace SelfConstruction
                     EnergyAnalysis.Instance.CalculateAndDisplayVolumeAndArea(doc);
                     transaction.Commit();
                 }
+
+                revit.Application.ActiveUIDocument.RefreshActiveView();
+                
+                CreateScreenshot(i);
+
 
                 double[] areaAndVolume = EnergyAnalysis.Instance.GetAreaAndVolume(doc);
 
@@ -54,35 +73,58 @@ namespace SelfConstruction
             return Result.Succeeded;
         }
 
+        private static void CreateScreenshot(int i)
+        {
+            int screenWidth = Screen.GetBounds(new Point(0, 0)).Width;
+            int screenHeight = Screen.GetBounds(new Point(0, 0)).Height;
+            Bitmap bmpScreenShot = new Bitmap(screenWidth, screenHeight);
+            Graphics gfx = Graphics.FromImage(bmpScreenShot);
+            gfx.CopyFromScreen(0, 0, 0, 0, new Size(screenWidth, screenHeight - 50));
+            if (!Directory.Exists("C:\\multiagent-selfconstruction\\CSharp\\Images"))
+            {
+                Directory.CreateDirectory("C:\\multiagent-selfconstruction\\CSharp\\Images");
+            }
+            bmpScreenShot.Save("C:\\multiagent-selfconstruction\\CSharp\\Images\\Screenshot" + i + ".jpg", ImageFormat.Jpeg);
+        }
+
 
         public void StartAgentsAndBuildBlocks(Document doc)
         {
-            GlobalKnowledge = new GlobalKnowledge
+            if (GlobalKnowledge.Pheromones.IsEmpty)
             {
-                Agents = new ConcurrentBag<Agent>(),
-                Blocks = new ConcurrentBag<BuildingShape>(),
-                Pheromones = new ConcurrentBag<Pheromone>()
-            };
+                // Add initial Pheromone
+                GlobalKnowledge.Pheromones.Add(new Pheromone(5, 0, Pheromonetype.Initial, new Position(0, 0, 0)));
+                // Display Radius of InitialPheromone
+                _sphere.CreateSphere(doc, new XYZ(0, 0, 0),
+                    GlobalKnowledge.Pheromones.FirstOrDefault(p => p.Pheromonetype == Pheromonetype.Initial).Intensity,
+                    Pheromonetype.Initial);
+            }
 
-            // Add initial Pheromone
-            GlobalKnowledge.Pheromones.Add(new Pheromone(5, 0, Pheromonetype.Initial, new Position(0,0,0)));
-            // Display Radius of InitialPheromone
-            _sphere.CreateSphere(doc, new XYZ(0, 0, 0), GlobalKnowledge.Pheromones.FirstOrDefault(p => p.Pheromonetype == Pheromonetype.Initial).Intensity, Pheromonetype.Initial);
+            RunAgents(GlobalKnowledge, 50, 1);
 
-            RunAgents(GlobalKnowledge, 25, 150);
             // Create building cubes
-            foreach (BuildingShape buildingShape in GlobalKnowledge.Blocks)
+            foreach (BuildingShape buildingShape in GlobalKnowledge.StepBlocks)
             {
-                Categories allCategories = doc.Settings.Categories;
                 _cube.CreateCube(doc, new XYZ(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z), false);
                 GlobalKnowledge.Pheromones.Add(new Pheromone(10, 0.00001, Pheromonetype.Build, new Position(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z)));
             }
 
+            // Remove all Blocks from current Step
+            GlobalKnowledge.StepBlocks = new ConcurrentBag<BuildingShape>();
+
+            // Remove old Agents from Doc 
+            if (tempAgents != null)
+            {
+                doc.Delete(tempAgents);
+            }
+
+            // Remove all agents from list
+            tempAgents = new List<ElementId>();
+
             // Create agent cubes
             foreach (Agent agent in GlobalKnowledge.Agents)
             {
-                Categories allCategories = doc.Settings.Categories;
-                _cube.CreateCube(doc, new XYZ(agent.Position.X, agent.Position.Y, agent.Position.Z), true);
+                tempAgents.Add(_cube.CreateCube(doc, new XYZ(agent.Position.X, agent.Position.Y, agent.Position.Z), true));
             }
 
             // Write log file
@@ -92,9 +134,12 @@ namespace SelfConstruction
 
         public void RunAgents(GlobalKnowledge globalKnowledge, int agentCount, int loops)
         {
-            for (int i = 0; i < agentCount; i++)
+            if (globalKnowledge.Agents.Count != agentCount)
             {
-                globalKnowledge.Agents.Add(new Agent());
+                for (int i = 0; i < agentCount; i++)
+                {
+                    globalKnowledge.Agents.Add(new Agent());
+                }
             }
 
             for (int i = 0; i < loops; i++)

@@ -8,5 +8,6 @@ namespace SelfConstruction.AgentCode.Models
         public ConcurrentBag<Agent> Agents;
         public ConcurrentBag<BuildingShape> Blocks;
         public ConcurrentBag<Pheromone> Pheromones;
+        public ConcurrentBag<BuildingShape> StepBlocks { get; set; }
     }
 }

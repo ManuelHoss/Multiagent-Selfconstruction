@@ -36,6 +36,7 @@ namespace SelfConstruction.AgentCode
             if (antBuildCalculations.ShouldBuild(globalKnowledge, this))
             {
                 globalKnowledge.Blocks.Add(new BuildingShape(Position));
+                globalKnowledge.StepBlocks.Add(new BuildingShape(Position));
                 globalKnowledge.Pheromones.Add(new Pheromone(position: Position, intensity: 10, pheromonetype: Pheromonetype.Build, vaporationRate: 0.01));
                 // Write build action to lod file
                 logString += "BUILD|";
