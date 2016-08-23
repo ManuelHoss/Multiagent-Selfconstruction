@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autodesk.Revit.DB;
+using SelfConstruction.AgentCode.Models;
 using SelfConstruction.GeneticProgrammingCode.Logger;
 using SelfConstruction.GeneticProgrammingCode.Models;
 using Action = SelfConstruction.GeneticProgrammingCode.Models.Action;
@@ -30,7 +31,7 @@ namespace SelfConstruction.GeneticProgrammingCode.GeneticAlgorithm
                 double individualVolume = 0;
 
                 // Parse instruction string into a list of actions for every agent
-                List<List<Action>> instructionList = instructionUtils.GenerateInstructionsList(selfConstruction.GlobalKnowledge.Agents.ToList());
+                List<List<Action>> instructionList = instructionUtils.GenerateInstructionsList(GlobalKnowledge.Instance.Agents.ToList());
 
                 // Evaluate fitness value
                 double fitnessValue = EvaluateFitness(individualVolume, PerfectVolume);

@@ -8,7 +8,7 @@ namespace SelfConstruction.RevitCode
 {
     public class Sphere
     {
-        public void CreateSphere(Document doc, XYZ spherePosition, double radius, Pheromonetype pheromonetype)
+        public ElementId CreateSphere(Document doc, XYZ spherePosition, double radius, Pheromonetype pheromonetype)
         {
             List<Curve> profile = new List<Curve>();
 
@@ -35,10 +35,10 @@ namespace SelfConstruction.RevitCode
             // Set color of DirectShape
             OverrideGraphicSettings ogs = new OverrideGraphicSettings();
             // BuildingMaterial -> Brown
-            Color cubeColor = new Color(255, 0, 0);
-            if (pheromonetype == Pheromonetype.Initial)
+            Color cubeColor = new Color(0, 255, 0);
+            if (pheromonetype == Pheromonetype.Space)
             {
-                cubeColor = new Color(0, 255, 0);
+                cubeColor = new Color(255, 0, 0);
             }
             else if (pheromonetype == Pheromonetype.Build)
             {
@@ -53,6 +53,7 @@ namespace SelfConstruction.RevitCode
             ogs.SetProjectionFillPatternId(id);
             ogs.SetProjectionFillPatternVisible(true);
             doc.ActiveView.SetElementOverrides(ds.Id, ogs);
+            return ds.Id;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         private double _initialPheromoneIntensity;
         private double _buildPheromoneIntensity;
         private double _spacePheromoneIntensity;
+        private static int MAX_SPACEPHEROMONES = 2;
 
         /// <summary>
         /// Evaluates if an agent should build a cube according to its pheromone influences.
@@ -28,11 +29,10 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         {
             // Only build in spezific range around a SpacePheromone
             CalculatePheromoneInfluences(globalKnowledge, agent);
-            return (_buildPheromoneIntensity >= 0.05 
-                || Math.Abs(_buildPheromoneIntensity) < 0.0005) 
-                && _spacePheromoneIntensity < 0.1 
-                && _spacePheromoneIntensity > 0.02
-                && _initialPheromoneIntensity < 0;
+            return /*(_buildPheromoneIntensity >= 0.0005 || Math.Abs(_buildPheromoneIntensity) < 0.0005) 
+                &&*/ _spacePheromoneIntensity < 0.15
+                && _spacePheromoneIntensity > 0.13
+                && _initialPheromoneIntensity > 0;
         }
 
         /// <summary>
@@ -57,14 +57,13 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         /// <returns><value>true</value> if the agent should place a SpacePheromone, otherwise <value>false</value>.</returns>
         public bool ShouldPlaceSpacePheromone(GlobalKnowledge globalKnowledge, Agent agent)
         {
-            
             CalculatePheromoneInfluences(globalKnowledge, agent);
             Random random = new Random();
-            if (random.NextDouble() < 0.2)
+            if (random.NextDouble() < 0.01 && globalKnowledge.SpacePheromoneCounter <= MAX_SPACEPHEROMONES)
             {
                 return _spacePheromoneIntensity < 0.1
-                && _spacePheromoneIntensity > 0.05
-                && _initialPheromoneIntensity < 0;
+                && _spacePheromoneIntensity > 0.08
+                && _initialPheromoneIntensity > 0;
             }
             return false;
         }
@@ -78,7 +77,7 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         {
             _initialPheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Initial).ToList();
             _buildPheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Build).ToList();
-            _spacePheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Initial).ToList();
+            _spacePheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Space).ToList();
         }
 
         /// <summary>

@@ -26,19 +26,12 @@ namespace SelfConstruction
     {
         private readonly Cube _cube = new Cube();
         private readonly Sphere _sphere = new Sphere();
-        public GlobalKnowledge GlobalKnowledge = new GlobalKnowledge
-            {
-                Agents = new ConcurrentBag<Agent>(),
-                Blocks = new ConcurrentBag<BuildingShape>(),
-                StepBlocks = new ConcurrentBag<BuildingShape>(),
-                Pheromones = new ConcurrentBag<Pheromone>()
-            };
 
-        private List<ElementId> tempAgents;
+        private List<ElementId> _tempAgents;
 
-    public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
+        public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
-            for (int i = 0; i < 150; i++)
+            for (int i = 0; i < 250; i++)
             {
                 revit.Application.OpenAndActivateDocument(
                     "C:\\multiagent-selfconstruction\\CSharp\\SelfConstruction\\SelfConstructionVorlage.rvt");
@@ -90,46 +83,50 @@ namespace SelfConstruction
 
         public void StartAgentsAndBuildBlocks(Document doc)
         {
-            if (GlobalKnowledge.Pheromones.IsEmpty)
+            if (GlobalKnowledge.Instance.Pheromones.IsEmpty)
             {
                 // Add initial Pheromone
-                GlobalKnowledge.Pheromones.Add(new Pheromone(5, 0, Pheromonetype.Initial, new Position(0, 0, 0)));
-                // Display Radius of InitialPheromone
-                _sphere.CreateSphere(doc, new XYZ(0, 0, 0),
-                    GlobalKnowledge.Pheromones.FirstOrDefault(p => p.Pheromonetype == Pheromonetype.Initial).Intensity,
-                    Pheromonetype.Initial);
+                GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(50, 0, Pheromonetype.Initial, new Position(0, 0, 0)));
+                GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(7.5, 0, Pheromonetype.Space, new Position(0, 0, 0)));
             }
 
-            RunAgents(GlobalKnowledge, 50, 1);
+            RunAgents(GlobalKnowledge.Instance, 100, 1);
 
             // Create building cubes
-            foreach (BuildingShape buildingShape in GlobalKnowledge.StepBlocks)
+            foreach (BuildingShape buildingShape in GlobalKnowledge.Instance.StepBlocks)
             {
                 _cube.CreateCube(doc, new XYZ(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z), false);
-                GlobalKnowledge.Pheromones.Add(new Pheromone(10, 0.00001, Pheromonetype.Build, new Position(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z)));
+            }
+            // Create pheromone spheres
+            foreach (var pheromone in GlobalKnowledge.Instance.Pheromones)
+            {
+                if (pheromone.Pheromonetype != Pheromonetype.Initial && pheromone.Pheromonetype != Pheromonetype.Build)
+                {
+                    _sphere.CreateSphere(doc, new XYZ(pheromone.Position.X, pheromone.Position.Y, pheromone.Position.Z), pheromone.Intensity, pheromone.Pheromonetype);
+                }
             }
 
             // Remove all Blocks from current Step
-            GlobalKnowledge.StepBlocks = new ConcurrentBag<BuildingShape>();
+            GlobalKnowledge.Instance.StepBlocks = new ConcurrentBag<BuildingShape>();
 
             // Remove old Agents from Doc 
-            if (tempAgents != null)
+            if (_tempAgents != null)
             {
-                doc.Delete(tempAgents);
+                doc.Delete(_tempAgents);
             }
 
             // Remove all agents from list
-            tempAgents = new List<ElementId>();
+            _tempAgents = new List<ElementId>();
 
             // Create agent cubes
-            foreach (Agent agent in GlobalKnowledge.Agents)
+            foreach (Agent agent in GlobalKnowledge.Instance.Agents)
             {
-                tempAgents.Add(_cube.CreateCube(doc, new XYZ(agent.Position.X, agent.Position.Y, agent.Position.Z), true));
+                _tempAgents.Add(_cube.CreateCube(doc, new XYZ(agent.Position.X, agent.Position.Y, agent.Position.Z), true));
             }
 
             // Write log file
             InstructionUtils instructionUtils = new InstructionUtils();
-            instructionUtils.WriteActionSequenceToFile(GlobalKnowledge.Agents.ToList());
+            instructionUtils.WriteActionSequenceToFile(GlobalKnowledge.Instance.Agents.ToList());
         }
 
         public void RunAgents(GlobalKnowledge globalKnowledge, int agentCount, int loops)
@@ -162,7 +159,5 @@ namespace SelfConstruction
                 Utils.Instance.RemoveVaporatedPheromones(globalKnowledge);
             }
         }
-
-
     }
 }

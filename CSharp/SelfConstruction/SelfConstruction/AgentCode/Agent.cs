@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SelfConstruction.AgentCode.Interfaces;
 using SelfConstruction.AgentCode.Models;
+using SelfConstruction.AgentCode.PheromoneModels;
 
 namespace SelfConstruction.AgentCode
 {
@@ -20,6 +22,7 @@ namespace SelfConstruction.AgentCode
         public void DoStep(GlobalKnowledge globalKnowledge)
         {
             Build(globalKnowledge);
+            PlaceSpacePheromone(globalKnowledge);
             MoveRandom(globalKnowledge);
 
             foreach (Pheromone t in globalKnowledge.Pheromones)
@@ -31,15 +34,29 @@ namespace SelfConstruction.AgentCode
 
         private void Build(GlobalKnowledge globalKnowledge)
         {
-            AntBuildCalculations antBuildCalculations = new AntBuildCalculations();
+            IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
 
-            if (antBuildCalculations.ShouldBuild(globalKnowledge, this))
+            if (pheromoneModel.ShouldBuild(globalKnowledge, this))
             {
                 globalKnowledge.Blocks.Add(new BuildingShape(Position));
                 globalKnowledge.StepBlocks.Add(new BuildingShape(Position));
-                globalKnowledge.Pheromones.Add(new Pheromone(position: Position, intensity: 10, pheromonetype: Pheromonetype.Build, vaporationRate: 0.01));
-                // Write build action to lod file
+                globalKnowledge.Pheromones.Add(new Pheromone(position: Position, intensity: 3, pheromonetype: Pheromonetype.Build, vaporationRate: 0.001));
+                // Write build action to log file
                 logString += "BUILD|";
+            }
+        }
+
+        private void PlaceSpacePheromone(GlobalKnowledge globalKnowledge)
+        {
+            IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
+
+            if (pheromoneModel.ShouldPlaceSpacePheromone(globalKnowledge, this))
+            {
+                globalKnowledge.StepBlocks.Add(new BuildingShape(Position));
+                globalKnowledge.Pheromones.Add(new Pheromone(position: Position, intensity: 7.5, pheromonetype: Pheromonetype.Space, vaporationRate: 0));
+                globalKnowledge.SpacePheromoneCounter++;
+                // Write SpacePheromone action to log file
+                logString += "SPACE|";
             }
         }
 

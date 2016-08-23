@@ -48,24 +48,7 @@ namespace SelfConstruction.AgentCode
 
             return mostInfluential.OrderBy(pheromone => pheromone.Item2).Select(pheromone => pheromone.Item1).Reverse().ToList();
         }
-
-        /// <summary>
-        /// Checks whether the Agent should build or not
-        /// </summary>
-        /// <param name="globalKnowledge">The global knowledge</param>
-        /// <param name="agent">The agent.</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public bool ShouldBuild(GlobalKnowledge globalKnowledge, Agent agent)
-        {
-            List<Pheromone> buildPheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Build).ToList();
-            List<Pheromone> initialPheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Initial).ToList();
-
-            double buildPheromoneIntensity = SumUpPheromoneIntensity(agent, buildPheromones);
-            double initialPheromoneIntensity = SumUpPheromoneIntensity(agent, initialPheromones);
-
-            return (buildPheromoneIntensity >= 0.05 || Math.Abs(buildPheromoneIntensity) < 0.0005) && initialPheromoneIntensity < 0.1 && initialPheromoneIntensity > 0.02;
-        }
-
+        
         /// <summary>
         /// Sums up pheromone intensity.
         /// </summary>
@@ -74,15 +57,15 @@ namespace SelfConstruction.AgentCode
         /// <returns>System.Double.</returns>
         public double SumUpPheromoneIntensity(Agent agent, List<Pheromone> pheromones)
         {
-            double initialPheromoneIntensity = 0;
+            double pheromoneIntensity = 0;
 
-            foreach (Pheromone initialPheromone in pheromones)
+            foreach (Pheromone pheromone in pheromones)
             {
-                double distance = Utils.Instance.CalculateDistanceToBrick(initialPheromone.Position, agent.Position);
+                double distance = Utils.Instance.CalculateDistanceToBrick(pheromone.Position, agent.Position);
 
-                initialPheromoneIntensity += initialPheromone.Intensity/(distance*distance);
+                pheromoneIntensity += pheromone.Intensity/(distance*distance);
             }
-            return initialPheromoneIntensity;
+            return pheromoneIntensity;
         }
     }
 }
