@@ -95,6 +95,12 @@
     <Compile Include="AgentCode\Interfaces\IPheromoneModel.cs" />
     <Compile Include="AgentCode\Models\GlobalKnowledge.cs" />
     <Compile Include="AgentCode\Models\Position.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\Abstracts\AbstractLearning.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\Abstracts\AbstractValue.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\MovementAction.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\QLearning\MovementQLearning.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\QLearning\QValue.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\State.cs" />
     <Compile Include="AgentCode\Pheromone.cs" />
     <Compile Include="AgentCode\Models\Pheromonetype.cs" />
     <Compile Include="AgentCode\PheromoneModels\SpaceBuildPheromoneModel.cs" />
@@ -126,6 +132,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

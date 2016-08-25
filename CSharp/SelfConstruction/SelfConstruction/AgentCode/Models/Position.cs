@@ -2,15 +2,22 @@
 {
     public struct Position
     {
-        public double X;
-        public double Y;
-        public double Z;
+        public int X;
+        public int Y;
+        public int Z;
 
-        public Position(double x, double y, double z)
+        public Position(int x, int y, int z)
         {
             X = x;
             Y = y;
             Z = z;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Position)) { return false; }
+
+            return ((Position)obj).X == X && ((Position)obj).Y == Y && ((Position)obj).Z == Z;
         }
     }
 }
