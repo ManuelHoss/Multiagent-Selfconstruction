@@ -32,11 +32,12 @@ namespace SelfConstructionTests.AgentCode
 
             ConcurrentBag<Agent> agents = new ConcurrentBag<Agent> {agent, agent1};
             ConcurrentBag<BuildingShape> blocks = new ConcurrentBag<BuildingShape> {buildingShape, buildingshape1};
+            
+            GlobalKnowledge.Instance.Agents = agents;
+            GlobalKnowledge.Instance.Blocks = blocks;
 
-            GlobalKnowledge globalKnowledge = new GlobalKnowledge { Blocks = blocks, Agents = agents};
-
-            Assert.IsFalse(Utils.Instance.IsPositionFree(globalKnowledge, position1));
-            Assert.IsTrue(Utils.Instance.IsPositionFree(globalKnowledge, position2));
+            Assert.IsFalse(Utils.Instance.IsPositionFree(position1));
+            Assert.IsTrue(Utils.Instance.IsPositionFree(position2));
             
         }
 

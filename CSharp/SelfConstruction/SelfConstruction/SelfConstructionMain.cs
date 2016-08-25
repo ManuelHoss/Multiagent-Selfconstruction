@@ -90,7 +90,7 @@ namespace SelfConstruction
                 GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(7.5, 0, Pheromonetype.Space, new Position(0, 0, 0)));
             }
 
-            RunAgents(GlobalKnowledge.Instance, 100, 1);
+            RunAgents(100, 1);
 
             // Create building cubes
             foreach (BuildingShape buildingShape in GlobalKnowledge.Instance.StepBlocks)
@@ -129,13 +129,13 @@ namespace SelfConstruction
             instructionUtils.WriteActionSequenceToFile(GlobalKnowledge.Instance.Agents.ToList());
         }
 
-        public void RunAgents(GlobalKnowledge globalKnowledge, int agentCount, int loops)
+        public void RunAgents(int agentCount, int loops)
         {
-            if (globalKnowledge.Agents.Count != agentCount)
+            if (GlobalKnowledge.Instance.Agents.Count != agentCount)
             {
                 for (int i = 0; i < agentCount; i++)
                 {
-                    globalKnowledge.Agents.Add(new Agent());
+                    GlobalKnowledge.Instance.Agents.Add(new Agent());
                 }
             }
 
@@ -143,9 +143,9 @@ namespace SelfConstruction
             {
                 List<Thread> workerThreads = new List<Thread>();
 
-                foreach (Agent agent in globalKnowledge.Agents)
+                foreach (Agent agent in GlobalKnowledge.Instance.Agents)
                 {
-                    Thread thread = new Thread(delegate () { agent.DoStep(globalKnowledge); });
+                    Thread thread = new Thread(delegate () { agent.DoStep(); });
                     thread.Start();
                     workerThreads.Add(thread);
                 }
@@ -156,7 +156,7 @@ namespace SelfConstruction
                 }
                 Console.WriteLine("Loop: " + i);
 
-                Utils.Instance.RemoveVaporatedPheromones(globalKnowledge);
+                Utils.Instance.RemoveVaporatedPheromones();
             }
         }
     }

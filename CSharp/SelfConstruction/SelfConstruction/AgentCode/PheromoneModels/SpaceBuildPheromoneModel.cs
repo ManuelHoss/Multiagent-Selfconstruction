@@ -47,8 +47,6 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         /// <summary>
         /// Evaluates if an agent should place a SpacePheromone according to its pheromone influences.
         /// </summary>
-        /// <param name="globalKnowledge">Knowledge base which holds information about every
-        /// agent, pheromone and building cube.</param>
         /// <param name="agent">The agent who asks to place a SpacePheromone or not.</param>
         /// <returns><value>true</value> if the agent should place a SpacePheromone, otherwise <value>false</value>.</returns>
         public bool ShouldPlaceSpacePheromone(Agent agent)

@@ -34,11 +34,11 @@ namespace SelfConstruction.AgentCode
         /// <param name="pheromones">The pheromones.</param>
         /// <param name="agent">The agent.</param>
         /// <returns>List&lt;Pheromone&gt;.</returns>
-        public List<Pheromone> GetSortedPheromoneInfluences(GlobalKnowledge globalKnowledge, Agent agent)
+        public List<Pheromone> GetSortedPheromoneInfluences(Agent agent)
         {
             List<Tuple<Pheromone, double>> mostInfluential = new List<Tuple<Pheromone, double>>();
            
-            foreach (Pheromone pheromone in globalKnowledge.Pheromones)
+            foreach (Pheromone pheromone in GlobalKnowledge.Instance.Pheromones)
             {
                 double distance = Utils.Instance.CalculateDistanceToBrick(pheromone.Position, agent.Position);
 

@@ -5,7 +5,7 @@ namespace SelfConstruction.AgentCode.Models
 {
     public class GlobalKnowledge
     {
-        private static GlobalKnowledge instance;
+        private static GlobalKnowledge _instance;
 
         private GlobalKnowledge() { }
 
@@ -13,11 +13,11 @@ namespace SelfConstruction.AgentCode.Models
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = new GlobalKnowledge();
+                    _instance = new GlobalKnowledge();
                 }
-                return instance;
+                return _instance;
             }
         }
 

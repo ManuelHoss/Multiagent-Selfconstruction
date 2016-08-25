@@ -19,13 +19,13 @@ namespace SelfConstruction.AgentCode
             Payload = payload;
         }
 
-        public void DoStep(GlobalKnowledge globalKnowledge)
+        public void DoStep()
         {
             Build();
             PlaceSpacePheromone();
             MoveRandom();
 
-            foreach (Pheromone t in globalKnowledge.Pheromones)
+            foreach (Pheromone t in GlobalKnowledge.Instance.Pheromones)
             {
                 Pheromone pheromone = t;
                 pheromone.Intensity -= pheromone.Intensity*pheromone.VaporationRate;
@@ -68,7 +68,7 @@ namespace SelfConstruction.AgentCode
             {
                 int random = new Random().Next(0, 27);
 
-                if (Utils.Instance.IsPositionFree(GlobalKnowledge.Instance, surroundingCells[random]))
+                if (Utils.Instance.IsPositionFree(surroundingCells[random]))
                 {
                     // Write move action to log file
                     double deltaX = this.Position.X - surroundingCells[random].X;
