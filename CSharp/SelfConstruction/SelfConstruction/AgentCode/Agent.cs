@@ -21,9 +21,9 @@ namespace SelfConstruction.AgentCode
 
         public void DoStep(GlobalKnowledge globalKnowledge)
         {
-            Build(globalKnowledge);
-            PlaceSpacePheromone(globalKnowledge);
-            MoveRandom(globalKnowledge);
+            Build();
+            PlaceSpacePheromone();
+            MoveRandom();
 
             foreach (Pheromone t in globalKnowledge.Pheromones)
             {
@@ -32,35 +32,35 @@ namespace SelfConstruction.AgentCode
             }
         }
 
-        private void Build(GlobalKnowledge globalKnowledge)
+        private void Build()
         {
             IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
 
-            if (pheromoneModel.ShouldBuild(globalKnowledge, this))
+            if (pheromoneModel.ShouldBuild(this))
             {
-                globalKnowledge.Blocks.Add(new BuildingShape(Position));
-                globalKnowledge.StepBlocks.Add(new BuildingShape(Position));
-                globalKnowledge.Pheromones.Add(new Pheromone(position: Position, intensity: 3, pheromonetype: Pheromonetype.Build, vaporationRate: 0.001));
+                GlobalKnowledge.Instance.Blocks.Add(new BuildingShape(Position));
+                GlobalKnowledge.Instance.StepBlocks.Add(new BuildingShape(Position));
+                GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(position: Position, intensity: 3, pheromonetype: Pheromonetype.Build, vaporationRate: 0.001));
                 // Write build action to log file
                 logString += "BUILD|";
             }
         }
 
-        private void PlaceSpacePheromone(GlobalKnowledge globalKnowledge)
+        private void PlaceSpacePheromone()
         {
             IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
 
-            if (pheromoneModel.ShouldPlaceSpacePheromone(globalKnowledge, this))
+            if (pheromoneModel.ShouldPlaceSpacePheromone(this))
             {
-                globalKnowledge.StepBlocks.Add(new BuildingShape(Position));
-                globalKnowledge.Pheromones.Add(new Pheromone(position: Position, intensity: 7.5, pheromonetype: Pheromonetype.Space, vaporationRate: 0));
-                globalKnowledge.SpacePheromoneCounter++;
+                GlobalKnowledge.Instance.StepBlocks.Add(new BuildingShape(Position));
+                GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(position: Position, intensity: 7.5, pheromonetype: Pheromonetype.Space, vaporationRate: 0));
+                GlobalKnowledge.Instance.SpacePheromoneCounter++;
                 // Write SpacePheromone action to log file
                 logString += "SPACE|";
             }
         }
 
-        private void MoveRandom(GlobalKnowledge globalKnowledge)
+        private void MoveRandom()
         {
             List<Position> surroundingCells = GetSurroundingCells();
             
@@ -68,7 +68,7 @@ namespace SelfConstruction.AgentCode
             {
                 int random = new Random().Next(0, 27);
 
-                if (Utils.Instance.IsPositionFree(globalKnowledge, surroundingCells[random]))
+                if (Utils.Instance.IsPositionFree(GlobalKnowledge.Instance, surroundingCells[random]))
                 {
                     // Write move action to log file
                     double deltaX = this.Position.X - surroundingCells[random].X;

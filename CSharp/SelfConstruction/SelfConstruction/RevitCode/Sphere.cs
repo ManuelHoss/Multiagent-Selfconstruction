@@ -35,10 +35,10 @@ namespace SelfConstruction.RevitCode
             // Set color of DirectShape
             OverrideGraphicSettings ogs = new OverrideGraphicSettings();
             // BuildingMaterial -> Brown
-            Color cubeColor = new Color(0, 255, 0);
+            Color cubeColor = new Color(255, 0, 0);
             if (pheromonetype == Pheromonetype.Space)
             {
-                cubeColor = new Color(255, 0, 0);
+                cubeColor = new Color(0, 255, 0);
             }
             else if (pheromonetype == Pheromonetype.Build)
             {

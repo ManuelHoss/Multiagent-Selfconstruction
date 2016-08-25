@@ -9,8 +9,8 @@ namespace SelfConstruction.AgentCode.Interfaces
 {
     public interface IPheromoneModel
     {
-        bool ShouldBuild(GlobalKnowledge globalKnowledge, Agent agent);
-        bool ShouldRemove(GlobalKnowledge globalKnowledge, Agent agent);
-        bool ShouldPlaceSpacePheromone(GlobalKnowledge globalKnowledge, Agent agent);
+        bool ShouldBuild(Agent agent);
+        bool ShouldRemove(Agent agent);
+        bool ShouldPlaceSpacePheromone(Agent agent);
     }
 }

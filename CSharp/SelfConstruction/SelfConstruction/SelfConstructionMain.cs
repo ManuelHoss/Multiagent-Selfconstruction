@@ -31,7 +31,7 @@ namespace SelfConstruction
 
         public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
-            for (int i = 0; i < 250; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 revit.Application.OpenAndActivateDocument(
                     "C:\\multiagent-selfconstruction\\CSharp\\SelfConstruction\\SelfConstructionVorlage.rvt");

@@ -16,19 +16,17 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         private double _initialPheromoneIntensity;
         private double _buildPheromoneIntensity;
         private double _spacePheromoneIntensity;
-        private static int MAX_SPACEPHEROMONES = 2;
+        private static int MAX_SPACEPHEROMONES = 1;
 
         /// <summary>
         /// Evaluates if an agent should build a cube according to its pheromone influences.
         /// </summary>
-        /// <param name="globalKnowledge">Knowledge base which holds information about every
-        /// agent, pheromone and building cube.</param>
         /// <param name="agent">The agent who asks to build a cube or not.</param>
         /// <returns><value>true</value> if the agent should place a cube, otherwise <value>false</value>.</returns>
-        public bool ShouldBuild(GlobalKnowledge globalKnowledge, Agent agent)
+        public bool ShouldBuild(Agent agent)
         {
             // Only build in spezific range around a SpacePheromone
-            CalculatePheromoneInfluences(globalKnowledge, agent);
+            CalculatePheromoneInfluences(agent);
             return /*(_buildPheromoneIntensity >= 0.0005 || Math.Abs(_buildPheromoneIntensity) < 0.0005) 
                 &&*/ _spacePheromoneIntensity < 0.15
                 && _spacePheromoneIntensity > 0.13
@@ -38,13 +36,11 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         /// <summary>
         /// Evaluates if an agent should remove a cube according to its pheromone influences.
         /// </summary>
-        /// <param name="globalKnowledge">Knowledge base which holds information about every
-        /// agent, pheromone and building cube.</param>
         /// <param name="agent">The agent who asks to remove a cube or not.</param>
         /// <returns><value>true</value> if the agent should remove a cube, otherwise <value>false</value>.</returns>
-        public bool ShouldRemove(GlobalKnowledge globalKnowledge, Agent agent)
+        public bool ShouldRemove(Agent agent)
         {
-            CalculatePheromoneInfluences(globalKnowledge, agent);
+            CalculatePheromoneInfluences(agent);
             throw new NotImplementedException();
         }
 
@@ -55,11 +51,11 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         /// agent, pheromone and building cube.</param>
         /// <param name="agent">The agent who asks to place a SpacePheromone or not.</param>
         /// <returns><value>true</value> if the agent should place a SpacePheromone, otherwise <value>false</value>.</returns>
-        public bool ShouldPlaceSpacePheromone(GlobalKnowledge globalKnowledge, Agent agent)
+        public bool ShouldPlaceSpacePheromone(Agent agent)
         {
-            CalculatePheromoneInfluences(globalKnowledge, agent);
+            CalculatePheromoneInfluences(agent);
             Random random = new Random();
-            if (random.NextDouble() < 0.01 && globalKnowledge.SpacePheromoneCounter <= MAX_SPACEPHEROMONES)
+            if (random.NextDouble() < 0.01 && GlobalKnowledge.Instance.SpacePheromoneCounter <= MAX_SPACEPHEROMONES)
             {
                 return _spacePheromoneIntensity < 0.1
                 && _spacePheromoneIntensity > 0.08
@@ -71,25 +67,21 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         /// <summary>
         /// Updates the private pheromone lists.
         /// </summary>
-        /// <param name="globalKnowledge">Knowledge base which holds information about every
-        /// agent, pheromone and building cube.</param>
-        private void UpdatePheromones(GlobalKnowledge globalKnowledge)
+        private void UpdatePheromones()
         {
-            _initialPheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Initial).ToList();
-            _buildPheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Build).ToList();
-            _spacePheromones = globalKnowledge.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Space).ToList();
+            _initialPheromones = GlobalKnowledge.Instance.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Initial).ToList();
+            _buildPheromones = GlobalKnowledge.Instance.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Build).ToList();
+            _spacePheromones = GlobalKnowledge.Instance.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Space).ToList();
         }
 
         /// <summary>
         /// Updates the pheromone situation and calculates the influences of all PheromoneTypes on the agent at its current position.
         /// </summary>
-        /// <param name="globalKnowledge">Knowledge base which holds information about every
-        /// agent, pheromone and building cube.</param>
         /// <param name="agent">The agent who asks for intensities.</param>
-        private void CalculatePheromoneInfluences(GlobalKnowledge globalKnowledge, Agent agent)
+        private void CalculatePheromoneInfluences(Agent agent)
         {
             // Update pheromone lists to current pheromone situation
-            UpdatePheromones(globalKnowledge);
+            UpdatePheromones();
 
             // Calculate pheromone influences on specific agent
             AntBuildCalculations buildCalculations = new AntBuildCalculations();
