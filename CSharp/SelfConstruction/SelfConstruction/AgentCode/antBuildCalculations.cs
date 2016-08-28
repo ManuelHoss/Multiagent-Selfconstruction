@@ -55,13 +55,13 @@ namespace SelfConstruction.AgentCode
         /// <param name="agent">The agent.</param>
         /// <param name="pheromones">The pheromones.</param>
         /// <returns>System.Double.</returns>
-        public double SumUpPheromoneIntensity(Agent agent, List<Pheromone> pheromones)
+        public double SumUpPheromoneIntensity(Position position, List<Pheromone> pheromones)
         {
             double pheromoneIntensity = 0;
 
             foreach (Pheromone pheromone in pheromones)
             {
-                double distance = Utils.Instance.CalculateDistanceToBrick(pheromone.Position, agent.Position);
+                double distance = Utils.Instance.CalculateDistanceToBrick(pheromone.Position, position);
 
                 pheromoneIntensity += pheromone.Intensity/(distance*distance);
             }

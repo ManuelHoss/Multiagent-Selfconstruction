@@ -9,8 +9,8 @@ namespace SelfConstruction.AgentCode.Interfaces
 {
     public interface IPheromoneModel
     {
-        bool ShouldBuild(Agent agent);
-        bool ShouldRemove(Agent agent);
+        bool ShouldBuild(Position position);
+        bool ShouldRemove(Position cubePosition);
         bool ShouldPlaceSpacePheromone(Agent agent);
     }
 }

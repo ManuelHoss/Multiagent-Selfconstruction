@@ -23,25 +23,29 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         /// </summary>
         /// <param name="agent">The agent who asks to build a cube or not.</param>
         /// <returns><value>true</value> if the agent should place a cube, otherwise <value>false</value>.</returns>
-        public bool ShouldBuild(Agent agent)
+        public bool ShouldBuild(Position position)
         {
-            // Only build in spezific range around a SpacePheromone
-            CalculatePheromoneInfluences(agent);
+            // Only build in specific range around a SpacePheromone
+            CalculatePheromoneInfluences(position);
             return /*(_buildPheromoneIntensity >= 0.0005 || Math.Abs(_buildPheromoneIntensity) < 0.0005) 
-                &&*/ _spacePheromoneIntensity < 0.15
-                && _spacePheromoneIntensity > 0.13
+                &&*/ _spacePheromoneIntensity < 0.12
+                && _spacePheromoneIntensity > 0.08
                 && _initialPheromoneIntensity > 0;
         }
 
         /// <summary>
         /// Evaluates if an agent should remove a cube according to its pheromone influences.
         /// </summary>
-        /// <param name="agent">The agent who asks to remove a cube or not.</param>
+        /// <param name="cubePosition">The cube position.</param>
         /// <returns><value>true</value> if the agent should remove a cube, otherwise <value>false</value>.</returns>
-        public bool ShouldRemove(Agent agent)
+        public bool ShouldRemove(Position cubePosition)
         {
-            CalculatePheromoneInfluences(agent);
-            throw new NotImplementedException();
+            CalculatePheromoneInfluences(cubePosition);
+            if (!ShouldBuild(cubePosition))
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -51,7 +55,7 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         /// <returns><value>true</value> if the agent should place a SpacePheromone, otherwise <value>false</value>.</returns>
         public bool ShouldPlaceSpacePheromone(Agent agent)
         {
-            CalculatePheromoneInfluences(agent);
+            CalculatePheromoneInfluences(agent.Position);
             Random random = new Random();
             if (random.NextDouble() < 0.01 && GlobalKnowledge.Instance.SpacePheromoneCounter <= MAX_SPACEPHEROMONES)
             {
@@ -76,16 +80,16 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         /// Updates the pheromone situation and calculates the influences of all PheromoneTypes on the agent at its current position.
         /// </summary>
         /// <param name="agent">The agent who asks for intensities.</param>
-        private void CalculatePheromoneInfluences(Agent agent)
+        private void CalculatePheromoneInfluences(Position position)
         {
             // Update pheromone lists to current pheromone situation
             UpdatePheromones();
 
             // Calculate pheromone influences on specific agent
             AntBuildCalculations buildCalculations = new AntBuildCalculations();
-            _initialPheromoneIntensity = buildCalculations.SumUpPheromoneIntensity(agent, _initialPheromones);
-            _buildPheromoneIntensity = buildCalculations.SumUpPheromoneIntensity(agent, _buildPheromones);
-            _spacePheromoneIntensity = buildCalculations.SumUpPheromoneIntensity(agent, _spacePheromones);
+            _initialPheromoneIntensity = buildCalculations.SumUpPheromoneIntensity(position, _initialPheromones);
+            _buildPheromoneIntensity = buildCalculations.SumUpPheromoneIntensity(position, _buildPheromones);
+            _spacePheromoneIntensity = buildCalculations.SumUpPheromoneIntensity(position, _spacePheromones);
         }
     }
 }

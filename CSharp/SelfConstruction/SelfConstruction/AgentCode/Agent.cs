@@ -25,7 +25,7 @@ namespace SelfConstruction.AgentCode
 
         public void DoStep()
         {
-
+            Remove();
             Build();
             PlaceSpacePheromone();
             
@@ -44,13 +44,47 @@ namespace SelfConstruction.AgentCode
         {
             IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
 
-            if (pheromoneModel.ShouldBuild(this))
+            if (pheromoneModel.ShouldBuild(Position))
             {
                 GlobalKnowledge.Instance.Blocks.Add(new BuildingShape(Position));
                 GlobalKnowledge.Instance.StepBlocks.Add(new BuildingShape(Position));
                 GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(position: Position, intensity: 3, pheromonetype: Pheromonetype.Build, vaporationRate: 0.001));
                 // Write build action to log file
                 logString += "BUILD|";
+            }
+        }
+
+        private void Remove()
+        {
+            IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
+            AntBuildCalculations antBuildCalculations = new AntBuildCalculations();
+
+            // Check if there is a cube in V26 of the Agent that has to be removed
+            List<Position> surroundingCells = GetSurroundingCells();
+            List<BuildingShape> shapesToDelete = new List<BuildingShape>();
+            foreach (var buildingShape in GlobalKnowledge.Instance.Blocks)
+            {
+                if (surroundingCells.Contains(buildingShape.Position))
+                {
+                    if (pheromoneModel.ShouldRemove(buildingShape.Position))
+                    {
+                        shapesToDelete.Add(buildingShape);
+                    }
+                }
+            }
+
+            // Remove if necessary
+            for (int i = 0; i < shapesToDelete.Count; i++)
+            {
+                BuildingShape shapeToDelete = shapesToDelete[i];
+                if(!GlobalKnowledge.Instance.Blocks.TryTake(out shapeToDelete))
+                {
+                    Console.WriteLine(String.Format("Shape {0} could not be deleted!"), shapeToDelete);
+                }
+                Pheromone pheromoneToDelete =
+                    GlobalKnowledge.Instance.Pheromones.FirstOrDefault(
+                        p => p.Position.Equals(shapeToDelete.Position) && p.Pheromonetype == Pheromonetype.Build);
+                GlobalKnowledge.Instance.Pheromones.TryTake(out pheromoneToDelete);
             }
         }
 
@@ -100,7 +134,8 @@ namespace SelfConstruction.AgentCode
                     cubePositionList = new List<int>() { 6, 7, 8, 16, 17, 18, 26, 27, 28 };
                     break;
                 default:
-                    cubePositionList = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+                    random = 0;
+                    cubePositionList = new List<int>() { new Random().Next(28) };
                     break;
             }
             
@@ -120,14 +155,18 @@ namespace SelfConstruction.AgentCode
 
         public double GetReward()
         {
-            return _lastBuildPheromoneInfluence - CalculateBuildingPheromoneInfluence();
+            return CalculateBuildingPheromoneInfluence() - _lastBuildPheromoneInfluence;
         }
 
         private State GetCurrentState()
         {
-            if(MovementQLearning.Instance.QTable.Find(q => q.GetState().Position.Equals(Position)) != null)
+            if(MovementQLearning.Instance.QTable.Any(q => q.GetState().Position.Equals(Position)))
             {
-                return MovementQLearning.Instance.QTable.Find(q => q.GetState().Position.Equals(Position)).GetState();
+                var state = MovementQLearning.Instance.QTable.FirstOrDefault(q => q.GetState().Position.Equals(Position));
+                if (state != null)
+                {
+                    return state.GetState();
+                }
             }
             return new State(Position);
         }
@@ -135,7 +174,7 @@ namespace SelfConstruction.AgentCode
         private double CalculateBuildingPheromoneInfluence()
         {
             AntBuildCalculations antBuildCalculations = new AntBuildCalculations();
-            return antBuildCalculations.SumUpPheromoneIntensity(this,
+            return antBuildCalculations.SumUpPheromoneIntensity(Position,
                 GlobalKnowledge.Instance.Pheromones.Where(p => p.Pheromonetype == Pheromonetype.Build).ToList());
         }
 

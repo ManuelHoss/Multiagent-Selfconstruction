@@ -3,8 +3,7 @@
 namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning
 {
     /// <summary>
-    /// Class that represents the current situation of an Agent according 
-    /// to the influence of surrounding BuildingPheromones.
+    /// Class that represents the current situation of an Agent.
     /// </summary>
     public class State
     {

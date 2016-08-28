@@ -143,6 +143,8 @@ namespace SelfConstruction
             {
                 List<Thread> workerThreads = new List<Thread>();
 
+                //GlobalKnowledge.Instance.Agents.ElementAt(0).DoStep();
+                // Replace for debugging
                 foreach (Agent agent in GlobalKnowledge.Instance.Agents)
                 {
                     Thread thread = new Thread(delegate () { agent.DoStep(); });

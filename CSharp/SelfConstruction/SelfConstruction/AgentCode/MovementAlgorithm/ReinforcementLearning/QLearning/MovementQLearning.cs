@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using SelfConstruction.AgentCode.Models;
@@ -10,7 +11,7 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
     {
         #region Fields
         
-        protected internal List<QValue> QTable;
+        protected internal ConcurrentBag<QValue> QTable;
         protected const double InitQReward = 0.1;
 
         #endregion
@@ -22,7 +23,7 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
         private MovementQLearning()
         {
             // Initialize Q-Table
-            QTable = new List<QValue>();
+            QTable = new ConcurrentBag<QValue>();
             State initialState = new State(new Position(0, 0, 0));
             QTable.Add(new QValue(initialState, MovementAction.MoveBackward, InitQReward));
             QTable.Add(new QValue(initialState, MovementAction.MoveForward, InitQReward));
@@ -48,28 +49,30 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
         
         public override void ExecuteMovement(Agent agent, State currentState)
         {
-            var qValue = SelectAction(currentState, QTable);
+            var qValue = SelectAction(currentState);
             agent.Move(qValue.GetAction());
-            QTable = UpdateTable(LastQValue, qValue, QTable, agent.GetReward());
+            UpdateTable(LastQValue, qValue, agent.GetReward());
 
             LastState = currentState;
             LastQValue = qValue;
         }
 
-        private List<QValue> UpdateTable(QValue lastQValue, QValue currentQValue, List<QValue> qTable, double reward)
+
+        private void UpdateTable(QValue lastQValue, QValue currentQValue, double reward)
         {
-            for (int i = qTable.Count - 1; i >= 0; i--)
+            for (int i = QTable.Count - 1; i >= 0; i--)
             {
-                var qValueToBeUpdated = qTable.ElementAt(i);
+                var qValueToBeUpdated = QTable.ElementAt(i);
 
                 if (!qValueToBeUpdated.Equals(lastQValue)) continue;
-                var newValue = qValueToBeUpdated.GetRewardValue() + LearningRate * (reward + Gamma * GetQValueWithBestActionFromQTable(currentQValue.GetState(), qTable).GetRewardValue() - qValueToBeUpdated.GetRewardValue());
+                var newValue = qValueToBeUpdated.GetRewardValue() + LearningRate * (reward + Gamma * GetQValueWithBestActionFromQTable(currentQValue.GetState()).GetRewardValue() - qValueToBeUpdated.GetRewardValue());
+                // Borders for rewardValue 
+                // TODO check dimensions
                 if (newValue >= -1000000 && newValue <= 1000000)
                 {
                     qValueToBeUpdated.SetRewardValue(newValue);
                 }
             }
-            return qTable;
         }
 
         /// <summary>
@@ -78,7 +81,7 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
         /// <param name="state">current state</param>
         /// <param name="qTable">Q Table</param>
         /// <returns>QValue with the best reward for current state</returns>
-        public QValue SelectAction(State state, List<QValue> qTable)
+        public QValue SelectAction(State state)
         {
             //Exploration rate
             var val = new Random().NextDouble();
@@ -86,39 +89,37 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
             if (val < .95f)
             {
                 // Get the best QValue/MovementAction and return it.
-                var bestQValue = GetQValueWithBestActionFromQTable(state, qTable);
+                var bestQValue = GetQValueWithBestActionFromQTable(state);
                 return bestQValue;
             }
             else
             {
                 var randomAction = SelectRandomAction();
                 // Find all QTable for given state.
-                var states = qTable.FindAll(c => c.GetState().Equals(state)).ToArray();
+                var states = QTable.Where(c => c.GetState().Equals(state)).ToArray();
                 // Find fitting QValue for randomAction and create a new one if needed.
-                var bestQValue = states.FirstOrDefault(s => s.GetAction() == randomAction);
-                if (bestQValue == null)
-                {
-                    bestQValue = CreateNewQValue(state);
-                }
-                return bestQValue;
+                return states.FirstOrDefault(s => s.GetAction() == randomAction) ?? CreateNewQValue(state);
             }
         }
 
-        private QValue GetQValueWithBestActionFromQTable(State state, List<QValue> qTable)
+        private QValue GetQValueWithBestActionFromQTable(State state)
         {
-            var states = qTable.FindAll(c => c.GetState().Equals(state)).ToArray();
-            if (states.Length > 0)
+            if (QTable.Count(c => c.GetState().Equals(state)) != 0)
             {
+                // Find all QValues with matching state
+                var states = QTable.Where(c => c.GetState().Equals(state)).ToArray();
                 QValue bestQValue = states[0];
-                foreach (var qValue in states)
+                // Get the QValue/Action with the best rewardValue
+                for (int i = states.Length - 1; i >= 0; i--)
                 {
-                    if (!bestQValue.Equals(qValue) && qValue.GetRewardValue() > bestQValue.GetRewardValue())
+                    if (states[i].GetRewardValue() > bestQValue.GetRewardValue())
                     {
-                        bestQValue = qValue;
+                        bestQValue = states[i];
                     }
                 }
                 return bestQValue;
             }
+            // If no QValue is found create a new one
             QValue newQValue = CreateNewQValue(state);
             return newQValue;
         }
