@@ -66,7 +66,7 @@ namespace SelfConstructionTests.AgentCode
             IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
             GlobalKnowledge.Instance.Pheromones = pheromones;
 
-            Assert.IsTrue(pheromoneModel.ShouldBuild(new Agent(new Position(0, 0, 0))),
+            Assert.IsFalse(pheromoneModel.ShouldBuild(new Position(0, 0, 0)),
                 "Pheromone stärkenberechnung oder Funktion ist fehlerhaft");
 
         }
