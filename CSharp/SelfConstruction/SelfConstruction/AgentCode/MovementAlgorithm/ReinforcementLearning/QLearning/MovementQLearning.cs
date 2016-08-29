@@ -103,10 +103,10 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
 
         private QValue GetQValueWithBestActionFromQTable(State state)
         {
-            if (QTable.Count(c => c.GetState().Equals(state)) != 0)
+            QValue[] states = QTable.Where(c => c.GetState().Equals(state)).ToArray();
+            if ( states.Length != 0)
             {
                 // Find all QValues with matching state
-                var states = QTable.Where(c => c.GetState().Equals(state)).ToArray();
                 QValue bestQValue = states[0];
                 // Get the QValue/Action with the best rewardValue
                 for (int i = states.Length - 1; i >= 0; i--)
