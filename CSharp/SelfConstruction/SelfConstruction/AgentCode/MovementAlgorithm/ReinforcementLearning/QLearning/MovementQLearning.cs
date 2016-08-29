@@ -60,19 +60,18 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
 
         private void UpdateTable(QValue lastQValue, QValue currentQValue, double reward)
         {
-            for (int i = QTable.Count - 1; i >= 0; i--)
+            foreach (QValue qValue in QTable)
             {
-                var qValueToBeUpdated = QTable.ElementAt(i);
-
-                if (!qValueToBeUpdated.Equals(lastQValue)) continue;
-                var newValue = qValueToBeUpdated.GetRewardValue() + LearningRate * (reward + Gamma * GetQValueWithBestActionFromQTable(currentQValue.GetState()).GetRewardValue() - qValueToBeUpdated.GetRewardValue());
+                if (!qValue.Equals(lastQValue)) continue;
+                var newValue = qValue.GetRewardValue() + LearningRate * (reward + Gamma * GetQValueWithBestActionFromQTable(currentQValue.GetState()).GetRewardValue() - qValue.GetRewardValue());
                 // Borders for rewardValue 
                 // TODO check dimensions
                 if (newValue >= -1000000 && newValue <= 1000000)
                 {
-                    qValueToBeUpdated.SetRewardValue(newValue);
+                    qValue.SetRewardValue(newValue);
                 }
             }
+
         }
 
         /// <summary>
