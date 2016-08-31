@@ -28,8 +28,8 @@ namespace SelfConstruction.AgentCode.PheromoneModels
             // Only build in specific range around a SpacePheromone
             CalculatePheromoneInfluences(position);
             return /*(_buildPheromoneIntensity >= 0.0005 || Math.Abs(_buildPheromoneIntensity) < 0.0005) 
-                &&*/ _spacePheromoneIntensity < 0.12
-                && _spacePheromoneIntensity > 0.08
+                &&*/ _spacePheromoneIntensity < 0.13
+                && _spacePheromoneIntensity > 0.07
                 && _initialPheromoneIntensity > 0;
         }
 
@@ -87,9 +87,9 @@ namespace SelfConstruction.AgentCode.PheromoneModels
 
             // Calculate pheromone influences on specific agent
             AntBuildCalculations buildCalculations = new AntBuildCalculations();
-            _initialPheromoneIntensity = buildCalculations.SumUpPheromoneIntensity(position, _initialPheromones);
-            _buildPheromoneIntensity = buildCalculations.SumUpPheromoneIntensity(position, _buildPheromones);
-            _spacePheromoneIntensity = buildCalculations.SumUpPheromoneIntensity(position, _spacePheromones);
+            _initialPheromoneIntensity = buildCalculations.GetMostInfluentalIntesity(position, Pheromonetype.Initial);
+            _buildPheromoneIntensity = buildCalculations.GetMostInfluentalIntesity(position, Pheromonetype.Build);
+            _spacePheromoneIntensity = buildCalculations.GetMostInfluentalIntesity(position, Pheromonetype.Space);
         }
     }
 }

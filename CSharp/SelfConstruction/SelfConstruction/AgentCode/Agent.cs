@@ -14,6 +14,7 @@ namespace SelfConstruction.AgentCode
         public Position Position;
         public BuildingShape? Payload;
         public String logString = "";
+        public Movement Movement= new Movement();
 
         private double _lastBuildPheromoneInfluence = 0;
 
@@ -28,9 +29,18 @@ namespace SelfConstruction.AgentCode
             Remove();
             Build();
             PlaceSpacePheromone();
-            
-            MovementQLearning.Instance.ExecuteMovement(this, GetCurrentState());
+
             _lastBuildPheromoneInfluence = CalculateBuildingPheromoneInfluence();
+            object currentMovementAction = Movement.ChooseMovementAction(this.Position);
+
+            if (currentMovementAction is Position)
+            {
+                Move((Position)currentMovementAction);
+            }
+            else
+            {
+                Move((MovementAction)currentMovementAction);
+            }
 
             // Vaporation process
             foreach (Pheromone t in GlobalKnowledge.Instance.Pheromones)
@@ -51,6 +61,7 @@ namespace SelfConstruction.AgentCode
                 GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(position: Position, intensity: 3, pheromonetype: Pheromonetype.Build, vaporationRate: 0.001));
                 // Write build action to log file
                 logString += "BUILD|";
+                Movement.SetBuild();
             }
         }
 
@@ -153,23 +164,16 @@ namespace SelfConstruction.AgentCode
             }
         }
 
+        public void Move(Position position)
+        {
+            this.Position = position;
+        }
+
         public double GetReward()
         {
             return CalculateBuildingPheromoneInfluence() - _lastBuildPheromoneInfluence;
         }
 
-        private State GetCurrentState()
-        {
-            if(MovementQLearning.Instance.QTable.Any(q => q.GetState().Position.Equals(Position)))
-            {
-                var state = MovementQLearning.Instance.QTable.FirstOrDefault(q => q.GetState().Position.Equals(Position));
-                if (state != null)
-                {
-                    return state.GetState();
-                }
-            }
-            return new State(Position);
-        }
 
         private double CalculateBuildingPheromoneInfluence()
         {

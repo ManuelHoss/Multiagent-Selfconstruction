@@ -34,13 +34,13 @@ namespace SelfConstruction.AgentCode
         /// <param name="pheromones">The pheromones.</param>
         /// <param name="agent">The agent.</param>
         /// <returns>List&lt;Pheromone&gt;.</returns>
-        public List<Pheromone> GetSortedPheromoneInfluences(Agent agent)
+        public List<Pheromone> GetSortedPheromoneInfluences(Position position)
         {
             List<Tuple<Pheromone, double>> mostInfluential = new List<Tuple<Pheromone, double>>();
            
             foreach (Pheromone pheromone in GlobalKnowledge.Instance.Pheromones)
             {
-                double distance = Utils.Instance.CalculateDistanceToBrick(pheromone.Position, agent.Position);
+                double distance = Utils.Instance.CalculateDistanceToBrick(pheromone.Position, position);
 
                 double pheromoneIntensity = pheromone.Intensity/(distance*distance);
                 mostInfluential.Add(new Tuple<Pheromone, double>(pheromone, pheromoneIntensity));
@@ -66,6 +66,22 @@ namespace SelfConstruction.AgentCode
                 pheromoneIntensity += pheromone.Intensity/(distance*distance);
             }
             return pheromoneIntensity;
+        }
+
+        public double GetMostInfluentalIntesity(Position position, Pheromonetype pheromonetype)
+        {
+            List<Pheromone> pheromones = GlobalKnowledge.Instance.Pheromones.Where(p => p.Pheromonetype == pheromonetype).ToList();
+            double maxItesity = 0;
+            foreach (Pheromone pheromone in pheromones)
+            {
+                double distance = Utils.Instance.CalculateDistanceToBrick(pheromone.Position, position);
+                double pheromoneIntensity = pheromone.Intensity / (distance * distance);
+                if (maxItesity < pheromoneIntensity)
+                {
+                    maxItesity = pheromoneIntensity;
+                }
+            }
+            return maxItesity;
         }
     }
 }

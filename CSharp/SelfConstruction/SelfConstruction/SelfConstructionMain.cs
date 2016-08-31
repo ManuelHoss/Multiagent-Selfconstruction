@@ -90,7 +90,7 @@ namespace SelfConstruction
                 GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(7.5, 0, Pheromonetype.Space, new Position(0, 0, 0)));
             }
 
-            RunAgents(100, 1);
+            RunAgents(50, 1);
 
             // Create building cubes
             foreach (BuildingShape buildingShape in GlobalKnowledge.Instance.StepBlocks)
@@ -143,7 +143,11 @@ namespace SelfConstruction
             {
                 List<Thread> workerThreads = new List<Thread>();
 
-                //GlobalKnowledge.Instance.Agents.ElementAt(0).DoStep();
+#if (DEBUG)
+                GlobalKnowledge.Instance.Agents.ElementAt(0).DoStep();
+#endif
+
+#if(!DEBUG)
                 // Replace for debugging
                 foreach (Agent agent in GlobalKnowledge.Instance.Agents)
                 {
@@ -151,6 +155,7 @@ namespace SelfConstruction
                     thread.Start();
                     workerThreads.Add(thread);
                 }
+#endif
 
                 foreach (Thread workerThread in workerThreads)
                 {

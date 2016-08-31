@@ -41,7 +41,7 @@ namespace SelfConstructionTests.AgentCode
         
             AntBuildCalculations antBuildCalculations = new AntBuildCalculations();
 
-            List<Pheromone> returnValue = antBuildCalculations.GetSortedPheromoneInfluences(new Agent(new Position(0, 0, 0)));
+            List<Pheromone> returnValue = antBuildCalculations.GetSortedPheromoneInfluences(new Position(0, 0, 0));
 
             Assert.AreEqual(pheromone3, returnValue.First(), "Das erste Element ist falsch, Sortierung prüfen" );
             Assert.AreEqual(pheromone1, returnValue.Last(), "Das letzte Element ist falsch, Sortierung prüfen" );

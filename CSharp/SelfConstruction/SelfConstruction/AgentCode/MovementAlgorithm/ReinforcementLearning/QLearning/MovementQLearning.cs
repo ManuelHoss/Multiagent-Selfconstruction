@@ -11,41 +11,18 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
     {
         #region Fields
         
-        protected internal ConcurrentBag<QValue> QTable;
+        protected internal List<QValue> QTable;
         protected const double InitQReward = 0.1;
 
         #endregion
-
-        #region Singleton
-
-        private static MovementQLearning _instance;
-
-        private MovementQLearning()
+        
+        public MovementQLearning()
         {
             // Initialize Q-Table
-            QTable = new ConcurrentBag<QValue>();
+            QTable = new List<QValue>();
             State initialState = new State(new Position(0, 0, 0));
             QTable.Add(new QValue(initialState, MovementAction.MoveBackward, InitQReward));
-            QTable.Add(new QValue(initialState, MovementAction.MoveForward, InitQReward));
-            QTable.Add(new QValue(initialState, MovementAction.MoveDown, InitQReward));
-            QTable.Add(new QValue(initialState, MovementAction.MoveUp, InitQReward));
-            QTable.Add(new QValue(initialState, MovementAction.MoveLeft, InitQReward));
-            QTable.Add(new QValue(initialState, MovementAction.MoveRight, InitQReward));
         }
-
-        public static MovementQLearning Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new MovementQLearning();
-                }
-                return _instance;
-            }
-        }
-
-        #endregion
         
         public override void ExecuteMovement(Agent agent, State currentState)
         {

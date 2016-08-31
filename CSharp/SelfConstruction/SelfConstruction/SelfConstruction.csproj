@@ -98,6 +98,7 @@
     <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\Abstracts\AbstractLearning.cs" />
     <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\Abstracts\AbstractValue.cs" />
     <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\MovementAction.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\QLearning\Movement.cs" />
     <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\QLearning\MovementQLearning.cs" />
     <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\QLearning\QValue.cs" />
     <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\State.cs" />

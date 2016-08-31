@@ -7,18 +7,18 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning
     /// </summary>
     public class State
     {
-        public readonly Position Position;
+        public readonly Position PheromoneIntensity;
         
-        public State(Position position)
+        public State(Position pheromoneIntensity)
         {
-            Position = position;
+            PheromoneIntensity = pheromoneIntensity;
         }
 
         public override bool Equals(object obj)
         {
             if (!(obj is State)) { return false; }
 
-            return ((State)obj).Position.Equals(Position);
+            return ((State)obj).PheromoneIntensity.Equals(PheromoneIntensity);
         }
 
         public override int GetHashCode()
