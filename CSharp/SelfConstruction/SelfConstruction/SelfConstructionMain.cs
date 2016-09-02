@@ -31,7 +31,7 @@ namespace SelfConstruction
 
         public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 2000; i++)
             {
                 revit.Application.OpenAndActivateDocument(
                     "C:\\multiagent-selfconstruction\\CSharp\\SelfConstruction\\SelfConstructionVorlage.rvt");
@@ -83,14 +83,13 @@ namespace SelfConstruction
 
         public void StartAgentsAndBuildBlocks(Document doc)
         {
-            if (GlobalKnowledge.Instance.Pheromones.IsEmpty)
+            // Add initial Pheromone
+            if (GlobalKnowledge.Instance.SpacePheromones.IsEmpty)
             {
-                // Add initial Pheromone
-                GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(50, 0, Pheromonetype.Initial, new Position(0, 0, 0)));
-                GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(7.5, 0, Pheromonetype.Space, new Position(0, 0, 0)));
+                GlobalKnowledge.Instance.SpacePheromones.Add(new Pheromone(7.5, 0, Pheromonetype.Space, new Position(0, 0, 0)));
             }
 
-            RunAgents(50, 1);
+            RunAgents(75, 1);
 
             // Create building cubes
             foreach (BuildingShape buildingShape in GlobalKnowledge.Instance.StepBlocks)
@@ -98,7 +97,7 @@ namespace SelfConstruction
                 _cube.CreateCube(doc, new XYZ(buildingShape.Position.X, buildingShape.Position.Y, buildingShape.Position.Z), false);
             }
             // Create pheromone spheres
-            foreach (var pheromone in GlobalKnowledge.Instance.Pheromones)
+            foreach (var pheromone in GlobalKnowledge.Instance.SpacePheromones)
             {
                 if (pheromone.Pheromonetype != Pheromonetype.Initial && pheromone.Pheromonetype != Pheromonetype.Build)
                 {
@@ -143,11 +142,8 @@ namespace SelfConstruction
             {
                 List<Thread> workerThreads = new List<Thread>();
 
-#if (DEBUG)
-                GlobalKnowledge.Instance.Agents.ElementAt(0).DoStep();
-#endif
+                // GlobalKnowledge.Instance.Agents.ElementAt(0).DoStep();
 
-#if(!DEBUG)
                 // Replace for debugging
                 foreach (Agent agent in GlobalKnowledge.Instance.Agents)
                 {
@@ -155,7 +151,6 @@ namespace SelfConstruction
                     thread.Start();
                     workerThreads.Add(thread);
                 }
-#endif
 
                 foreach (Thread workerThread in workerThreads)
                 {

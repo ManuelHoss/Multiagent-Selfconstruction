@@ -14,6 +14,7 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
 
         List<Position> lastActions = new List<Position>();
         private bool _decrement = false;
+        private int _maxStepsWithoutBuild = new Random().Next(15,25);
    
 
         #endregion
@@ -25,7 +26,7 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
             {
                 movement = GetRandomMovementAction();
                 lastActions.Add(currentPosition);
-                _decrement = lastActions.Count == 20;
+                _decrement = lastActions.Count == _maxStepsWithoutBuild;
             }
             else if (_decrement && lastActions.Any())
             {
@@ -48,6 +49,7 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
         {
             _decrement = false;
             lastActions = new List<Position>();
+            _maxStepsWithoutBuild = new Random().Next(5,40);
         }
 
         private MovementAction GetRandomMovementAction()

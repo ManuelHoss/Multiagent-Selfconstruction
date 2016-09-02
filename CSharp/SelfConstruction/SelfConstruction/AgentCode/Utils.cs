@@ -64,12 +64,12 @@ namespace SelfConstruction.AgentCode
         /// <param name="pheromones">The pheromones.</param>
         public void RemoveVaporatedPheromones()
         {
-            foreach (Pheromone pheromone in GlobalKnowledge.Instance.Pheromones)
+            foreach (Pheromone pheromone in GlobalKnowledge.Instance.BuildPheromones)
             {
                 if (pheromone.Intensity < 2)
                 {
                     Pheromone t = pheromone;
-                    GlobalKnowledge.Instance.Pheromones.TryTake(out t);
+                    GlobalKnowledge.Instance.BuildPheromones.TryTake(out t);
                 }
             }
         }

@@ -10,13 +10,13 @@ namespace SelfConstruction.AgentCode.PheromoneModels
 {
     public class SpaceBuildPheromoneModel : IPheromoneModel
     {
-        private List<Pheromone> _initialPheromones;
+        private List<Pheromone> _initialPheromones = new List<Pheromone> {GlobalKnowledge.Instance.InitialPheromone};
         private List<Pheromone> _buildPheromones;
         private List<Pheromone> _spacePheromones;
         private double _initialPheromoneIntensity;
         private double _buildPheromoneIntensity;
         private double _spacePheromoneIntensity;
-        private static int MAX_SPACEPHEROMONES = 1;
+        private static int MAX_SPACEPHEROMONES = 2;
 
         /// <summary>
         /// Evaluates if an agent should build a cube according to its pheromone influences.
@@ -28,7 +28,7 @@ namespace SelfConstruction.AgentCode.PheromoneModels
             // Only build in specific range around a SpacePheromone
             CalculatePheromoneInfluences(position);
             return /*(_buildPheromoneIntensity >= 0.0005 || Math.Abs(_buildPheromoneIntensity) < 0.0005) 
-                &&*/ _spacePheromoneIntensity < 0.13
+                &&*/ _spacePheromoneIntensity < 0.134
                 && _spacePheromoneIntensity > 0.07
                 && _initialPheromoneIntensity > 0;
         }
@@ -71,9 +71,8 @@ namespace SelfConstruction.AgentCode.PheromoneModels
         /// </summary>
         private void UpdatePheromones()
         {
-            _initialPheromones = GlobalKnowledge.Instance.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Initial).ToList();
-            _buildPheromones = GlobalKnowledge.Instance.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Build).ToList();
-            _spacePheromones = GlobalKnowledge.Instance.Pheromones.Where(pheromone => pheromone.Pheromonetype == Pheromonetype.Space).ToList();
+            _buildPheromones = GlobalKnowledge.Instance.BuildPheromones.ToList();
+            _spacePheromones = GlobalKnowledge.Instance.SpacePheromones.ToList();
         }
 
         /// <summary>
@@ -87,9 +86,9 @@ namespace SelfConstruction.AgentCode.PheromoneModels
 
             // Calculate pheromone influences on specific agent
             AntBuildCalculations buildCalculations = new AntBuildCalculations();
-            _initialPheromoneIntensity = buildCalculations.GetMostInfluentalIntesity(position, Pheromonetype.Initial);
-            _buildPheromoneIntensity = buildCalculations.GetMostInfluentalIntesity(position, Pheromonetype.Build);
-            _spacePheromoneIntensity = buildCalculations.GetMostInfluentalIntesity(position, Pheromonetype.Space);
+            _initialPheromoneIntensity = buildCalculations.GetMostInfluentialIntesity(position, Pheromonetype.Initial);
+            _buildPheromoneIntensity = buildCalculations.GetMostInfluentialIntesity(position, Pheromonetype.Build);
+            _spacePheromoneIntensity = buildCalculations.GetMostInfluentialIntesity(position, Pheromonetype.Space);
         }
     }
 }

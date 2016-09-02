@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using SelfConstruction.AgentCode.Interfaces;
@@ -43,11 +44,18 @@ namespace SelfConstruction.AgentCode
             }
 
             // Vaporation process
-            foreach (Pheromone t in GlobalKnowledge.Instance.Pheromones)
+            //TODO: Optimize!!! AND ADD SPACE!!!
+            ConcurrentBag<Pheromone> build = new ConcurrentBag<Pheromone>();
+
+            foreach (Pheromone pheromone in GlobalKnowledge.Instance.BuildPheromones)
             {
-                Pheromone pheromone = t;
-                pheromone.Intensity -= pheromone.Intensity*pheromone.VaporationRate;
+                Pheromone t = pheromone;
+                t.Intensity -= t.Intensity*t.VaporationRate;
+                build.Add(t);
             }
+
+            GlobalKnowledge.Instance.BuildPheromones = build;
+
         }
 
         private void Build()
@@ -58,7 +66,7 @@ namespace SelfConstruction.AgentCode
             {
                 GlobalKnowledge.Instance.Blocks.Add(new BuildingShape(Position));
                 GlobalKnowledge.Instance.StepBlocks.Add(new BuildingShape(Position));
-                GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(position: Position, intensity: 3, pheromonetype: Pheromonetype.Build, vaporationRate: 0.001));
+                GlobalKnowledge.Instance.BuildPheromones.Add(new Pheromone(position: Position, intensity: 3, pheromonetype: Pheromonetype.Build, vaporationRate: 0.001));
                 // Write build action to log file
                 logString += "BUILD|";
                 Movement.SetBuild();
@@ -68,7 +76,6 @@ namespace SelfConstruction.AgentCode
         private void Remove()
         {
             IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
-            AntBuildCalculations antBuildCalculations = new AntBuildCalculations();
 
             // Check if there is a cube in V26 of the Agent that has to be removed
             List<Position> surroundingCells = GetSurroundingCells();
@@ -92,10 +99,16 @@ namespace SelfConstruction.AgentCode
                 {
                     Console.WriteLine(String.Format("Shape {0} could not be deleted!"), shapeToDelete);
                 }
-                Pheromone pheromoneToDelete =
-                    GlobalKnowledge.Instance.Pheromones.FirstOrDefault(
-                        p => p.Position.Equals(shapeToDelete.Position) && p.Pheromonetype == Pheromonetype.Build);
-                GlobalKnowledge.Instance.Pheromones.TryTake(out pheromoneToDelete);
+                IEnumerable<Pheromone> pheromonesToDelete =
+                    GlobalKnowledge.Instance.BuildPheromones.Where(
+                        p => p.Position.Equals(shapeToDelete.Position));
+                if (pheromonesToDelete.Any())
+                {
+                    Pheromone pheromoneToDelete = pheromonesToDelete.FirstOrDefault();
+                    GlobalKnowledge.Instance.BuildPheromones.TryTake(out pheromoneToDelete);
+
+                }
+                
             }
         }
 
@@ -106,7 +119,7 @@ namespace SelfConstruction.AgentCode
             if (pheromoneModel.ShouldPlaceSpacePheromone(this))
             {
                 GlobalKnowledge.Instance.StepBlocks.Add(new BuildingShape(Position));
-                GlobalKnowledge.Instance.Pheromones.Add(new Pheromone(position: Position, intensity: 7.5, pheromonetype: Pheromonetype.Space, vaporationRate: 0));
+                GlobalKnowledge.Instance.SpacePheromones.Add(new Pheromone(position: Position, intensity: 7.5, pheromonetype: Pheromonetype.Space, vaporationRate: 0));
                 GlobalKnowledge.Instance.SpacePheromoneCounter++;
                 // Write SpacePheromone action to log file
                 logString += "SPACE|";
@@ -179,7 +192,7 @@ namespace SelfConstruction.AgentCode
         {
             AntBuildCalculations antBuildCalculations = new AntBuildCalculations();
             return antBuildCalculations.SumUpPheromoneIntensity(Position,
-                GlobalKnowledge.Instance.Pheromones.Where(p => p.Pheromonetype == Pheromonetype.Build).ToList());
+                GlobalKnowledge.Instance.BuildPheromones.ToList());
         }
 
         private List<Position> GetSurroundingCells()

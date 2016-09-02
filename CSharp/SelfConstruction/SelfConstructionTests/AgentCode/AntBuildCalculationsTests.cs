@@ -37,7 +37,7 @@ namespace SelfConstructionTests.AgentCode
             pheromones.Add(pheromone2);
             pheromones.Add(pheromone3);
 
-            GlobalKnowledge.Instance.Pheromones = pheromones;
+            GlobalKnowledge.Instance.BuildPheromones = pheromones;
         
             AntBuildCalculations antBuildCalculations = new AntBuildCalculations();
 
@@ -64,7 +64,7 @@ namespace SelfConstructionTests.AgentCode
             pheromones.Add(pheromone4);
 
             IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
-            GlobalKnowledge.Instance.Pheromones = pheromones;
+            GlobalKnowledge.Instance.BuildPheromones = pheromones;
 
             Assert.IsFalse(pheromoneModel.ShouldBuild(new Position(0, 0, 0)),
                 "Pheromone stärkenberechnung oder Funktion ist fehlerhaft");

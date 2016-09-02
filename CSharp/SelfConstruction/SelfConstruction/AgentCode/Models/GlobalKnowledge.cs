@@ -1,5 +1,7 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SelfConstruction.AgentCode.Models
 {
@@ -7,7 +9,9 @@ namespace SelfConstruction.AgentCode.Models
     {
         private static GlobalKnowledge _instance;
 
-        private GlobalKnowledge() { }
+        private GlobalKnowledge()
+        {
+        }
 
         public static GlobalKnowledge Instance
         {
@@ -17,14 +21,18 @@ namespace SelfConstruction.AgentCode.Models
                 {
                     _instance = new GlobalKnowledge();
                 }
+
                 return _instance;
             }
         }
 
         public ConcurrentBag<Agent> Agents = new ConcurrentBag<Agent>();
         public ConcurrentBag<BuildingShape> Blocks = new ConcurrentBag<BuildingShape>();
-        public ConcurrentBag<Pheromone> Pheromones = new ConcurrentBag<Pheromone>();
+        public ConcurrentBag<Pheromone> BuildPheromones = new ConcurrentBag<Pheromone>();
+        public ConcurrentBag<Pheromone> SpacePheromones = new ConcurrentBag<Pheromone>();
         public ConcurrentBag<BuildingShape> StepBlocks = new ConcurrentBag<BuildingShape>();
+        public Pheromone InitialPheromone = new Pheromone(50, 0, Pheromonetype.Initial, new Position(0, 0, 0));
+
         public int SpacePheromoneCounter = 0;
     }
 }

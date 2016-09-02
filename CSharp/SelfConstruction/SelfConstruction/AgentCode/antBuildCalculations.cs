@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using SelfConstruction.AgentCode.Models;
@@ -38,7 +39,7 @@ namespace SelfConstruction.AgentCode
         {
             List<Tuple<Pheromone, double>> mostInfluential = new List<Tuple<Pheromone, double>>();
            
-            foreach (Pheromone pheromone in GlobalKnowledge.Instance.Pheromones)
+            foreach (Pheromone pheromone in GlobalKnowledge.Instance.BuildPheromones)
             {
                 double distance = Utils.Instance.CalculateDistanceToBrick(pheromone.Position, position);
 
@@ -68,20 +69,30 @@ namespace SelfConstruction.AgentCode
             return pheromoneIntensity;
         }
 
-        public double GetMostInfluentalIntesity(Position position, Pheromonetype pheromonetype)
+        public double GetMostInfluentialIntesity(Position position, Pheromonetype pheromonetype)
         {
-            List<Pheromone> pheromones = GlobalKnowledge.Instance.Pheromones.Where(p => p.Pheromonetype == pheromonetype).ToList();
-            double maxItesity = 0;
-            foreach (Pheromone pheromone in pheromones)
+            ConcurrentBag<Pheromone> list = pheromonetype == Pheromonetype.Build ? GlobalKnowledge.Instance.BuildPheromones :
+            GlobalKnowledge.Instance.SpacePheromones;
+            List<Pheromone> pheromones = list.Where(p => p.Pheromonetype == pheromonetype).ToList();
+            double maxIntesity = 0;
+            if (pheromonetype != Pheromonetype.Initial)
             {
-                double distance = Utils.Instance.CalculateDistanceToBrick(pheromone.Position, position);
-                double pheromoneIntensity = pheromone.Intensity / (distance * distance);
-                if (maxItesity < pheromoneIntensity)
+                foreach (Pheromone pheromone in pheromones)
                 {
-                    maxItesity = pheromoneIntensity;
+                    double distance = Utils.Instance.CalculateDistanceToBrick(pheromone.Position, position);
+                    double pheromoneIntensity = pheromone.Intensity / (distance * distance);
+                    if (maxIntesity < pheromoneIntensity)
+                    {
+                        maxIntesity = pheromoneIntensity;
+                    }
                 }
             }
-            return maxItesity;
+            else
+            {
+                double distance = Utils.Instance.CalculateDistanceToBrick(GlobalKnowledge.Instance.InitialPheromone.Position, position);
+                maxIntesity = GlobalKnowledge.Instance.InitialPheromone.Intensity / (distance * distance);
+            }
+            return maxIntesity;
         }
     }
 }
