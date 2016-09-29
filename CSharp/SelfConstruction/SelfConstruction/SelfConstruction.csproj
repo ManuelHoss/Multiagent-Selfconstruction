@@ -69,13 +69,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\Program Files\Autodesk\Revit 2016\RevitAPI.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2016\RevitAPI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
-      <HintPath>..\..\..\..\Program Files\Autodesk\Revit 2016\RevitAPIUI.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2016\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -88,12 +92,32 @@
     <Compile Include="AgentCode\antBuildCalculations.cs" />
     <Compile Include="AgentCode\AgentCodeAPI.cs" />
     <Compile Include="AgentCode\BuildingShape.cs" />
+    <Compile Include="AgentCode\Interfaces\IPheromoneModel.cs" />
     <Compile Include="AgentCode\Models\GlobalKnowledge.cs" />
     <Compile Include="AgentCode\Models\Position.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\Abstracts\AbstractLearning.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\Abstracts\AbstractValue.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\MovementAction.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\QLearning\Movement.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\QLearning\MovementQLearning.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\QLearning\QValue.cs" />
+    <Compile Include="AgentCode\MovementAlgorithm\ReinforcementLearning\State.cs" />
     <Compile Include="AgentCode\Pheromone.cs" />
     <Compile Include="AgentCode\Models\Pheromonetype.cs" />
+    <Compile Include="AgentCode\PheromoneModels\SpaceBuildPheromoneModel.cs" />
     <Compile Include="AgentCode\Utils.cs" />
-    <Compile Include="Cube.cs" />
+    <Compile Include="GeneticProgrammingCode\GeneticAlgorithm\GeneticAlgorithm.cs" />
+    <Compile Include="GeneticProgrammingCode\GeneticAlgorithm\GeneticAlgorithmVolumeOptimization.cs" />
+    <Compile Include="GeneticProgrammingCode\GeneticAlgorithm\IndividualVolumeOptimization.cs" />
+    <Compile Include="GeneticProgrammingCode\Models\Action.cs" />
+    <Compile Include="GeneticProgrammingCode\Utils\InstructionUtils.cs" />
+    <Compile Include="GeneticProgrammingCode\Models\ActionType.cs" />
+    <Compile Include="GeneticProgrammingCode\GeneticAlgorithm\Generation.cs" />
+    <Compile Include="GeneticProgrammingCode\History.cs" />
+    <Compile Include="GeneticProgrammingCode\GeneticAlgorithm\Individual.cs" />
+    <Compile Include="GeneticProgrammingCode\utils.cs" />
+    <Compile Include="RevitCode\Cube.cs" />
+    <Compile Include="RevitCode\EnergyAnalysis.cs" />
     <Compile Include="SelfConstructionMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -101,6 +125,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RevitCode\Sphere.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -108,6 +133,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -12,7 +12,7 @@ namespace SelfConstruction.AgentCode
         public double Intensity;
         public double VaporationRate;
         public Pheromonetype Pheromonetype;
-        public Position? Position;
+        public Position Position;
 
         public Pheromone(double intensity = 50, double vaporationRate = 0.0000001, 
             Pheromonetype pheromonetype = Pheromonetype.Neutral, Position? position = null)
@@ -20,7 +20,7 @@ namespace SelfConstruction.AgentCode
             Intensity = intensity;
             VaporationRate = vaporationRate;
             Pheromonetype = pheromonetype;
-            Position = position;
+            Position = position ?? new Position(0, 0, 0);
         }
     }
 }

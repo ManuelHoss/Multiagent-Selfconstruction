@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SelfConstruction.AgentCode;
+using SelfConstruction.AgentCode.Interfaces;
 using SelfConstruction.AgentCode.Models;
+using SelfConstruction.AgentCode.PheromoneModels;
 
 namespace SelfConstructionTests.AgentCode
 {
@@ -35,11 +37,11 @@ namespace SelfConstructionTests.AgentCode
             pheromones.Add(pheromone2);
             pheromones.Add(pheromone3);
 
-            GlobalKnowledge globalKnowledge = new GlobalKnowledge() {Pheromones = pheromones};
+            GlobalKnowledge.Instance.BuildPheromones = pheromones;
         
             AntBuildCalculations antBuildCalculations = new AntBuildCalculations();
 
-            List<Pheromone> returnValue = antBuildCalculations.GetSortedPheromoneInfluences(globalKnowledge, new Agent(new Position(0, 0, 0)));
+            List<Pheromone> returnValue = antBuildCalculations.GetSortedPheromoneInfluences(new Position(0, 0, 0));
 
             Assert.AreEqual(pheromone3, returnValue.First(), "Das erste Element ist falsch, Sortierung prüfen" );
             Assert.AreEqual(pheromone1, returnValue.Last(), "Das letzte Element ist falsch, Sortierung prüfen" );
@@ -61,10 +63,10 @@ namespace SelfConstructionTests.AgentCode
             pheromones.Add(pheromone3);
             pheromones.Add(pheromone4);
 
-            AntBuildCalculations antBuildCalculations = new AntBuildCalculations();
-            GlobalKnowledge globalKnowledge = new GlobalKnowledge{ Pheromones = pheromones };
+            IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
+            GlobalKnowledge.Instance.BuildPheromones = pheromones;
 
-            Assert.IsTrue(antBuildCalculations.ShouldBuild(globalKnowledge, new Agent(new Position(0, 0, 0))),
+            Assert.IsFalse(pheromoneModel.ShouldBuild(new Position(0, 0, 0)),
                 "Pheromone stärkenberechnung oder Funktion ist fehlerhaft");
 
         }

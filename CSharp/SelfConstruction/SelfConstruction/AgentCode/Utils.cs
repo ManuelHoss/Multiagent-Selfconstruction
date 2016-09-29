@@ -36,13 +36,12 @@ namespace SelfConstruction.AgentCode
         /// <summary>
         /// Determines whether [is position free] [the specified global knowledge].
         /// </summary>
-        /// <param name="globalKnowledge">The global knowledge.</param>
         /// <param name="positionToCheck">The position to check.</param>
         /// <returns><c>true</c> if [is position free] [the specified global knowledge]; otherwise, <c>false</c>.</returns>
-        public bool IsPositionFree(GlobalKnowledge globalKnowledge, Position positionToCheck)
+        public bool IsPositionFree(Position positionToCheck)
         {
-            var items = globalKnowledge.Blocks.Select(buildingshape => buildingshape.Position).ToList()
-                .Concat(globalKnowledge.Agents.Select(agent => agent.Position).ToList());
+            var items = GlobalKnowledge.Instance.Blocks.Select(buildingshape => buildingshape.Position).ToList()
+                .Concat(GlobalKnowledge.Instance.Agents.Select(agent => agent.Position).ToList());
 
             return !items.Contains(positionToCheck);
             
@@ -63,14 +62,14 @@ namespace SelfConstruction.AgentCode
         /// Removes the vaporated pheromones.
         /// </summary>
         /// <param name="pheromones">The pheromones.</param>
-        public void RemoveVaporatedPheromones(GlobalKnowledge globalKnowledge)
+        public void RemoveVaporatedPheromones()
         {
-            foreach (Pheromone pheromone in globalKnowledge.Pheromones)
+            foreach (Pheromone pheromone in GlobalKnowledge.Instance.BuildPheromones)
             {
                 if (pheromone.Intensity < 2)
                 {
                     Pheromone t = pheromone;
-                    globalKnowledge.Pheromones.TryTake(out t);
+                    GlobalKnowledge.Instance.BuildPheromones.TryTake(out t);
                 }
             }
         }
