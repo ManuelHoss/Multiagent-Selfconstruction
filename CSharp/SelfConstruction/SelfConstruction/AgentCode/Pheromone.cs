@@ -7,6 +7,9 @@ using SelfConstruction.AgentCode.Models;
 
 namespace SelfConstruction.AgentCode
 {
+    /// <summary>
+    /// Basic struct for Pheromones which contains all the properties of that object
+    /// </summary>
     public struct Pheromone
     {
         public double Intensity;

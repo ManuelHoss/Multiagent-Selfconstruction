@@ -15,6 +15,10 @@ namespace SelfConstruction.RevitCode
 
         public static EnergyAnalysis Instance { get; } = new EnergyAnalysis();
 
+        /// <summary>
+        /// Calculates the and display volume and area.
+        /// </summary>
+        /// <param name="doc">The document.</param>
         public void CalculateAndDisplayVolumeAndArea(Document doc)
         {
             CreateRooms(doc);
@@ -24,6 +28,11 @@ namespace SelfConstruction.RevitCode
             settings.ComputeVolumes = true;
         }
 
+        /// <summary>
+        /// Gets the area and volume of the document.
+        /// </summary>
+        /// <param name="doc">The document.</param>
+        /// <returns></returns>
         public double[] GetAreaAndVolume(Document doc)
         {
             FilteredElementCollector col = new FilteredElementCollector(doc).OfClass(typeof(ViewSchedule));
@@ -42,6 +51,10 @@ namespace SelfConstruction.RevitCode
             }
             return new []{area, volume};
         }
+        /// <summary>
+        /// Calculates the roomes.
+        /// </summary>
+        /// <param name="doc">The document.</param>
         private static void CreateRooms(Document doc)
         {
             FilteredElementCollector viewCollector = new FilteredElementCollector(doc).OfClass(typeof(ViewPlan));
@@ -63,6 +76,10 @@ namespace SelfConstruction.RevitCode
                 }
             }
         }
+        /// <summary>
+        /// Creates the schedule. Schedule is the plan which displays the properties.
+        /// </summary>
+        /// <param name="doc">The document.</param>
         private void CreateSchedule(Document doc)
         {
             ViewSchedule vs = ViewSchedule.CreateSchedule(doc, new ElementId(BuiltInCategory.OST_Rooms));
@@ -74,6 +91,11 @@ namespace SelfConstruction.RevitCode
             AddRegularFieldToSchedule(vs, new ElementId(BuiltInParameter.ROOM_LEVEL_ID));
         }
 
+        /// <summary>
+        /// Adds the regular field to schedule.
+        /// </summary>
+        /// <param name="schedule">The schedule.</param>
+        /// <param name="paramId">The parameter identifier.</param>
         public static void AddRegularFieldToSchedule(ViewSchedule schedule, ElementId paramId)
         {
             ScheduleDefinition definition = schedule.Definition;
@@ -85,27 +107,6 @@ namespace SelfConstruction.RevitCode
             {
                 definition.AddField(schedulableField);
             }
-        }
-
-        [Obsolete("SpacesEnergyAnalysis is deprecated, because spaces is not used anymore. Could be deleted")]
-        public void SpacesEnergyAnalysis(Document doc)
-        {
-            EnergyAnalysisDetailModelOptions options = new EnergyAnalysisDetailModelOptions
-            {
-                Tier = EnergyAnalysisDetailModelTier.NotComputed,
-                EnergyModelType = EnergyModelType.SpatialElement
-            };
-
-            EnergyAnalysisDetailModel analysisDetailModel = EnergyAnalysisDetailModel.Create(doc, options);
-
-            IList<EnergyAnalysisSpace> spaces = analysisDetailModel.GetAnalyticalSpaces();
-            StringBuilder builder = new StringBuilder();
-            builder.AppendLine("Spaces: " + spaces.Count);
-            foreach (EnergyAnalysisSpace space in spaces)
-            {
-                builder.AppendLine(space.Name + " InnVolume " + space.InnerVolume);
-            }
-            TaskDialog.Show("EAM", builder.ToString());
         }
     }
 }

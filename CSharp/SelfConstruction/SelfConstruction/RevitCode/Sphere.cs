@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using Autodesk.Revit.DB;
 using SelfConstruction.AgentCode;
+using SelfConstruction.AgentCode.Models;
 
 namespace SelfConstruction.RevitCode
 {
     public class Sphere
     {
+        /// <summary>
+        /// Creates the sphere (e.g. Spacepheromone).
+        /// </summary>
+        /// <param name="doc">The document.</param>
+        /// <param name="spherePosition">The sphere position.</param>
+        /// <param name="radius">The radius.</param>
+        /// <param name="pheromonetype">The pheromonetype.</param>
+        /// <returns></returns>
         public ElementId CreateSphere(Document doc, XYZ spherePosition, double radius, Pheromonetype pheromonetype)
         {
             List<Curve> profile = new List<Curve>();
@@ -15,7 +24,6 @@ namespace SelfConstruction.RevitCode
             // first create sphere with 2' radius
             XYZ sphereCenter = spherePosition;
             double _radius = radius;
-            XYZ profile00 = sphereCenter;
             XYZ profilePlus = sphereCenter + new XYZ(0, _radius, 0);
             XYZ profileMinus = sphereCenter - new XYZ(0, _radius, 0);
 

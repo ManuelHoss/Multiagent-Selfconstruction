@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Net.Mime;
 using System.Threading;
 using System.Windows.Forms;
 using Autodesk.Revit.Attributes;
@@ -13,7 +12,6 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using SelfConstruction.AgentCode;
 using SelfConstruction.AgentCode.Models;
-using SelfConstruction.GeneticProgrammingCode;
 using SelfConstruction.GeneticProgrammingCode.Logger;
 using SelfConstruction.RevitCode;
 using Point = System.Drawing.Point;
@@ -81,6 +79,10 @@ namespace SelfConstruction
         }
 
 
+        /// <summary>
+        /// Starts the agents and build blocks.
+        /// </summary>
+        /// <param name="doc">The document.</param>
         public void StartAgentsAndBuildBlocks(Document doc)
         {
             // Add initial Pheromone
@@ -128,6 +130,11 @@ namespace SelfConstruction
             instructionUtils.WriteActionSequenceToFile(GlobalKnowledge.Instance.Agents.ToList());
         }
 
+        /// <summary>
+        /// Runs the agents.
+        /// </summary>
+        /// <param name="agentCount">The agent count.</param>
+        /// <param name="loops">The loops.</param>
         public void RunAgents(int agentCount, int loops)
         {
             if (GlobalKnowledge.Instance.Agents.Count != agentCount)

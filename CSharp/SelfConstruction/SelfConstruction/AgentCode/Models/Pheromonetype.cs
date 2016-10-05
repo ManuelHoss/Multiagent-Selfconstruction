@@ -1,5 +1,8 @@
-﻿namespace SelfConstruction.AgentCode
+﻿namespace SelfConstruction.AgentCode.Models
 {
+    /// <summary>
+    /// Enum for all Pheromone types
+    /// </summary>
     public enum Pheromonetype
     {
         Initial = 1,

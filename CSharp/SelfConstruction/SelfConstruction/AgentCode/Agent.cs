@@ -14,17 +14,25 @@ namespace SelfConstruction.AgentCode
     {
         public Position Position;
         public BuildingShape? Payload;
-        public String logString = "";
+        public string logString = "";
         public Movement Movement= new Movement();
 
         private double _lastBuildPheromoneInfluence = 0;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Agent"/> class.
+        /// </summary>
+        /// <param name="position">The position.</param>
+        /// <param name="payload">The payload.</param>
         public Agent(Position? position = null, BuildingShape? payload = null)
         {
             Position = position ?? new Position(0, 0, 0);
             Payload = payload;
         }
 
+        /// <summary>
+        /// Does the step.
+        /// </summary>
         public void DoStep()
         {
             Remove();
@@ -58,6 +66,9 @@ namespace SelfConstruction.AgentCode
 
         }
 
+        /// <summary>
+        /// The Build action
+        /// </summary>
         private void Build()
         {
             IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
@@ -69,10 +80,13 @@ namespace SelfConstruction.AgentCode
                 GlobalKnowledge.Instance.BuildPheromones.Add(new Pheromone(position: Position, intensity: 3, pheromonetype: Pheromonetype.Build, vaporationRate: 0.001));
                 // Write build action to log file
                 logString += "BUILD|";
-                Movement.SetBuild();
+                Movement.ResetCauseOfBuild();
             }
         }
 
+        /// <summary>
+        /// The Remove action
+        /// </summary>
         private void Remove()
         {
             IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
@@ -112,6 +126,9 @@ namespace SelfConstruction.AgentCode
             }
         }
 
+        /// <summary>
+        /// Places the space pheromone.
+        /// </summary>
         private void PlaceSpacePheromone()
         {
             IPheromoneModel pheromoneModel = new SpaceBuildPheromoneModel();
@@ -126,6 +143,10 @@ namespace SelfConstruction.AgentCode
             }
         }
 
+        /// <summary>
+        /// Moves the agent depending on the moveaction
+        /// </summary>
+        /// <param name="action">The action.</param>
         public void Move(MovementAction action)
         {
             int random = new Random().Next(8);
@@ -135,31 +156,31 @@ namespace SelfConstruction.AgentCode
             {
                 case MovementAction.MoveLeft:
                     // Negative movent on X-Axis
-                    cubePositionList = new List<int>() { 2, 5, 8, 12, 15, 18, 22, 25, 28 };
+                    cubePositionList = new List<int> { 2, 5, 8, 12, 15, 18, 22, 25, 28 };
                     break;
                 case MovementAction.MoveRight:
                     // Positive movent on X-Axis
-                    cubePositionList = new List<int>() { 0, 3, 6, 10, 13, 16, 20, 23, 26 };
+                    cubePositionList = new List<int> { 0, 3, 6, 10, 13, 16, 20, 23, 26 };
                     break;
                 case MovementAction.MoveUp:
                     // Positive movent on Y-Axis
-                    cubePositionList = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+                    cubePositionList = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
                     break;
                 case MovementAction.MoveDown:
                     // Positive movent on Y-Axis
-                    cubePositionList = new List<int>() { 20, 21, 22, 23, 24, 25, 26, 27, 28 };
+                    cubePositionList = new List<int> { 20, 21, 22, 23, 24, 25, 26, 27, 28 };
                     break;
                 case MovementAction.MoveBackward:
                     // Positive movent on Z-Axis
-                    cubePositionList = new List<int>() { 0, 1, 2, 10, 11, 12, 20, 21, 22 };
+                    cubePositionList = new List<int> { 0, 1, 2, 10, 11, 12, 20, 21, 22 };
                     break;
                 case MovementAction.MoveForward:
                     // Positive movent on Z-Axis
-                    cubePositionList = new List<int>() { 6, 7, 8, 16, 17, 18, 26, 27, 28 };
+                    cubePositionList = new List<int> { 6, 7, 8, 16, 17, 18, 26, 27, 28 };
                     break;
                 default:
                     random = 0;
-                    cubePositionList = new List<int>() { new Random().Next(28) };
+                    cubePositionList = new List<int> { new Random().Next(28) };
                     break;
             }
             
@@ -177,17 +198,29 @@ namespace SelfConstruction.AgentCode
             }
         }
 
+        /// <summary>
+        /// Moves to specified position.
+        /// </summary>
+        /// <param name="position">The position.</param>
         public void Move(Position position)
         {
             this.Position = position;
         }
 
+        /// <summary>
+        /// Gets the reward.
+        /// </summary>
+        /// <returns></returns>
         public double GetReward()
         {
             return CalculateBuildingPheromoneInfluence() - _lastBuildPheromoneInfluence;
         }
 
 
+        /// <summary>
+        /// Calculates the building pheromone influence.
+        /// </summary>
+        /// <returns></returns>
         private double CalculateBuildingPheromoneInfluence()
         {
             AntBuildCalculations antBuildCalculations = new AntBuildCalculations();
@@ -195,6 +228,10 @@ namespace SelfConstruction.AgentCode
                 GlobalKnowledge.Instance.BuildPheromones.ToList());
         }
 
+        /// <summary>
+        /// Gets the surrounding cells.
+        /// </summary>
+        /// <returns></returns>
         private List<Position> GetSurroundingCells()
         {
             List<Position> surroundingCartesianCoordinates = new List<Position>();
@@ -209,6 +246,11 @@ namespace SelfConstruction.AgentCode
             return surroundingCartesianCoordinates;
         }
 
+        /// <summary>
+        /// Calculates the cartesian position.
+        /// </summary>
+        /// <param name="cubePosition">The cube position.</param>
+        /// <returns></returns>
         private Position CalculateCartesianPosition(int cubePosition)
         {
             Position nextPosition = this.Position;

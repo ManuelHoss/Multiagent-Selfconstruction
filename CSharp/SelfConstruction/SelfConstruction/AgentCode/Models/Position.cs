@@ -1,5 +1,8 @@
 ﻿namespace SelfConstruction.AgentCode.Models
 {
+    /// <summary>
+    /// This represents a basic Position in a 3D-Area (used for every step and build)
+    /// </summary>
     public struct Position
     {
         public int X;

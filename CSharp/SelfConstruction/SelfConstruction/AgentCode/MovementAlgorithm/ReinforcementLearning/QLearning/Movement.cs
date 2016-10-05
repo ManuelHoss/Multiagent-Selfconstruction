@@ -15,10 +15,16 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
         List<Position> lastActions = new List<Position>();
         private bool _decrement = false;
         private int _maxStepsWithoutBuild = new Random().Next(15,25);
-   
+
 
         #endregion
 
+        /// <summary>
+        /// Chooses the movement action depending on last steps
+        /// if there where many steps without a build, the agent should walk backwards
+        /// </summary>
+        /// <param name="currentPosition">The current position.</param>
+        /// <returns></returns>
         public object ChooseMovementAction(Position currentPosition)
         {
             object movement = GetRandomMovementAction();
@@ -45,13 +51,21 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
             return movement;
         }
 
-        public void SetBuild()
+
+        /// <summary>
+        /// Resets the stepcounter because of a buildaction
+        /// </summary>
+        public void ResetCauseOfBuild()
         {
             _decrement = false;
             lastActions = new List<Position>();
             _maxStepsWithoutBuild = new Random().Next(5,40);
         }
 
+        /// <summary>
+        /// Gets the random movement action.
+        /// </summary>
+        /// <returns></returns>
         private MovementAction GetRandomMovementAction()
         {
             Array values = Enum.GetValues(typeof(MovementAction));
@@ -59,36 +73,5 @@ namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLe
             return (MovementAction) values.GetValue(random.Next(values.Length));
         }
         
-
-        private MovementAction getOppositeMovementAction(MovementAction move)
-        {
-            MovementAction movementAction;
-            switch (move)
-            {
-                case MovementAction.MoveBackward:
-                    movementAction = MovementAction.MoveForward;
-                    break;
-                case MovementAction.MoveForward:
-                    movementAction = MovementAction.MoveBackward;
-                    break;
-                case MovementAction.MoveUp:
-                    movementAction = MovementAction.MoveDown;
-                    break;
-                case MovementAction.MoveDown:
-                    movementAction = MovementAction.MoveUp;
-                    break;
-                case MovementAction.MoveLeft:
-                    movementAction = MovementAction.MoveRight;
-                    break;
-                case MovementAction.MoveRight:
-                    movementAction = MovementAction.MoveLeft;
-                    break;
-                default:
-                    movementAction = MovementAction.MoveUp;
-                    break;
-            }
-
-            return movementAction;
-        }
     }
 }

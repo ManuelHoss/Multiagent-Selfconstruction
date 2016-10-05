@@ -69,6 +69,12 @@ namespace SelfConstruction.AgentCode
             return pheromoneIntensity;
         }
 
+        /// <summary>
+        /// Gets the most influential intesity.
+        /// </summary>
+        /// <param name="position">The position.</param>
+        /// <param name="pheromonetype">The pheromonetype.</param>
+        /// <returns></returns>
         public double GetMostInfluentialIntesity(Position position, Pheromonetype pheromonetype)
         {
             ConcurrentBag<Pheromone> list = pheromonetype == Pheromonetype.Build ? GlobalKnowledge.Instance.BuildPheromones :

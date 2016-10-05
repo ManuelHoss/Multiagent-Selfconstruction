@@ -6,6 +6,13 @@ namespace SelfConstruction.RevitCode
 {
     public class Cube
     {
+        /// <summary>
+        /// Creates the cube.
+        /// </summary>
+        /// <param name="doc">The current opened document.</param>
+        /// <param name="cubePosition">The cube position.</param>
+        /// <param name="isAgent">if set to <c>true</c> [is agent].</param>
+        /// <returns></returns>
         public ElementId CreateCube(Document doc, XYZ cubePosition, bool isAgent)
         {
             TessellatedShapeBuilder builder = new TessellatedShapeBuilder();

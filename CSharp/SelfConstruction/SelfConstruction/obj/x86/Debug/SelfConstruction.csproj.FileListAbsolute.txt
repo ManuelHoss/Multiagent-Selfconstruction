@@ -4,4 +4,5 @@ C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\x86\
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\x86\Debug\SelfConstruction.csproj.GenerateResource.Cache
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\x86\Debug\SelfConstruction.dll
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\x86\Debug\SelfConstruction.pdb
-C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\x86\Debug\SelfConstruction.csprojResolveAssemblyReference.cache
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\bin\x86\Debug\SelfConstruction.dll.CodeAnalysisLog.xml
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\bin\x86\Debug\SelfConstruction.dll.lastcodeanalysissucceeded

@@ -7,3 +7,4 @@ C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\obj\Debug\SelfConstructionTests.csprojResolveAssemblyReference.cache
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\obj\Debug\SelfConstructionTests.dll
 C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\obj\Debug\SelfConstructionTests.pdb
+C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionTests\bin\Debug\de\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
