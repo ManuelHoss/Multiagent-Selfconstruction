@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Autodesk.Revit.DB;
-using SelfConstruction.AgentCode;
 using SelfConstruction.AgentCode.Models;
 
 namespace SelfConstruction.RevitCode
@@ -10,7 +9,7 @@ namespace SelfConstruction.RevitCode
     public class Sphere
     {
         /// <summary>
-        /// Creates the sphere (e.g. Spacepheromone).
+        /// Creates the sphere (e.g. SpacePheromone).
         /// </summary>
         /// <param name="doc">The document.</param>
         /// <param name="spherePosition">The sphere position.</param>

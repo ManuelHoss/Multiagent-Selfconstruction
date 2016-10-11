@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Concurrent;
 
 namespace SelfConstruction.AgentCode.Models
 {
@@ -27,7 +24,7 @@ namespace SelfConstruction.AgentCode.Models
         /// </summary>
         public ConcurrentBag<Agent> Agents = new ConcurrentBag<Agent>();
         /// <summary>
-        /// Contains the already builded blocks
+        /// Contains the already built blocks
         /// </summary>
         public ConcurrentBag<BuildingShape> Blocks = new ConcurrentBag<BuildingShape>();
         /// <summary>
@@ -35,7 +32,7 @@ namespace SelfConstruction.AgentCode.Models
         /// </summary>
         public ConcurrentBag<Pheromone> BuildPheromones = new ConcurrentBag<Pheromone>();
         /// <summary>
-        /// The currentspace pheromones
+        /// The current space pheromones
         /// </summary>
         public ConcurrentBag<Pheromone> SpacePheromones = new ConcurrentBag<Pheromone>();
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿using SelfConstruction.AgentCode.Models;
 
-namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning
+namespace SelfConstruction.AgentCode.MovementAlgorithm
 {
     /// <summary>
     /// Class that represents the current situation of an Agent.

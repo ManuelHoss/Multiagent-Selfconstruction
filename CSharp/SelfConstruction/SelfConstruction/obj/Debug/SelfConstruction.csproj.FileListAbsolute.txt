@@ -71,3 +71,4 @@ C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\bin\Debu
 C:\multiagent-selfconstruction\Multiagent-Selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\Debug\SelfConstruction.csprojResolveAssemblyReference.cache
 C:\multiagent-selfconstruction\Multiagent-Selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\Debug\SelfConstruction.Properties.Resources.resources
 C:\multiagent-selfconstruction\Multiagent-Selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\Debug\SelfConstruction.csproj.GenerateResource.Cache
+C:\Multiagent-Selfconstruction\CSharp\SelfConstruction\SelfConstruction\obj\Debug\SelfConstruction.csprojResolveAssemblyReference.cache

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using SelfConstruction.AgentCode.Models;
-using SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.Abstracts;
 
-namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLearning
+namespace SelfConstruction.AgentCode.MovementAlgorithm
 {
     public class Movement
     {

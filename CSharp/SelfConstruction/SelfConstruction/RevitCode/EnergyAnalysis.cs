@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.DB.Analysis;
-using Autodesk.Revit.UI;
 
 namespace SelfConstruction.RevitCode
 {
@@ -59,7 +56,7 @@ namespace SelfConstruction.RevitCode
         {
             FilteredElementCollector viewCollector = new FilteredElementCollector(doc).OfClass(typeof(ViewPlan));
 
-            //This list is needed, because otherwise there is an error, of multiple roomdeclarations of the same room
+            //This list is needed, because otherwise there is an error, of multiple room declarations of the same room
             List<string> accessedLevels = new List<string>();
 
             foreach (var element in viewCollector)

@@ -1,4 +1,4 @@
-﻿namespace SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning
+﻿namespace SelfConstruction.AgentCode.MovementAlgorithm
 {
     public enum MovementAction
     {

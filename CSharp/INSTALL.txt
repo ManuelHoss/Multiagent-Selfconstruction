@@ -1,7 +1,10 @@
-BETA, noch nicht sicher ob die installation durch diese schritte gegeben ist!!!
-
-
-1. SelfConstruction.addin in C:\ProgramData\Autodesk\Revit\Addins\2016 kopieren
-2. multiagent-selfconstruction ordner MUSS in C:\ kopiert werden (andernfalls geht es nicht, könnte in der manifest datei geändert werden)
-3. "Use Managed Compability Mode" in Debugging/General einstallen (Visual Studio)
-4. Um Unit tests auszuführen muss auf x86 gestellt sein, für Revit auf x64!!!
+1. Copy SelfConstruction.addin in C:\ProgramData\Autodesk\Revit\Addins\2016.
+2. Adjust -path in SelfConstruction.addin to the outputpath of your project. (E.g.: "C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstruction\bin\x64\Debug\SelfConstruction.dll")
+3. Activate "Use Managed Compability Mode" in Visual Studio. (Debug -> Options -> General)
+4. Select x64 to run Selfconstruction in Revit or x86 to run Unit tests.
+5. Enter debug information in SelfConstruction -> Properties:
+   Start external program: C:\Program Files\Autodesk\Revit 2016\Revit.exe (Your Revit path)
+   Command line arguments: C:\multiagent-selfconstruction\CSharp\SelfConstruction\SelfConstructionVorlage.rvt /language ENU (Adjust Path to your project path)
+5. To execute the plugin, run solution in Visual Studio 
+   -> Revit opens -> In Revit open the Add-Ins tab 
+   -> On "External Tools" click "SelfConstruction". auf x86 gestellt sein, für Revit auf x64!!!

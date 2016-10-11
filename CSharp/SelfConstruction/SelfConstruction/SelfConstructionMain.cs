@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using Autodesk.Revit.Attributes;
@@ -12,7 +11,6 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using SelfConstruction.AgentCode;
 using SelfConstruction.AgentCode.Models;
-using SelfConstruction.GeneticProgrammingCode.Logger;
 using SelfConstruction.RevitCode;
 using Point = System.Drawing.Point;
 using Utils = SelfConstruction.AgentCode.Utils;
@@ -31,8 +29,7 @@ namespace SelfConstruction
         {
             for (int i = 0; i < 2000; i++)
             {
-                revit.Application.OpenAndActivateDocument(
-                    "C:\\multiagent-selfconstruction\\CSharp\\SelfConstruction\\SelfConstructionVorlage.rvt");
+                revit.Application.OpenAndActivateDocument("C:\\multiagent-selfconstruction\\CSharp\\SelfConstruction\\SelfConstructionVorlage.rvt");
                 Document doc = revit.Application.ActiveUIDocument.Document;
                 using (Transaction transaction = new Transaction(doc))
                 {
@@ -47,18 +44,7 @@ namespace SelfConstruction
                 
                 CreateScreenshot(i);
 
-
                 double[] areaAndVolume = EnergyAnalysis.Instance.GetAreaAndVolume(doc);
-
-                //TODO: Here we should do the genetic programming and checking the volume
-//                using (Transaction transaction = new Transaction(doc))
-//                    {
-//                        transaction.Start("Remove");
-//                        FilteredElementCollector allDirectShapes =
-//                        new FilteredElementCollector(doc).OfClass(typeof(DirectShape));
-//                    doc.Delete(allDirectShapes.ToElementIds());
-//                    transaction.Commit();
-//                }
             }
 
             return Result.Succeeded;
@@ -124,10 +110,6 @@ namespace SelfConstruction
             {
                 _tempAgents.Add(_cube.CreateCube(doc, new XYZ(agent.Position.X, agent.Position.Y, agent.Position.Z), true));
             }
-
-            // Write log file
-            InstructionUtils instructionUtils = new InstructionUtils();
-            instructionUtils.WriteActionSequenceToFile(GlobalKnowledge.Instance.Agents.ToList());
         }
 
         /// <summary>

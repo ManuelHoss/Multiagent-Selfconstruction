@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SelfConstruction.AgentCode.Interfaces;
 using SelfConstruction.AgentCode.Models;
-using SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning;
-using SelfConstruction.AgentCode.MovementAlgorithm.ReinforcementLearning.QLearning;
+using SelfConstruction.AgentCode.MovementAlgorithm;
 using SelfConstruction.AgentCode.PheromoneModels;
 
 namespace SelfConstruction.AgentCode
