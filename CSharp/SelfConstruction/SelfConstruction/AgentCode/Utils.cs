@@ -4,11 +4,21 @@ using SelfConstruction.AgentCode.Models;
 
 namespace SelfConstruction.AgentCode
 {
-    public class Utils
+   /// <summary>
+   /// Class Utils.
+   /// </summary>
+   public class Utils
     {
-        private Utils() { }
+      /// <summary>
+      /// Prevents a default instance of the <see cref="Utils"/> class from being created.
+      /// </summary>
+      private Utils() { }
 
-        public static Utils Instance { get; } = new Utils();
+      /// <summary>
+      /// Gets the instance of <see cref="Utils"/> class.
+      /// </summary>
+      /// <value>The instance.</value>
+      public static Utils Instance { get; } = new Utils();
 
         /// <summary>
         /// Calculates the distance to a specific brick.

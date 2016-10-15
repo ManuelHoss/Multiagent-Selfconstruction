@@ -8,9 +8,16 @@ namespace SelfConstruction.RevitCode
 {
     class EnergyAnalysis
     {
-        private EnergyAnalysis() { }
+      /// <summary>
+      /// Prevents a default instance of the <see cref="EnergyAnalysis"/> class from being created.
+      /// </summary>
+      private EnergyAnalysis() { }
 
-        public static EnergyAnalysis Instance { get; } = new EnergyAnalysis();
+      /// <summary>
+      /// Gets the instance.
+      /// </summary>
+      /// <value>The instance.</value>
+      public static EnergyAnalysis Instance { get; } = new EnergyAnalysis();
 
         /// <summary>
         /// Calculates the and display volume and area.

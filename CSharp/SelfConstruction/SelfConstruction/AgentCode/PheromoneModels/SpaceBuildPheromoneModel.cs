@@ -6,7 +6,11 @@ using SelfConstruction.AgentCode.Models;
 
 namespace SelfConstruction.AgentCode.PheromoneModels
 {
-    public class SpaceBuildPheromoneModel : IPheromoneModel
+   /// <summary>
+   /// Class SpaceBuildPheromoneModel.
+   /// </summary>
+   /// <seealso cref="SelfConstruction.AgentCode.Interfaces.IPheromoneModel" />
+   public class SpaceBuildPheromoneModel : IPheromoneModel
     {
         private List<Pheromone> _initialPheromones = new List<Pheromone> {GlobalKnowledge.Instance.InitialPheromone};
         private List<Pheromone> _buildPheromones;

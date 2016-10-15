@@ -8,7 +8,10 @@ namespace SelfConstruction.AgentCode
     /// </summary>
     public struct BuildingShape
     {
-        public Position Position;
+      /// <summary>
+      /// The position of the BuildingSpape.
+      /// </summary>
+      public Position Position { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BuildingShape"/> struct.

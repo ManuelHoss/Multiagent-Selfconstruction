@@ -7,12 +7,31 @@ namespace SelfConstruction.AgentCode
     /// </summary>
     public struct Pheromone
     {
-        public double Intensity;
-        public double VaporationRate;
-        public Pheromonetype Pheromonetype;
-        public Position Position;
+      /// <summary>
+      /// The intensity
+      /// </summary>
+      public double Intensity { get; set; }
+      /// <summary>
+      /// The evaporation rate
+      /// </summary>
+      public double VaporationRate { get; set; }
+      /// <summary>
+      /// The pheromonetype
+      /// </summary>
+      public Pheromonetype Pheromonetype { get; set; }
+      /// <summary>
+      /// The position of the Pheromone
+      /// </summary>
+      public Position Position { get; set; }
 
-        public Pheromone(double intensity = 50, double vaporationRate = 0.0000001, 
+      /// <summary>
+      /// Initializes a new instance of the <see cref="Pheromone"/> struct.
+      /// </summary>
+      /// <param name="intensity">The intensity.</param>
+      /// <param name="vaporationRate">The vaporation rate.</param>
+      /// <param name="pheromonetype">The pheromonetype.</param>
+      /// <param name="position">The position.</param>
+      public Pheromone(double intensity = 50, double vaporationRate = 0.0000001, 
             Pheromonetype pheromonetype = Pheromonetype.Neutral, Position? position = null)
         {
             Intensity = intensity;

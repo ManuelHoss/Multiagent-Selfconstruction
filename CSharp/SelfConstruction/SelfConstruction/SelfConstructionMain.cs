@@ -17,7 +17,11 @@ using Utils = SelfConstruction.AgentCode.Utils;
 
 namespace SelfConstruction
 {
-    [Transaction(TransactionMode.Manual)]
+   /// <summary>
+   /// Class SelfConstruction.
+   /// </summary>
+   /// <seealso cref="Autodesk.Revit.UI.IExternalCommand" />
+   [Transaction(TransactionMode.Manual)]
     public class SelfConstruction : IExternalCommand
     {
         private readonly Cube _cube = new Cube();
@@ -25,7 +29,14 @@ namespace SelfConstruction
 
         private List<ElementId> _tempAgents;
 
-        public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
+      /// <summary>
+      /// Executes the specified revit.
+      /// </summary>
+      /// <param name="revit">The revit.</param>
+      /// <param name="message">The message.</param>
+      /// <param name="elements">The elements.</param>
+      /// <returns>Result.</returns>
+      public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
             for (int i = 0; i < 2000; i++)
             {

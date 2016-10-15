@@ -6,7 +6,10 @@ using SelfConstruction.AgentCode.Models;
 
 namespace SelfConstruction.RevitCode
 {
-    public class Sphere
+   /// <summary>
+   /// Class Sphere.
+   /// </summary>
+   public class Sphere
     {
         /// <summary>
         /// Creates the sphere (e.g. SpacePheromone).

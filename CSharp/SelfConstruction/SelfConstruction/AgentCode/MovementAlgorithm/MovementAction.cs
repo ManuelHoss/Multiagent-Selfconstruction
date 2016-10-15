@@ -1,6 +1,9 @@
 ﻿namespace SelfConstruction.AgentCode.MovementAlgorithm
 {
-    public enum MovementAction
+   /// <summary>
+   /// Enum MovementAction. Discretize the options of moving in 3D world.
+   /// </summary>
+   public enum MovementAction
     {
         MoveForward,
         MoveBackward,

@@ -6,7 +6,10 @@ using SelfConstruction.AgentCode.Models;
 
 namespace SelfConstruction.AgentCode
 {
-    public class AntBuildCalculations
+   /// <summary>
+   /// Class AntBuildCalculations.
+   /// </summary>
+   public class AntBuildCalculations
     {
         /// <summary>
         /// Calculates the new position of an Agent.

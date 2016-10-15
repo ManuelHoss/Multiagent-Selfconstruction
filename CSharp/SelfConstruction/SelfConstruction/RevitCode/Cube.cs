@@ -4,7 +4,10 @@ using Autodesk.Revit.DB;
 
 namespace SelfConstruction.RevitCode
 {
-    public class Cube
+   /// <summary>
+   /// Class Cube.
+   /// </summary>
+   public class Cube
     {
         /// <summary>
         /// Creates the cube.
