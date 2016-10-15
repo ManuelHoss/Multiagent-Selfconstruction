@@ -27,6 +27,26 @@ namespace SelfConstruction
         private readonly Cube _cube = new Cube();
         private readonly Sphere _sphere = new Sphere();
 
+        /// <summary>
+        /// This Setting defines, whether all agentsteps should be done at once 
+        /// and the revit only build at the end (more fast)
+        /// </summary>
+        private const bool RunAllStepsBeforeBuild = true;
+        /// <summary>
+        /// Sum of steps to be done
+        /// </summary>
+        private const int Steps = 2000;
+        /// <summary>
+        /// Sum of Agents
+        /// </summary>
+        private const int Agents = 40;
+        /// <summary>
+        /// Want to have Screenshots?
+        /// NOTE: RunAllStepsBeforeBuild HAS TO BE FALSE, OTHERWISE THERE IS ONLY ONE SCREENSHOT
+        /// </summary>
+        private const bool Screenshots = false;
+
+
         private List<ElementId> _tempAgents;
 
       /// <summary>
@@ -38,7 +58,8 @@ namespace SelfConstruction
       /// <returns>Result.</returns>
       public Result Execute(ExternalCommandData revit, ref string message, ElementSet elements)
         {
-            for (int i = 0; i < 2000; i++)
+            int helper = RunAllStepsBeforeBuild ? 1 : Steps;
+            for (int i = 0; i < helper; i++)
             {
                 revit.Application.OpenAndActivateDocument("C:\\multiagent-selfconstruction\\CSharp\\SelfConstruction\\SelfConstructionVorlage.rvt");
                 Document doc = revit.Application.ActiveUIDocument.Document;
@@ -52,8 +73,11 @@ namespace SelfConstruction
                 }
 
                 revit.Application.ActiveUIDocument.RefreshActiveView();
-                
-                CreateScreenshot(i);
+
+                if (Screenshots)
+                {
+                    CreateScreenshot(i);
+                }
 
                 double[] areaAndVolume = EnergyAnalysis.Instance.GetAreaAndVolume(doc);
             }
@@ -88,7 +112,8 @@ namespace SelfConstruction
                 GlobalKnowledge.Instance.SpacePheromones.Add(new Pheromone(7.5, 0, Pheromonetype.Space, new Position(0, 0, 0)));
             }
 
-            RunAgents(75, 1);
+            int helper = RunAllStepsBeforeBuild ? Steps : 1;
+            RunAgents(Agents, helper);
 
             // Create building cubes
             foreach (BuildingShape buildingShape in GlobalKnowledge.Instance.StepBlocks)
