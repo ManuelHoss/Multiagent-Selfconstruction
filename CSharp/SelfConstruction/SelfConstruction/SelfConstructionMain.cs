@@ -18,7 +18,8 @@ using Utils = SelfConstruction.AgentCode.Utils;
 namespace SelfConstruction
 {
    /// <summary>
-   /// Class SelfConstruction.
+   /// Class SelfConstruction. The Transaction Mode is like with database working.
+   /// It specifies more or less read/write mode
    /// </summary>
    /// <seealso cref="Autodesk.Revit.UI.IExternalCommand" />
    [Transaction(TransactionMode.Manual)]
@@ -85,6 +86,10 @@ namespace SelfConstruction
             return Result.Succeeded;
         }
 
+        /// <summary>
+        /// Creates the screenshot. Really a Screenshot, have a look at your mouse, don't overlay the revit Window.
+        /// </summary>
+        /// <param name="i">The i.</param>
         private static void CreateScreenshot(int i)
         {
             int screenWidth = Screen.GetBounds(new Point(0, 0)).Width;

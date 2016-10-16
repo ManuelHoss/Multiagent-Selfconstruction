@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DynamicHelp xmlns="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" xsi:schemaLocation="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd">	
+   <LINKGROUP ID="SelfConstruction" Title="SOLUTION-WIDE PROPERTIES Reference Help" Priority="2100">
+      <GLYPH Expanded="vs:/ctxhelp_show.gif" Collapsed="vs:/ctxhelp_hide.gif"/>
+   </LINKGROUP>
+
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Agent" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000002.html" LinkGroup="SelfConstruction">Agent Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Agent.Agent" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000004.html" LinkGroup="SelfConstruction">Agent Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.GlobalKnowledge.Agents" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000019.html" LinkGroup="SelfConstruction">Agents Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.AntBuildCalculations" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000008.html" LinkGroup="SelfConstruction">AntBuildCalculations Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstructionTests.AgentCode.AntBuildCalculationsTests" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000059.html" LinkGroup="SelfConstruction">AntBuildCalculationsTests Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.GlobalKnowledge.Blocks" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000001A.html" LinkGroup="SelfConstruction">Blocks Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.GlobalKnowledge.BuildPheromones" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000001B.html" LinkGroup="SelfConstruction">BuildPheromones Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.BuildingShape.BuildingShape" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000000F.html" LinkGroup="SelfConstruction">BuildingShape Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.BuildingShape" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000000D.html" LinkGroup="SelfConstruction">BuildingShape Structure</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Utils.CalculateDistanceToBrick" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000049.html" LinkGroup="SelfConstruction">CalculateDistanceToBrick Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstructionTests.AgentCode.UtilsTests.CalculateDistanceToBrickTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000005E.html" LinkGroup="SelfConstruction">CalculateDistanceToBrickTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.AntBuildCalculations.CalculateNewPosition" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000009.html" LinkGroup="SelfConstruction">CalculateNewPosition Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstructionTests.AgentCode.AntBuildCalculationsTests.CalculateNewPositionTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000005A.html" LinkGroup="SelfConstruction">CalculateNewPositionTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm.Movement.ChooseMovementAction" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000002D.html" LinkGroup="SelfConstruction">ChooseMovementAction Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.RevitCode.Cube.CreateCube" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000050.html" LinkGroup="SelfConstruction">CreateCube Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.RevitCode.Sphere.CreateSphere" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000052.html" LinkGroup="SelfConstruction">CreateSphere Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.RevitCode.Cube" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000004F.html" LinkGroup="SelfConstruction">Cube Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Agent.DoStep" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000005.html" LinkGroup="SelfConstruction">DoStep Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.Position.Equals" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000002A.html" LinkGroup="SelfConstruction">Equals Method {SelfConstruction.AgentCode.Models.Position}</LItem>
+      </Links>
+   </Context>
+   
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm.State.Equals" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000039_overloads--.html" LinkGroup="SelfConstruction">Equals Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.SelfConstruction.Execute" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000055.html" LinkGroup="SelfConstruction">Execute Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm.State.GetHashCode" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000003A.html" LinkGroup="SelfConstruction">GetHashCode Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.AntBuildCalculations.GetMostInfluentialIntesity" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000000C.html" LinkGroup="SelfConstruction">GetMostInfluentialIntesity Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Agent.GetReward" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000007.html" LinkGroup="SelfConstruction">GetReward Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.AntBuildCalculations.GetSortedPheromoneInfluences" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000000A.html" LinkGroup="SelfConstruction">GetSortedPheromoneInfluences Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstructionTests.AgentCode.AntBuildCalculationsTests.GetSortedPheromoneInfluencesTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000005B.html" LinkGroup="SelfConstruction">GetSortedPheromoneInfluencesTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.GlobalKnowledge" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000017.html" LinkGroup="SelfConstruction">GlobalKnowledge Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Interfaces.IPheromoneModel" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000012.html" LinkGroup="SelfConstruction">IPheromoneModel Interface</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.GlobalKnowledge.InitialPheromone" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000001E.html" LinkGroup="SelfConstruction">InitialPheromone Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.GlobalKnowledge.Instance" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000018.html" LinkGroup="SelfConstruction">Instance Property {SelfConstruction.AgentCode.Models.GlobalKnowledge}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Utils.Instance" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000048.html" LinkGroup="SelfConstruction">Instance Property {SelfConstruction.AgentCode.Utils}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Pheromone.Intensity" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000003D.html" LinkGroup="SelfConstruction">Intensity Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Utils.IsPositionEqual" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000004B.html" LinkGroup="SelfConstruction">IsPositionEqual Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstructionTests.AgentCode.UtilsTests.IsPositionEqualTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000060.html" LinkGroup="SelfConstruction">IsPositionEqualTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Utils.IsPositionFree" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000004A.html" LinkGroup="SelfConstruction">IsPositionFree Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstructionTests.AgentCode.UtilsTests.IsPositionFreeTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000005F.html" LinkGroup="SelfConstruction">IsPositionFreeTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Agent.Move" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000006.html" LinkGroup="SelfConstruction">Move Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm.Movement" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000002C.html" LinkGroup="SelfConstruction">Movement Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm.MovementAction" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000002F.html" LinkGroup="SelfConstruction">MovementAction Enumeration</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Pheromone.Pheromone" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000041.html" LinkGroup="SelfConstruction">Pheromone Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Pheromone" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000003C.html" LinkGroup="SelfConstruction">Pheromone Structure</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm.State.PheromoneIntensity" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000037.html" LinkGroup="SelfConstruction">PheromoneIntensity Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.Pheromonetype" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000020.html" LinkGroup="SelfConstruction">Pheromonetype Enumeration</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Pheromone.Pheromonetype" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000003F.html" LinkGroup="SelfConstruction">Pheromonetype Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.Position.Position" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000029.html" LinkGroup="SelfConstruction">Position Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Agent.Position" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000003.html" LinkGroup="SelfConstruction">Position Property {SelfConstruction.AgentCode.Agent}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.BuildingShape.Position" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000000E.html" LinkGroup="SelfConstruction">Position Property {SelfConstruction.AgentCode.BuildingShape}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Pheromone.Position" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000040.html" LinkGroup="SelfConstruction">Position Property {SelfConstruction.AgentCode.Pheromone}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.Position" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000025.html" LinkGroup="SelfConstruction">Position Structure</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Utils.RemoveVaporatedPheromones" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000004C.html" LinkGroup="SelfConstruction">RemoveVaporatedPheromones Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm.Movement.ResetCauseOfBuild" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000002E.html" LinkGroup="SelfConstruction">ResetCauseOfBuild Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.SelfConstruction.RunAgents" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000057.html" LinkGroup="SelfConstruction">RunAgents Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SOLUTION-WIDE PROPERTIES Reference" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000000.html" LinkGroup="SelfConstruction">SOLUTION-WIDE PROPERTIES Reference</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.SelfConstruction" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000054.html" LinkGroup="SelfConstruction">SelfConstruction Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000053.html" LinkGroup="SelfConstruction">SelfConstruction Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000001.html" LinkGroup="SelfConstruction">SelfConstruction.AgentCode Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Interfaces" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000011.html" LinkGroup="SelfConstruction">SelfConstruction.AgentCode.Interfaces Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000016.html" LinkGroup="SelfConstruction">SelfConstruction.AgentCode.Models Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000002B.html" LinkGroup="SelfConstruction">SelfConstruction.AgentCode.MovementAlgorithm Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.PheromoneModels" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000042.html" LinkGroup="SelfConstruction">SelfConstruction.AgentCode.PheromoneModels Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.RevitCode" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000004E.html" LinkGroup="SelfConstruction">SelfConstruction.RevitCode Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstructionTests.AgentCode" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000058.html" LinkGroup="SelfConstruction">SelfConstructionTests.AgentCode Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Interfaces.IPheromoneModel.ShouldBuild" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000013.html" LinkGroup="SelfConstruction">ShouldBuild Method {SelfConstruction.AgentCode.Interfaces.IPheromoneModel}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.PheromoneModels.SpaceBuildPheromoneModel.ShouldBuild" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000044.html" LinkGroup="SelfConstruction">ShouldBuild Method {SelfConstruction.AgentCode.PheromoneModels.SpaceBuildPheromoneModel}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstructionTests.AgentCode.AntBuildCalculationsTests.ShouldBuildTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000005C.html" LinkGroup="SelfConstruction">ShouldBuildTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Interfaces.IPheromoneModel.ShouldPlaceSpacePheromone" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000015.html" LinkGroup="SelfConstruction">ShouldPlaceSpacePheromone Method {SelfConstruction.AgentCode.Interfaces.IPheromoneModel}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.PheromoneModels.SpaceBuildPheromoneModel.ShouldPlaceSpacePheromone" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000046.html" LinkGroup="SelfConstruction">ShouldPlaceSpacePheromone Method {SelfConstruction.AgentCode.PheromoneModels.SpaceBuildPheromoneModel}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Interfaces.IPheromoneModel.ShouldRemove" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000014.html" LinkGroup="SelfConstruction">ShouldRemove Method {SelfConstruction.AgentCode.Interfaces.IPheromoneModel}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.PheromoneModels.SpaceBuildPheromoneModel.ShouldRemove" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000045.html" LinkGroup="SelfConstruction">ShouldRemove Method {SelfConstruction.AgentCode.PheromoneModels.SpaceBuildPheromoneModel}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.PheromoneModels.SpaceBuildPheromoneModel" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000043.html" LinkGroup="SelfConstruction">SpaceBuildPheromoneModel Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.GlobalKnowledge.SpacePheromoneCounter" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000001F.html" LinkGroup="SelfConstruction">SpacePheromoneCounter Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.GlobalKnowledge.SpacePheromones" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000001C.html" LinkGroup="SelfConstruction">SpacePheromones Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.RevitCode.Sphere" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000051.html" LinkGroup="SelfConstruction">Sphere Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.SelfConstruction.StartAgentsAndBuildBlocks" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000056.html" LinkGroup="SelfConstruction">StartAgentsAndBuildBlocks Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm.State" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000036.html" LinkGroup="SelfConstruction">State Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm.State.State" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000038.html" LinkGroup="SelfConstruction">State Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.GlobalKnowledge.StepBlocks" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000001D.html" LinkGroup="SelfConstruction">StepBlocks Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.AntBuildCalculations.SumUpPheromoneIntensity" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000000B.html" LinkGroup="SelfConstruction">SumUpPheromoneIntensity Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.BuildingShape.ToString" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000010.html" LinkGroup="SelfConstruction">ToString Method {SelfConstruction.AgentCode.BuildingShape}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.MovementAlgorithm.State.ToString" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000003B.html" LinkGroup="SelfConstruction">ToString Method {SelfConstruction.AgentCode.MovementAlgorithm.State}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Utils" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000047.html" LinkGroup="SelfConstruction">Utils Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstructionTests.AgentCode.UtilsTests" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000005D.html" LinkGroup="SelfConstruction">UtilsTests Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Pheromone.VaporationRate" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_000000000000003E.html" LinkGroup="SelfConstruction">VaporationRate Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.Position.X" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000026.html" LinkGroup="SelfConstruction">X Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.Position.Y" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000027.html" LinkGroup="SelfConstruction">Y Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SelfConstruction.AgentCode.Models.Position.Z" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:SelfConstruction.chm::/topic_0000000000000028.html" LinkGroup="SelfConstruction">Z Field</LItem>
+      </Links>
+   </Context>
+   
+
+</DynamicHelp>
+
