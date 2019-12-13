@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="https://github.com/ManuelHoss/Multiagent-Selfconstruction/blob/master/Wiki/Images/HomeHeader.png" width="650"/>
-</p>
+
+![Image](https://github.com/ManuelHoss/Multiagent-Selfconstruction/blob/master/Wiki/Images/HomeHeader.png)
 # Multiagent-selfconstruction
 ## SETUP
 1. Copy SelfConstruction.addin in C:\ProgramData\Autodesk\Revit\Addins\2016.
